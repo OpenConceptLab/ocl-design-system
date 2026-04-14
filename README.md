@@ -50,6 +50,23 @@ Explicitly out of scope for v1:
 - Visual regression tooling
 - Dark mode
 
+## What's next
+
+Loose ends from v1 that are worth picking up:
+
+- **Fill in the three exemplar TODOs.** [`components/repo-chip.html`](components/repo-chip.html), [`components/html-tooltip.html`](components/html-tooltip.html), and [`components/repo-header.html`](components/repo-header.html) each have `TODO — needs spec` callouts for usage guidance and accessibility. These are the cheapest wins.
+- **Logo clear-space and minimum-size rules.** [`foundations/logo.html`](foundations/logo.html) flags this as TODO. Needs a team decision.
+- **Replace emoji placeholders in component examples** (📁, 👤, 🏷) with inline SVG of the real MUI icons (`FolderOutlined`, `Person`, `LocalOffer`). Cosmetic but noticeable.
+
+Natural v2 candidates, roughly in priority order:
+
+1. **Flesh out the 17 stub component pages** in the catalog. They already link to source; each one needs the same treatment as the three exemplars (anatomy, variants, props, source link, related).
+2. **Build pattern detail pages**, starting with **References & Expansions** — the biggest gap in the design system per the April 2026 review. A worked pattern page for "Collection references" unblocks the most valuable design work.
+3. **Automate token sync** — move from Option A (hand-copy) to Option B (tiny Node script) in [`docs/token-sync-options.md`](docs/token-sync-options.md) the first time the palette drifts from oclweb3.
+4. **Expand the component catalog** beyond the ~20 curated entries. There are ~50 more in [`oclweb3/src/components/`](https://github.com/OpenConceptLab/oclweb3/tree/main/src/components) worth documenting.
+5. **Guidelines section** (voice/tone/content/iconography) once a team member has the content to write.
+6. **Live React component examples** via the hybrid approach from the original plan — static shell + bundled React islands for component examples. Do this only when the hand-rolled HTML mirroring starts feeling too brittle.
+
 ## Status table
 
 Only items that are **not** cleanly implemented-as-designed appear here. Anything in `designs/` that isn't listed is assumed to be implemented (or at least still canonical with no open questions).
