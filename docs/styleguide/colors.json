@@ -1,0 +1,512 @@
+[
+  {
+    "id": "6583fc7912f05441c9223953",
+    "created": 1703148665,
+    "source_id": "70974e953990c6e7079db68fe0a1b2bc8b7069cb",
+    "name": "M3/sys/light/surface-container-low",
+    "r": 246,
+    "g": 242,
+    "b": 247,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc79183e86417c71c3df",
+    "created": 1703148665,
+    "source_id": "9032c045a4069379a3a5f0d8d31416375738fab9",
+    "name": "M3/sys/light/on-surface-variant",
+    "r": 71,
+    "g": 70,
+    "b": 79,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a12f05441c922395f",
+    "created": 1703148666,
+    "source_id": "b08b3de87576c59d64979a50b5109027d65131fa",
+    "name": "M3/white",
+    "r": 255,
+    "g": 255,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a185da3415018d32d",
+    "created": 1703148666,
+    "source_id": "75016571a649c83677d56371116f9753eca20f0a",
+    "name": "M3/sys/light/outline",
+    "r": 120,
+    "g": 118,
+    "b": 128,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a3c73e73f7ac7c9f6",
+    "created": 1703148666,
+    "source_id": "4befba99b2af7adb0dcbfcca0c64552c15e91c46",
+    "name": "M3/black",
+    "r": 0,
+    "g": 0,
+    "b": 0,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a105c4840f5592b78",
+    "created": 1703148666,
+    "source_id": "45cfd5341c7a67a947b35092590dd5e18e63aef1",
+    "name": "M3/sys/light/primary",
+    "r": 72,
+    "g": 54,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7912f05441c9223959",
+    "created": 1703148665,
+    "source_id": "2178fcd1dea35ca6ef7d20e3aa403485fd426dc5",
+    "name": "M3/sys/light/surface-container-highest",
+    "r": 229,
+    "g": 225,
+    "b": 230,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a32eb4e40ea9d9f7f",
+    "created": 1703148666,
+    "source_id": "781a7fbff1b27ceceacd0ea4caf6b26b1805818e",
+    "name": "M3/sys/light/on-surface",
+    "r": 28,
+    "g": 27,
+    "b": 31,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a37598a3fc0ffbda1",
+    "created": 1703148666,
+    "source_id": "262dfe450eb067bba773f1ca7589fa67f147ce4b",
+    "name": "M3/sys/light/outline-variant",
+    "r": 200,
+    "g": 197,
+    "b": 208,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7ad53622404e11abcb",
+    "created": 1703148666,
+    "source_id": "fd1dafe9eeaa11248d35a7d71b12f3424a3f8597",
+    "name": "M3/sys/light/on-primary",
+    "r": 255,
+    "g": 255,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a105c4840f5592b7e",
+    "created": 1703148666,
+    "source_id": "0700c1fda33a893c81383943bb3753e503801b1a",
+    "name": "M3/sys/light/secondary",
+    "r": 94,
+    "g": 92,
+    "b": 113,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7ae4be26411164d065",
+    "created": 1703148666,
+    "source_id": "8edbc68e76be1cdf9260055fcc274be52e04d729",
+    "name": "M3/ref/primary/primary95",
+    "r": 242,
+    "g": 239,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7ae43ac140e4b9a756",
+    "created": 1703148666,
+    "source_id": "58551802e00412d641d86c5bd4e72cc426dffcdb",
+    "name": "M3/sys/dark/inverse-on-surface",
+    "r": 28,
+    "g": 27,
+    "b": 31,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7ab2a5ba42104b25ad",
+    "created": 1703148666,
+    "source_id": "3667334e4adc85bf0a43f43f36af2aea5a605871",
+    "name": "M3/sys/light/secondary-fixed-dim",
+    "r": 199,
+    "g": 196,
+    "b": 221,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a827c073efea5b54f",
+    "created": 1703148666,
+    "source_id": "65e1452cae0028978188f3b1c9fc197ffe0d804d",
+    "name": "M3/sys/light/on-secondary-fixed-variant",
+    "r": 70,
+    "g": 69,
+    "b": 89,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a02cab641061b6f1b",
+    "created": 1703148666,
+    "source_id": "721ce246be7cf8359c23584077dc2077fd22f790",
+    "name": "M3/ref/primary/primary60",
+    "r": 133,
+    "g": 130,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a7bd4c3418136cac9",
+    "created": 1703148666,
+    "source_id": "5c692a83141dd5e4faefd2fe0044e96e7acf904c",
+    "name": "M3/sys/light/on-error",
+    "r": 255,
+    "g": 255,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7ad0073841715640fd",
+    "created": 1703148666,
+    "source_id": "c9f1d2e1a639fd7a38e4fc156a9358c822241b12",
+    "name": "Surface",
+    "r": 255,
+    "g": 255,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a162382407ed6d382",
+    "created": 1703148666,
+    "source_id": "8073303c29a580eee7eaa132938d4d9c0c055a27",
+    "name": "On Surface / High Emphasis 87%",
+    "r": 0,
+    "g": 0,
+    "b": 0,
+    "a": 0.8700000047683716,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a983742418796c486",
+    "created": 1703148666,
+    "source_id": "4b9a89e938e5be694d18b0eb78de6b222efa91c9",
+    "name": "Outline",
+    "r": 0,
+    "g": 0,
+    "b": 0,
+    "a": 0.11999999731779099,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a18bae4412101e89f",
+    "created": 1703148666,
+    "source_id": "c882d27ace0551f02f20f2d59590f7f545936afb",
+    "name": "Text & Iconography / High Emphasis (Active)",
+    "r": 0,
+    "g": 0,
+    "b": 0,
+    "a": 0.8700000047683716,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a56563e413df862c6",
+    "created": 1703148666,
+    "source_id": "c9cc298802150e60a01763dc04cd19159d0a984c",
+    "name": "On Surface / Medium Emphasis 60%",
+    "r": 0,
+    "g": 0,
+    "b": 0,
+    "a": 0.6000000238418579,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fc7a37598a3fc0ffbda8",
+    "created": 1703148666,
+    "source_id": "2253f3cc479c97fc5a283022149dd2bc0e8b820d",
+    "name": "On Surface / Disabled 38%",
+    "r": 0,
+    "g": 0,
+    "b": 0,
+    "a": 0.3799999952316284,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fcf932eb4e40ea9da691",
+    "created": 1703148793,
+    "source_id": "9b7f4fbfccb050da6efebf98738236e5106e1ebd",
+    "name": "M3/sys/light/primary-container",
+    "r": 226,
+    "g": 223,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fcf93c73e73f7ac7d0ea",
+    "created": 1703148793,
+    "source_id": "dd52c29db56f5b75c72643758e58cbc19821856b",
+    "name": "M3/sys/light/on-primary-container",
+    "r": 15,
+    "g": 0,
+    "b": 105,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fcf991a0cb40e3abf82c",
+    "created": 1703148793,
+    "source_id": "57a093a77d981a3cc06c1c142ad48674e948e805",
+    "name": "M3/sys/light/primary-fixed",
+    "r": 226,
+    "g": 223,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fcf956563e413df8679a",
+    "created": 1703148793,
+    "source_id": "b35385e5c51042d242c852f6177bd609c7fe1647",
+    "name": "M3/sys/light/on-primary-fixed",
+    "r": 15,
+    "g": 0,
+    "b": 105,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fcfaa00042417a875ac7",
+    "created": 1703148794,
+    "source_id": "35e9b3b0729b19d5d1cfdf050a55458ecb5b483e",
+    "name": "M3/sys/light/primary-fixed-dim",
+    "r": 195,
+    "g": 192,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fcfa506e52402c311787",
+    "created": 1703148794,
+    "source_id": "801750ae0079c8b5de7d4b89ab07777d7f3bdcfe",
+    "name": "M3/sys/light/on-primary-fixed-variant",
+    "r": 45,
+    "g": 0,
+    "b": 229,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  },
+  {
+    "id": "6583fcf90a184b3f4c868a8d",
+    "created": 1703148793,
+    "source_id": "ee2e29385cabd828e1242212f6c641bdbe9dc314",
+    "name": "M3/sys/light/on-secondary",
+    "r": 255,
+    "g": 255,
+    "b": 255,
+    "a": 1,
+    "source": {
+      "project": {
+        "id": "623204ca71595ab4a7e3f67e",
+        "name": "OCL 3.0",
+        "platform": "web"
+      }
+    }
+  }
+]
