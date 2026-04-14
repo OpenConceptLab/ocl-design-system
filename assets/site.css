@@ -66,8 +66,8 @@ h6 { font-size: 12px; line-height: 1.5; text-transform: uppercase; letter-spacin
 }
 .site-brand:hover { text-decoration: none; }
 .site-brand .brand-logo {
-  height: 28px;
-  width: auto;
+  height: 34px;
+  width: 34px;
   display: block;
 }
 .site-brand .brand-sub {
@@ -80,26 +80,17 @@ h6 { font-size: 12px; line-height: 1.5; text-transform: uppercase; letter-spacin
 /* ---------- Hero on the landing page ---------- */
 
 .hero {
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  padding: 32px 0 16px;
-  flex-wrap: wrap;
+  padding: 24px 0 16px;
 }
 .hero-logo {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 144px;
-  height: 144px;
-  border-radius: 16px;
-  background: var(--bg-panel);
-  border: 1px solid var(--border-subtle);
-  padding: 20px;
+  display: block;
+  margin-bottom: 16px;
 }
-.hero-logo img { width: 100%; height: auto; }
-.hero-copy { flex: 1; min-width: 280px; }
+.hero-logo img {
+  height: 96px;
+  width: auto;
+  display: block;
+}
 .hero-copy h1 { margin-top: 0; }
 .site-nav {
   display: flex;
