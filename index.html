@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OCL Design System</title>
+<style>
+  :root {
+    --bg: #fafafa;
+    --fg: #1a1a1a;
+    --muted: #666;
+    --card-bg: #fff;
+    --border: #e4e4e4;
+    --accent: #1976d2;
+    --divergent: #d97706;
+    --gap: #dc2626;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: var(--fg);
+    background: var(--bg);
+  }
+  header {
+    padding: 32px 40px 16px;
+    border-bottom: 1px solid var(--border);
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  header h1 { margin: 0 0 8px; font-size: 24px; font-weight: 600; }
+  header p { margin: 0 0 12px; color: var(--muted); max-width: 720px; }
+  header nav a {
+    display: inline-block;
+    margin-right: 16px;
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 13px;
+  }
+  header nav a:hover { text-decoration: underline; }
+  main { padding: 24px 40px 64px; }
+  section { margin-bottom: 48px; scroll-margin-top: 120px; }
+  section h2 {
+    margin: 0 0 4px;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 2px solid var(--fg);
+    padding-bottom: 4px;
+  }
+  section > p.section-desc {
+    margin: 8px 0 16px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    text-decoration: none;
+    color: var(--fg);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.1s, box-shadow 0.1s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: #bbb;
+  }
+  .thumb {
+    aspect-ratio: 4 / 3;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
+  }
+  .caption {
+    padding: 10px 12px;
+    font-size: 12px;
+    line-height: 1.35;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .caption .name {
+    flex: 1;
+    word-break: break-word;
+  }
+  .badge {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 2px 6px;
+    border-radius: 3px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .badge.divergent { background: #fef3c7; color: #92400e; }
+  .badge.partial { background: #dbeafe; color: #1e40af; }
+  .badge.not-started { background: #fee2e2; color: #991b1b; }
+  .badge.input { background: #e9d5ff; color: #6b21a8; }
+  footer {
+    padding: 24px 40px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>OCL Design System</h1>
+  <p>Canonical TBv3 designs, current-state screenshots, and open design decisions. See <a href="README.md">README</a> and <a href="docs/review-2026-04.md">April 2026 review</a> for narrative.</p>
+  <nav>
+    <a href="#dashboard">Dashboard</a>
+    <a href="#repository">Repository</a>
+    <a href="#search">Search</a>
+    <a href="#concept-mapping">Concept &amp; Mapping</a>
+    <a href="#references">References &amp; Expansions</a>
+    <a href="#org-user">Org &amp; User</a>
+    <a href="#settings">Settings</a>
+    <a href="#components">Components</a>
+    <a href="#foundations">Foundations</a>
+    <a href="#errors">Errors</a>
+    <a href="#tbv3">TBv3 Current State</a>
+  </nav>
+</header>
+<main>
+
+<section id="dashboard">
+  <h2>Dashboard</h2>
+  <p class="section-desc">Signed-in and signed-out dashboards are <strong>not implemented</strong>. Feed card display has evolved; left-drawer empty state is still divergent.</p>
+  <div class="grid">
+    <a class="card" href="designs/Dashboard-SignedIn.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard-SignedIn.png" alt=""></div><div class="caption"><span class="name">Dashboard — Signed In</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Dashboard-SignedOut-1.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard-SignedOut-1.png" alt=""></div><div class="caption"><span class="name">Dashboard — Signed Out</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Dashboard-Navigation drawer.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard-Navigation%20drawer.png" alt=""></div><div class="caption"><span class="name">Dashboard — Navigation drawer</span></div></a>
+    <a class="card" href="designs/Dashboard _ Feed.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard%20_%20Feed.png" alt=""></div><div class="caption"><span class="name">Dashboard / Feed</span></div></a>
+    <a class="card" href="designs/Dashboard _ Feed _ Drawer.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard%20_%20Feed%20_%20Drawer.png" alt=""></div><div class="caption"><span class="name">Dashboard / Feed / Drawer</span></div></a>
+    <a class="card" href="designs/Dashboard _ Feed _ Empty state.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard%20_%20Feed%20_%20Empty%20state.png" alt=""></div><div class="caption"><span class="name">Dashboard / Feed / Empty state</span><span class="badge partial">Partial</span></div></a>
+    <a class="card" href="designs/Dashboard _ Feed _ No blog.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard%20_%20Feed%20_%20No%20blog.png" alt=""></div><div class="caption"><span class="name">Dashboard / Feed / No blog</span></div></a>
+    <a class="card" href="designs/Dashboard _ Feed _ Signed out.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard%20_%20Feed%20_%20Signed%20out.png" alt=""></div><div class="caption"><span class="name">Dashboard / Feed / Signed out</span><span class="badge partial">Partial</span></div></a>
+    <a class="card" href="designs/Dashboard _ Feed _ Signed out _ Following.png"><div class="thumb"><img loading="lazy" src="designs/Dashboard%20_%20Feed%20_%20Signed%20out%20_%20Following.png" alt=""></div><div class="caption"><span class="name">Dashboard / Feed / Signed out / Following</span></div></a>
+    <a class="card" href="designs/Account-menu.png"><div class="thumb"><img loading="lazy" src="designs/Account-menu.png" alt=""></div><div class="caption"><span class="name">Account menu</span></div></a>
+    <a class="card" href="designs/Account-menu-SignedOut.png"><div class="thumb"><img loading="lazy" src="designs/Account-menu-SignedOut.png" alt=""></div><div class="caption"><span class="name">Account menu — Signed out</span></div></a>
+  </div>
+</section>
+
+<section id="repository">
+  <h2>Repository</h2>
+  <p class="section-desc">Mix of implemented (card view pattern, copy code system) and not-yet-built (key-value overview, valueset views, collection references). Card-view dialog workflow is kept as input but not MVP.</p>
+  <div class="grid">
+    <a class="card" href="designs/Repository.png"><div class="thumb"><img loading="lazy" src="designs/Repository.png" alt=""></div><div class="caption"><span class="name">Repository</span></div></a>
+    <a class="card" href="designs/Repository _ Search.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Search.png" alt=""></div><div class="caption"><span class="name">Repository / Search</span></div></a>
+    <a class="card" href="designs/Repository _ Source _ Overview.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Source%20_%20Overview.png" alt=""></div><div class="caption"><span class="name">Source / Overview</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Repository _ Source _ Overview _ Export.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Source%20_%20Overview%20_%20Export.png" alt=""></div><div class="caption"><span class="name">Source / Overview / Export</span></div></a>
+    <a class="card" href="designs/Repository _ Source _ Concepts.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Source%20_%20Concepts.png" alt=""></div><div class="caption"><span class="name">Source / Concepts</span></div></a>
+    <a class="card" href="designs/Repository _ Source _ Hierarchy.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Source%20_%20Hierarchy.png" alt=""></div><div class="caption"><span class="name">Source / Hierarchy</span></div></a>
+    <a class="card" href="designs/Repository _ Source _ Mappings.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Source%20_%20Mappings.png" alt=""></div><div class="caption"><span class="name">Source / Mappings</span><span class="badge input">Input</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet.png" alt=""></div><div class="caption"><span class="name">ValueSet</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Overview.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Overview.png" alt=""></div><div class="caption"><span class="name">ValueSet / Overview</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Overview _ Compare.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Overview%20_%20Compare.png" alt=""></div><div class="caption"><span class="name">ValueSet / Overview / Compare</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Composition.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Composition.png" alt=""></div><div class="caption"><span class="name">ValueSet / Composition</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Concepts.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Concepts.png" alt=""></div><div class="caption"><span class="name">ValueSet / Concepts</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Compare.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Compare.png" alt=""></div><div class="caption"><span class="name">ValueSet / Compare</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Compare _ Selected.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Compare%20_%20Selected.png" alt=""></div><div class="caption"><span class="name">ValueSet / Compare / Selected</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Compare _ Concepts.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Compare%20_%20Concepts.png" alt=""></div><div class="caption"><span class="name">ValueSet / Compare / Concepts</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Compare _ Concepts _ Loading.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Compare%20_%20Concepts%20_%20Loading.png" alt=""></div><div class="caption"><span class="name">ValueSet / Compare / Concepts / Loading</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Compare _ Json.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Compare%20_%20Json.png" alt=""></div><div class="caption"><span class="name">ValueSet / Compare / JSON</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Statistics.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Statistics.png" alt=""></div><div class="caption"><span class="name">ValueSet / Statistics</span></div></a>
+    <a class="card" href="designs/Repository _ ValueSet _ Statistics _ Version picker.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20ValueSet%20_%20Statistics%20_%20Version%20picker.png" alt=""></div><div class="caption"><span class="name">ValueSet / Statistics / Version picker</span></div></a>
+    <a class="card" href="designs/Repository _ Collection _ References.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Collection%20_%20References.png" alt=""></div><div class="caption"><span class="name">Collection / References</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Repository _ Card view _ Menu.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Card%20view%20_%20Menu.png" alt=""></div><div class="caption"><span class="name">Card view / Menu</span></div></a>
+    <a class="card" href="designs/Repository _ Card view _ Dialog.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Card%20view%20_%20Dialog.png" alt=""></div><div class="caption"><span class="name">Card view / Dialog</span><span class="badge input">Input</span></div></a>
+    <a class="card" href="designs/Repository _ Type_ Collection _ Table view.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20_%20Type_%20Collection%20_%20Table%20view.png" alt=""></div><div class="caption"><span class="name">Type: Collection / Table view</span></div></a>
+    <a class="card" href="designs/Repository - Overview - Versions.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20-%20Overview%20-%20Versions.png" alt=""></div><div class="caption"><span class="name">Overview — Versions</span></div></a>
+    <a class="card" href="designs/Repository - Overview - Versions - Compare.png"><div class="thumb"><img loading="lazy" src="designs/Repository%20-%20Overview%20-%20Versions%20-%20Compare.png" alt=""></div><div class="caption"><span class="name">Overview — Versions — Compare</span></div></a>
+    <a class="card" href="designs/My Repositories _ All.png"><div class="thumb"><img loading="lazy" src="designs/My%20Repositories%20_%20All.png" alt=""></div><div class="caption"><span class="name">My Repositories / All</span></div></a>
+    <a class="card" href="designs/My Repositories  _ Create _ Code System.png"><div class="thumb"><img loading="lazy" src="designs/My%20Repositories%20%20_%20Create%20_%20Code%20System.png" alt=""></div><div class="caption"><span class="name">My Repositories / Create / Code System</span></div></a>
+    <a class="card" href="designs/My Repositories  _ Create _ Type _ Code System.png"><div class="thumb"><img loading="lazy" src="designs/My%20Repositories%20%20_%20Create%20_%20Type%20_%20Code%20System.png" alt=""></div><div class="caption"><span class="name">My Repositories / Create / Type / Code System</span></div></a>
+    <a class="card" href="designs/My Repositories  _ Create _ Collection.png"><div class="thumb"><img loading="lazy" src="designs/My%20Repositories%20%20_%20Create%20_%20Collection.png" alt=""></div><div class="caption"><span class="name">My Repositories / Create / Collection</span></div></a>
+    <a class="card" href="designs/My Repositories  _ Create _ Version.png"><div class="thumb"><img loading="lazy" src="designs/My%20Repositories%20%20_%20Create%20_%20Version.png" alt=""></div><div class="caption"><span class="name">My Repositories / Create / Version</span><span class="badge divergent">Divergent</span></div></a>
+    <a class="card" href="designs/My Repositories  _ Edit _ Code System.png"><div class="thumb"><img loading="lazy" src="designs/My%20Repositories%20%20_%20Edit%20_%20Code%20System.png" alt=""></div><div class="caption"><span class="name">My Repositories / Edit / Code System</span></div></a>
+    <a class="card" href="designs/My Repositories  _ Copy _ Code System.png"><div class="thumb"><img loading="lazy" src="designs/My%20Repositories%20%20_%20Copy%20_%20Code%20System.png" alt=""></div><div class="caption"><span class="name">My Repositories / Copy / Code System</span></div></a>
+  </div>
+</section>
+
+<section id="search">
+  <h2>Search</h2>
+  <p class="section-desc">Concept card view is divergent from canonical (OCL Mapper work added multi-property support). Grouped/hierarchical views are mostly not implemented.</p>
+  <div class="grid">
+    <a class="card" href="designs/Search _ Concepts.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Concepts.png" alt=""></div><div class="caption"><span class="name">Search / Concepts</span><span class="badge divergent">Divergent</span></div></a>
+    <a class="card" href="designs/Search _ Concepts _ Bulk.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Concepts%20_%20Bulk.png" alt=""></div><div class="caption"><span class="name">Search / Concepts / Bulk</span><span class="badge partial">Partial</span></div></a>
+    <a class="card" href="designs/Search _ Concepts _ Empty state.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Concepts%20_%20Empty%20state.png" alt=""></div><div class="caption"><span class="name">Search / Concepts / Empty state</span></div></a>
+    <a class="card" href="designs/Search _ Concepts _ Loading.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Concepts%20_%20Loading.png" alt=""></div><div class="caption"><span class="name">Search / Concepts / Loading</span></div></a>
+    <a class="card" href="designs/Search _ Concepts _ Table.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Concepts%20_%20Table.png" alt=""></div><div class="caption"><span class="name">Search / Concepts / Table</span></div></a>
+    <a class="card" href="designs/Search _ Concepts _ Detail view.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Concepts%20_%20Detail%20view.png" alt=""></div><div class="caption"><span class="name">Search / Concepts / Detail view</span></div></a>
+    <a class="card" href="designs/Search _ Concepts _ Detail view _ RTL.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Concepts%20_%20Detail%20view%20_%20RTL.png" alt=""></div><div class="caption"><span class="name">Search / Concepts / Detail view / RTL</span></div></a>
+    <a class="card" href="designs/Search _ Concept _ Details.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Concept%20_%20Details.png" alt=""></div><div class="caption"><span class="name">Search / Concept / Details</span></div></a>
+    <a class="card" href="designs/Search _ Repositories.png"><div class="thumb"><img loading="lazy" src="designs/Search%20_%20Repositories.png" alt=""></div><div class="caption"><span class="name">Search / Repositories</span></div></a>
+    <a class="card" href="designs/Grouped by Source _ Dense.png"><div class="thumb"><img loading="lazy" src="designs/Grouped%20by%20Source%20_%20Dense.png" alt=""></div><div class="caption"><span class="name">Grouped by Source / Dense</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Grouped by Type _ Dense.png"><div class="thumb"><img loading="lazy" src="designs/Grouped%20by%20Type%20_%20Dense.png" alt=""></div><div class="caption"><span class="name">Grouped by Type / Dense</span><span class="badge partial">Partial</span></div></a>
+    <a class="card" href="designs/Hierarchy _ Grouped by Code _ Dense.png"><div class="thumb"><img loading="lazy" src="designs/Hierarchy%20_%20Grouped%20by%20Code%20_%20Dense.png" alt=""></div><div class="caption"><span class="name">Hierarchy / Grouped by Code / Dense</span><span class="badge input">Input</span></div></a>
+    <a class="card" href="designs/Card view.png"><div class="thumb"><img loading="lazy" src="designs/Card%20view.png" alt=""></div><div class="caption"><span class="name">Card view</span><span class="badge divergent">Divergent</span></div></a>
+    <a class="card" href="designs/List view.png"><div class="thumb"><img loading="lazy" src="designs/List%20view.png" alt=""></div><div class="caption"><span class="name">List view</span></div></a>
+    <a class="card" href="designs/Detail view.png"><div class="thumb"><img loading="lazy" src="designs/Detail%20view.png" alt=""></div><div class="caption"><span class="name">Detail view</span></div></a>
+    <a class="card" href="designs/Search bar.png"><div class="thumb"><img loading="lazy" src="designs/Search%20bar.png" alt=""></div><div class="caption"><span class="name">Search bar</span></div></a>
+  </div>
+</section>
+
+<section id="concept-mapping">
+  <h2>Concept &amp; Mapping</h2>
+  <p class="section-desc">Card designs exist; tooltips and chips aren't implemented for concept/mapping/reference/expansion yet. Associations are present but not hierarchical.</p>
+  <div class="grid">
+    <a class="card" href="designs/Concept.png"><div class="thumb"><img loading="lazy" src="designs/Concept.png" alt=""></div><div class="caption"><span class="name">Concept</span><span class="badge partial">Partial</span></div></a>
+    <a class="card" href="designs/Source _ Concept _ Details.png"><div class="thumb"><img loading="lazy" src="designs/Source%20_%20Concept%20_%20Details.png" alt=""></div><div class="caption"><span class="name">Source / Concept / Details</span></div></a>
+    <a class="card" href="designs/Source _ Concept _ History.png"><div class="thumb"><img loading="lazy" src="designs/Source%20_%20Concept%20_%20History.png" alt=""></div><div class="caption"><span class="name">Source / Concept / History</span></div></a>
+    <a class="card" href="designs/Collection _ Concept _ details.png"><div class="thumb"><img loading="lazy" src="designs/Collection%20_%20Concept%20_%20details.png" alt=""></div><div class="caption"><span class="name">Collection / Concept / details</span></div></a>
+    <a class="card" href="designs/Mapping _ details.png"><div class="thumb"><img loading="lazy" src="designs/Mapping%20_%20details.png" alt=""></div><div class="caption"><span class="name">Mapping / details</span></div></a>
+    <a class="card" href="designs/Associations.png"><div class="thumb"><img loading="lazy" src="designs/Associations.png" alt=""></div><div class="caption"><span class="name">Associations</span><span class="badge partial">Partial</span></div></a>
+    <a class="card" href="designs/Chip and Tooltip.png"><div class="thumb"><img loading="lazy" src="designs/Chip%20and%20Tooltip.png" alt=""></div><div class="caption"><span class="name">Chip and Tooltip</span><span class="badge partial">Partial</span></div></a>
+    <a class="card" href="designs/Descriptions.png"><div class="thumb"><img loading="lazy" src="designs/Descriptions.png" alt=""></div><div class="caption"><span class="name">Descriptions</span></div></a>
+    <a class="card" href="designs/Names.png"><div class="thumb"><img loading="lazy" src="designs/Names.png" alt=""></div><div class="caption"><span class="name">Names</span></div></a>
+  </div>
+</section>
+
+<section id="references">
+  <h2>References &amp; Expansions</h2>
+  <p class="section-desc">Biggest gap in the design system. None of these are implemented. See README for open decisions on collection versions and expansions UX.</p>
+  <div class="grid">
+    <a class="card" href="designs/Reference _ details.png"><div class="thumb"><img loading="lazy" src="designs/Reference%20_%20details.png" alt=""></div><div class="caption"><span class="name">Reference / details</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Reference _ expansion.png"><div class="thumb"><img loading="lazy" src="designs/Reference%20_%20expansion.png" alt=""></div><div class="caption"><span class="name">Reference / expansion</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Reference _ expansion _ mappings.png"><div class="thumb"><img loading="lazy" src="designs/Reference%20_%20expansion%20_%20mappings.png" alt=""></div><div class="caption"><span class="name">Reference / expansion / mappings</span><span class="badge not-started">Not started</span></div></a>
+  </div>
+</section>
+
+<section id="org-user">
+  <h2>Organization &amp; User</h2>
+  <div class="grid">
+    <a class="card" href="designs/Organization.png"><div class="thumb"><img loading="lazy" src="designs/Organization.png" alt=""></div><div class="caption"><span class="name">Organization</span></div></a>
+    <a class="card" href="designs/Organization  _ Create.png"><div class="thumb"><img loading="lazy" src="designs/Organization%20%20_%20Create.png" alt=""></div><div class="caption"><span class="name">Organization / Create</span></div></a>
+    <a class="card" href="designs/Organization  _ Create _ Background.png"><div class="thumb"><img loading="lazy" src="designs/Organization%20%20_%20Create%20_%20Background.png" alt=""></div><div class="caption"><span class="name">Organization / Create / Background</span></div></a>
+    <a class="card" href="designs/Organization  _ Create _ Background _ Choose.png"><div class="thumb"><img loading="lazy" src="designs/Organization%20%20_%20Create%20_%20Background%20_%20Choose.png" alt=""></div><div class="caption"><span class="name">Organization / Create / Background / Choose</span></div></a>
+    <a class="card" href="designs/Organization  _ Create _ Custom attributes.png"><div class="thumb"><img loading="lazy" src="designs/Organization%20%20_%20Create%20_%20Custom%20attributes.png" alt=""></div><div class="caption"><span class="name">Organization / Create / Custom attributes</span></div></a>
+    <a class="card" href="designs/Organisation _ Overview - Cards.png"><div class="thumb"><img loading="lazy" src="designs/Organisation%20_%20Overview%20-%20Cards.png" alt=""></div><div class="caption"><span class="name">Org / Overview — Cards</span></div></a>
+    <a class="card" href="designs/Organisation _ Overview - About _ Cards.png"><div class="thumb"><img loading="lazy" src="designs/Organisation%20_%20Overview%20-%20About%20_%20Cards.png" alt=""></div><div class="caption"><span class="name">Org / Overview — About / Cards</span></div></a>
+    <a class="card" href="designs/Organisation _ Overview - Pinned _ About _ Cards.png"><div class="thumb"><img loading="lazy" src="designs/Organisation%20_%20Overview%20-%20Pinned%20_%20About%20_%20Cards.png" alt=""></div><div class="caption"><span class="name">Org / Overview — Pinned / About / Cards</span></div></a>
+    <a class="card" href="designs/Organisation _ Overview - Pinned _ About _ Empty.png"><div class="thumb"><img loading="lazy" src="designs/Organisation%20_%20Overview%20-%20Pinned%20_%20About%20_%20Empty.png" alt=""></div><div class="caption"><span class="name">Org / Overview — Pinned / About / Empty</span></div></a>
+    <a class="card" href="designs/Organisation _ Overview - Empty.png"><div class="thumb"><img loading="lazy" src="designs/Organisation%20_%20Overview%20-%20Empty.png" alt=""></div><div class="caption"><span class="name">Org / Overview — Empty</span></div></a>
+    <a class="card" href="designs/Organisation _ Overview - Browse members.png"><div class="thumb"><img loading="lazy" src="designs/Organisation%20_%20Overview%20-%20Browse%20members.png" alt=""></div><div class="caption"><span class="name">Org / Overview — Browse members</span></div></a>
+    <a class="card" href="designs/Organisation _ Overview _ Menu.png"><div class="thumb"><img loading="lazy" src="designs/Organisation%20_%20Overview%20_%20Menu.png" alt=""></div><div class="caption"><span class="name">Org / Overview / Menu</span></div></a>
+    <a class="card" href="designs/User.png"><div class="thumb"><img loading="lazy" src="designs/User.png" alt=""></div><div class="caption"><span class="name">User</span></div></a>
+    <a class="card" href="designs/User _ Viewing.png"><div class="thumb"><img loading="lazy" src="designs/User%20_%20Viewing.png" alt=""></div><div class="caption"><span class="name">User / Viewing</span></div></a>
+    <a class="card" href="designs/User _ Viewing _ Following.png"><div class="thumb"><img loading="lazy" src="designs/User%20_%20Viewing%20_%20Following.png" alt=""></div><div class="caption"><span class="name">User / Viewing / Following</span></div></a>
+    <a class="card" href="designs/User _ Pinned.png"><div class="thumb"><img loading="lazy" src="designs/User%20_%20Pinned.png" alt=""></div><div class="caption"><span class="name">User / Pinned</span></div></a>
+    <a class="card" href="designs/User _ No bio.png"><div class="thumb"><img loading="lazy" src="designs/User%20_%20No%20bio.png" alt=""></div><div class="caption"><span class="name">User / No bio</span></div></a>
+    <a class="card" href="designs/User _ Ni bio.png"><div class="thumb"><img loading="lazy" src="designs/User%20_%20Ni%20bio.png" alt=""></div><div class="caption"><span class="name">User / Ni bio</span></div></a>
+    <a class="card" href="designs/User _ No repo_s.png"><div class="thumb"><img loading="lazy" src="designs/User%20_%20No%20repo_s.png" alt=""></div><div class="caption"><span class="name">User / No repos</span></div></a>
+    <a class="card" href="designs/User _ Edit.png"><div class="thumb"><img loading="lazy" src="designs/User%20_%20Edit.png" alt=""></div><div class="caption"><span class="name">User / Edit</span></div></a>
+    <a class="card" href="designs/Avatar.png"><div class="thumb"><img loading="lazy" src="designs/Avatar.png" alt=""></div><div class="caption"><span class="name">Avatar</span></div></a>
+    <a class="card" href="designs/Sign-in.png"><div class="thumb"><img loading="lazy" src="designs/Sign-in.png" alt=""></div><div class="caption"><span class="name">Sign in</span></div></a>
+    <a class="card" href="designs/Sign-in _ Non-prod.png"><div class="thumb"><img loading="lazy" src="designs/Sign-in%20_%20Non-prod.png" alt=""></div><div class="caption"><span class="name">Sign in / Non-prod</span></div></a>
+    <a class="card" href="designs/Register.png"><div class="thumb"><img loading="lazy" src="designs/Register.png" alt=""></div><div class="caption"><span class="name">Register</span></div></a>
+    <a class="card" href="designs/Register-Confirm.png"><div class="thumb"><img loading="lazy" src="designs/Register-Confirm.png" alt=""></div><div class="caption"><span class="name">Register — Confirm</span></div></a>
+    <a class="card" href="designs/Register-Verify.png"><div class="thumb"><img loading="lazy" src="designs/Register-Verify.png" alt=""></div><div class="caption"><span class="name">Register — Verify</span></div></a>
+    <a class="card" href="designs/Forgot-password.png"><div class="thumb"><img loading="lazy" src="designs/Forgot-password.png" alt=""></div><div class="caption"><span class="name">Forgot password</span></div></a>
+    <a class="card" href="designs/Forgot-password-sent.png"><div class="thumb"><img loading="lazy" src="designs/Forgot-password-sent.png" alt=""></div><div class="caption"><span class="name">Forgot password — Sent</span></div></a>
+  </div>
+</section>
+
+<section id="settings">
+  <h2>Settings</h2>
+  <div class="grid">
+    <a class="card" href="designs/Settings _ Canonical.png"><div class="thumb"><img loading="lazy" src="designs/Settings%20_%20Canonical.png" alt=""></div><div class="caption"><span class="name">Settings / Canonical</span></div></a>
+    <a class="card" href="designs/Settings _ Canonical _ Owner filter.png"><div class="thumb"><img loading="lazy" src="designs/Settings%20_%20Canonical%20_%20Owner%20filter.png" alt=""></div><div class="caption"><span class="name">Settings / Canonical / Owner filter</span></div></a>
+    <a class="card" href="designs/Settings _ Canonical _ Test.png"><div class="thumb"><img loading="lazy" src="designs/Settings%20_%20Canonical%20_%20Test.png" alt=""></div><div class="caption"><span class="name">Settings / Canonical / Test</span></div></a>
+    <a class="card" href="designs/Settings _ Canonical _ Test _ Result.png"><div class="thumb"><img loading="lazy" src="designs/Settings%20_%20Canonical%20_%20Test%20_%20Result.png" alt=""></div><div class="caption"><span class="name">Settings / Canonical / Test / Result</span></div></a>
+  </div>
+</section>
+
+<section id="components">
+  <h2>Components</h2>
+  <p class="section-desc">First search-concept table is done; remaining table/toolbar components are pending. Key-value-pair component is a known gap.</p>
+  <div class="grid">
+    <a class="card" href="designs/Component - Navigation.png"><div class="thumb"><img loading="lazy" src="designs/Component%20-%20Navigation.png" alt=""></div><div class="caption"><span class="name">Navigation</span></div></a>
+    <a class="card" href="designs/Component - Footer.png"><div class="thumb"><img loading="lazy" src="designs/Component%20-%20Footer.png" alt=""></div><div class="caption"><span class="name">Footer</span></div></a>
+    <a class="card" href="designs/Component - Repository - Header.png"><div class="thumb"><img loading="lazy" src="designs/Component%20-%20Repository%20-%20Header.png" alt=""></div><div class="caption"><span class="name">Repository — Header</span></div></a>
+    <a class="card" href="designs/Component - Repository - Overview.png"><div class="thumb"><img loading="lazy" src="designs/Component%20-%20Repository%20-%20Overview.png" alt=""></div><div class="caption"><span class="name">Repository — Overview</span></div></a>
+    <a class="card" href="designs/Component - Repository - Summary.png"><div class="thumb"><img loading="lazy" src="designs/Component%20-%20Repository%20-%20Summary.png" alt=""></div><div class="caption"><span class="name">Repository — Summary</span></div></a>
+    <a class="card" href="designs/Component - Tables.png"><div class="thumb"><img loading="lazy" src="designs/Component%20-%20Tables.png" alt=""></div><div class="caption"><span class="name">Tables</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Component - Tables - Toolbar.png"><div class="thumb"><img loading="lazy" src="designs/Component%20-%20Tables%20-%20Toolbar.png" alt=""></div><div class="caption"><span class="name">Tables — Toolbar</span><span class="badge not-started">Not started</span></div></a>
+    <a class="card" href="designs/Component - Tables - Search - Concept.png"><div class="thumb"><img loading="lazy" src="designs/Component%20-%20Tables%20-%20Search%20-%20Concept.png" alt=""></div><div class="caption"><span class="name">Tables — Search — Concept</span><span class="badge partial">Partial</span></div></a>
+    <a class="card" href="designs/Header.png"><div class="thumb"><img loading="lazy" src="designs/Header.png" alt=""></div><div class="caption"><span class="name">Header</span></div></a>
+  </div>
+</section>
+
+<section id="foundations">
+  <h2>Foundations</h2>
+  <p class="section-desc">Color tokens are 100% implemented in code (referenced by name, e.g. <code>primary.80</code>). Only the first elevation level is used.</p>
+  <div class="grid">
+    <a class="card" href="designs/Color Guidance.png"><div class="thumb"><img loading="lazy" src="designs/Color%20Guidance.png" alt=""></div><div class="caption"><span class="name">Color Guidance</span></div></a>
+    <a class="card" href="designs/Typography.png"><div class="thumb"><img loading="lazy" src="designs/Typography.png" alt=""></div><div class="caption"><span class="name">Typography</span></div></a>
+    <a class="card" href="designs/Elevation.png"><div class="thumb"><img loading="lazy" src="designs/Elevation.png" alt=""></div><div class="caption"><span class="name">Elevation</span><span class="badge partial">Partial</span></div></a>
+  </div>
+</section>
+
+<section id="errors">
+  <h2>Errors</h2>
+  <div class="grid">
+    <a class="card" href="designs/Error - 401.png"><div class="thumb"><img loading="lazy" src="designs/Error%20-%20401.png" alt=""></div><div class="caption"><span class="name">Error — 401</span></div></a>
+    <a class="card" href="designs/Error - 403.png"><div class="thumb"><img loading="lazy" src="designs/Error%20-%20403.png" alt=""></div><div class="caption"><span class="name">Error — 403</span></div></a>
+    <a class="card" href="designs/Error - 404.png"><div class="thumb"><img loading="lazy" src="designs/Error%20-%20404.png" alt=""></div><div class="caption"><span class="name">Error — 404</span></div></a>
+    <a class="card" href="designs/Error - 500.png"><div class="thumb"><img loading="lazy" src="designs/Error%20-%20500.png" alt=""></div><div class="caption"><span class="name">Error — 500</span></div></a>
+    <a class="card" href="designs/Error - Generic.png"><div class="thumb"><img loading="lazy" src="designs/Error%20-%20Generic.png" alt=""></div><div class="caption"><span class="name">Error — Generic</span></div></a>
+  </div>
+</section>
+
+<section id="tbv3">
+  <h2>TBv3 Current State</h2>
+  <p class="section-desc">Screenshots of the shipped TBv3 implementation for areas where it diverges from the canonical design. Captured April 2026.</p>
+  <div class="grid">
+    <a class="card" href="tbv3-screenshots/canonical-registry.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/canonical-registry.png" alt=""></div><div class="caption"><span class="name">Canonical registry</span></div></a>
+    <a class="card" href="tbv3-screenshots/concept-card-view.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/concept-card-view.png" alt=""></div><div class="caption"><span class="name">Concept card view</span></div></a>
+    <a class="card" href="tbv3-screenshots/edit-concept.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/edit-concept.png" alt=""></div><div class="caption"><span class="name">Edit concept</span></div></a>
+    <a class="card" href="tbv3-screenshots/edit-mapping.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/edit-mapping.png" alt=""></div><div class="caption"><span class="name">Edit mapping</span></div></a>
+    <a class="card" href="tbv3-screenshots/search-concepts-tableview.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/search-concepts-tableview.png" alt=""></div><div class="caption"><span class="name">Search concepts — table view</span></div></a>
+    <a class="card" href="tbv3-screenshots/search-repos-tableview.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/search-repos-tableview.png" alt=""></div><div class="caption"><span class="name">Search repos — table view</span></div></a>
+    <a class="card" href="tbv3-screenshots/search-users-tableview.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/search-users-tableview.png" alt=""></div><div class="caption"><span class="name">Search users — table view</span></div></a>
+    <a class="card" href="tbv3-screenshots/view-references.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/view-references.png" alt=""></div><div class="caption"><span class="name">View references</span></div></a>
+    <a class="card" href="tbv3-screenshots/version-compare-metadata.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/version-compare-metadata.png" alt=""></div><div class="caption"><span class="name">Version compare — metadata</span></div></a>
+    <a class="card" href="tbv3-screenshots/version-compare-stats.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/version-compare-stats.png" alt=""></div><div class="caption"><span class="name">Version compare — stats</span></div></a>
+    <a class="card" href="tbv3-screenshots/version-compare-json.png"><div class="thumb"><img loading="lazy" src="tbv3-screenshots/version-compare-json.png" alt=""></div><div class="caption"><span class="name">Version compare — JSON</span></div></a>
+  </div>
+</section>
+
+</main>
+<footer>
+  Badge legend: <span class="badge partial">Partial</span> some of the design is shipped ·
+  <span class="badge divergent">Divergent</span> shipped something different on purpose ·
+  <span class="badge not-started">Not started</span> canonical but unimplemented ·
+  <span class="badge input">Input</span> kept as reference, not MVP direction.
+  Unbadged items are canonical and considered implemented (or have no open status concern).
+</footer>
+</body>
+</html>
