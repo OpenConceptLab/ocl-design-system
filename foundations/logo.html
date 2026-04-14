@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Logo &amp; brand · OCL Design System</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<style>
+  .logo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    margin: 16px 0 28px;
+  }
+  .logo-card {
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    overflow: hidden;
+    background: var(--bg-panel);
+  }
+  .logo-stage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px;
+    min-height: 180px;
+  }
+  .logo-stage.light { background: #ffffff; }
+  .logo-stage.subtle { background: var(--surface-n96); }
+  .logo-stage.dark { background: var(--secondary-10); }
+  .logo-stage.primary { background: var(--primary-main); }
+  .logo-stage img { max-width: 100%; max-height: 120px; }
+  .logo-meta {
+    padding: 12px 14px;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+    gap: 12px;
+  }
+  .logo-meta .label { color: var(--surface-dark); font-weight: 500; }
+  .logo-meta .formats { display: flex; gap: 8px; }
+  .logo-meta .formats a {
+    font-family: 'Roboto Mono', monospace;
+    font-size: 11px;
+    padding: 2px 6px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    color: var(--text-secondary);
+  }
+  .logo-meta .formats a:hover {
+    background: var(--accent-subtle);
+    color: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
+  .dont {
+    background: #ffffff;
+    border: 1px solid var(--border-subtle);
+    border-radius: 8px;
+    padding: 20px;
+    position: relative;
+    min-height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .dont::after {
+    content: '✗';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    color: var(--error-main);
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .dont-label {
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+  }
+  .dont-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin: 16px 0 28px;
+  }
+  .dont-cell { display: flex; flex-direction: column; gap: 8px; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../index.html">OCL Design System<span class="brand-sub">· Foundations</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Overview</a>
+      <a href="color.html" class="active">Foundations</a>
+      <a href="../components/index.html">Components</a>
+      <a href="../patterns/index.html">Patterns</a>
+      <a href="../gallery.html">Gallery</a>
+    </nav>
+    <div class="site-nav-right">
+      <a href="../docs/review-2026-04.md">Review</a>
+      <a href="https://github.com/OpenConceptLab/ocl-design-system">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="narrow">
+  <div class="breadcrumb"><a href="../index.html">Overview</a> · Foundations · Logo &amp; brand</div>
+  <h1>Logo &amp; brand</h1>
+  <p class="page-intro">
+    The OCL logo comes in three shapes — full logo, icon, and text-stacked — with color variants for light and
+    dark backgrounds. Use the SVG versions for anything rendered in a browser or on a digital screen; reach for
+    PNG only when a tool can't accept SVG. EPS and PDF masters live in the shared Drive.
+  </p>
+  <div class="callout">
+    All logo source files are in this repo at <a href="../assets/logo/"><code>assets/logo/</code></a>. Rendered
+    variants below are live from those files — right-click any logo to save a copy, or use the format buttons
+    underneath each card.
+  </div>
+
+  <nav class="site-nav" style="margin-bottom: 32px;">
+    <a href="color.html">Color</a>
+    <a href="typography.html">Typography</a>
+    <a href="elevation.html">Elevation</a>
+    <a href="logo.html" class="active">Logo &amp; brand</a>
+  </nav>
+
+  <section>
+    <h2>Full logo</h2>
+    <p style="color: var(--text-secondary);">
+      The primary lockup — icon plus wordmark. Use this wherever space allows: site headers, documents, slide decks,
+      email signatures. Choose <strong>black text</strong> on light backgrounds, <strong>white text</strong> on dark.
+    </p>
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="logo-stage light"><img src="../assets/logo/full/FullLogo-BlackText.svg" alt="OCL full logo, black text"></div>
+        <div class="logo-meta">
+          <span class="label">Full · Black text</span>
+          <span class="formats">
+            <a href="../assets/logo/full/FullLogo-BlackText.svg">SVG</a>
+            <a href="../assets/logo/full/FullLogo-BlackText.png">PNG</a>
+          </span>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-stage dark"><img src="../assets/logo/full/FullLogo-WhiteText.svg" alt="OCL full logo, white text"></div>
+        <div class="logo-meta">
+          <span class="label">Full · White text</span>
+          <span class="formats">
+            <a href="../assets/logo/full/FullLogo-WhiteText.svg">SVG</a>
+            <a href="../assets/logo/full/FullLogo-WhiteText.png">PNG</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Icon</h2>
+    <p style="color: var(--text-secondary);">
+      Standalone icon. Use for favicons, app icons, avatar placeholders, and any UI where the full wordmark
+      wouldn't fit. The blue variant is the primary; white is for dark or primary-colored backgrounds.
+    </p>
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="logo-stage light"><img src="../assets/logo/icon/Icon-Blue.svg" alt="OCL icon, blue" style="max-height: 96px;"></div>
+        <div class="logo-meta">
+          <span class="label">Icon · Blue</span>
+          <span class="formats">
+            <a href="../assets/logo/icon/Icon-Blue.svg">SVG</a>
+            <a href="../assets/logo/icon/Icon-Blue.png">PNG</a>
+          </span>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-stage primary"><img src="../assets/logo/icon/Icon-White.svg" alt="OCL icon, white" style="max-height: 96px;"></div>
+        <div class="logo-meta">
+          <span class="label">Icon · White</span>
+          <span class="formats">
+            <a href="../assets/logo/icon/Icon-White.svg">SVG</a>
+            <a href="../assets/logo/icon/Icon-White.png">PNG</a>
+          </span>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-stage dark"><img src="../assets/logo/icon/Icon-White.svg" alt="OCL icon, white on dark" style="max-height: 96px;"></div>
+        <div class="logo-meta">
+          <span class="label">Icon · White on dark</span>
+          <span class="formats">
+            <a href="../assets/logo/icon/Icon-White.svg">SVG</a>
+            <a href="../assets/logo/icon/Icon-White.png">PNG</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Text stacked</h2>
+    <p style="color: var(--text-secondary);">
+      Wordmark-first variant with the icon above the text. Use when you need a squarer footprint than the full
+      logo allows — e.g. social avatars, square cards, mobile splash screens.
+    </p>
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="logo-stage light"><img src="../assets/logo/text-stacked/TextStacked-Black.svg" alt="Text stacked, black"></div>
+        <div class="logo-meta">
+          <span class="label">Stacked · Black</span>
+          <span class="formats">
+            <a href="../assets/logo/text-stacked/TextStacked-Black.svg">SVG</a>
+          </span>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-stage subtle"><img src="../assets/logo/text-stacked/TextStacked-Blue.svg" alt="Text stacked, blue"></div>
+        <div class="logo-meta">
+          <span class="label">Stacked · Blue</span>
+          <span class="formats">
+            <a href="../assets/logo/text-stacked/TextStacked-Blue.svg">SVG</a>
+            <a href="../assets/logo/text-stacked/TextStacked-Blue.png">PNG</a>
+          </span>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-stage dark"><img src="../assets/logo/text-stacked/TextStacked-White.svg" alt="Text stacked, white"></div>
+        <div class="logo-meta">
+          <span class="label">Stacked · White</span>
+          <span class="formats">
+            <a href="../assets/logo/text-stacked/TextStacked-White.svg">SVG</a>
+            <a href="../assets/logo/text-stacked/TextStacked-White.png">PNG</a>
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Clear space &amp; minimum size</h2>
+    <div class="callout">
+      <strong>TODO — needs spec.</strong> Clear-space ratios (e.g. "margin equal to the height of the icon's
+      inner circle on all sides") and minimum legible sizes for each variant haven't been formally defined yet.
+      If you have a strong opinion, add it here.
+    </div>
+  </section>
+
+  <section>
+    <h2>Don't</h2>
+    <div class="dont-grid">
+      <div class="dont-cell">
+        <div class="dont">
+          <img src="../assets/logo/icon/Icon-Blue.svg" alt="" style="height: 64px; transform: skewX(-12deg);">
+        </div>
+        <div class="dont-label">Don't distort or skew.</div>
+      </div>
+      <div class="dont-cell">
+        <div class="dont" style="background: var(--tertiary-main);">
+          <img src="../assets/logo/icon/Icon-Blue.svg" alt="" style="height: 64px;">
+        </div>
+        <div class="dont-label">Don't use the blue icon on colored backgrounds.</div>
+      </div>
+      <div class="dont-cell">
+        <div class="dont">
+          <img src="../assets/logo/full/FullLogo-BlackText.svg" alt="" style="height: 40px; filter: hue-rotate(120deg);">
+        </div>
+        <div class="dont-label">Don't recolor. Use an approved variant.</div>
+      </div>
+      <div class="dont-cell">
+        <div class="dont">
+          <img src="../assets/logo/full/FullLogo-BlackText.svg" alt="" style="height: 16px;">
+        </div>
+        <div class="dont-label">Don't render smaller than 24px tall (full logo).</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Branding examples</h2>
+    <p style="color: var(--text-secondary);">
+      The full branding examples deck with usage scenarios, co-branding patterns, and historical context is
+      available as a PDF in this repo:
+    </p>
+    <p>
+      <a href="../assets/logo/OCL-Branding-Examples.pdf" style="display: inline-block; padding: 8px 14px; background: var(--accent-subtle); border: 1px solid var(--accent); border-radius: 6px; color: var(--accent); font-weight: 500;">📄 OCL Branding Examples (PDF)</a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Source files</h2>
+    <p style="color: var(--text-secondary);">
+      The EPS masters and Google Drawings source files live in the shared Drive at
+      <code>OCL/OCL Shared/Branding/Logo/</code>. If you need a new variant (color, orientation, or lockup),
+      edit the master there and then export updated SVG/PNG into <a href="../assets/logo/"><code>assets/logo/</code></a>
+      in this repo.
+    </p>
+    <ul style="color: var(--text-secondary); line-height: 1.7;">
+      <li><code>Full logo/</code> — icon + wordmark lockup</li>
+      <li><code>Icon/</code> — standalone icon</li>
+      <li><code>Text stacked/</code> — icon above wordmark</li>
+      <li><code>OCL Branding Examples.gslides</code> — usage examples deck</li>
+      <li><code>OCL Logo with everything.gdraw</code> — master in Google Drawings</li>
+      <li><code>OCL-CIEL Combined.gdraw</code> — OCL + CIEL co-branding</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  Logo files copied from the OCL Shared Drive. SVG and PNG only — EPS and PDF masters remain on Drive.
+</footer>
+</body>
+</html>
