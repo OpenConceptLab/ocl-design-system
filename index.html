@@ -3,14 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OCL Design System</title>
+<title>OCL v3 Design System</title>
 <link rel="stylesheet" href="assets/tokens.css">
 <link rel="stylesheet" href="assets/site.css">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<link rel="shortcut icon" href="assets/favicon.ico">
 </head>
 <body>
 <header class="site-header">
   <div class="site-header-inner">
-    <a class="site-brand" href="index.html">OCL Design System</a>
+    <a class="site-brand" href="index.html"><img class="brand-logo" src="assets/logo/icon/Icon-Blue.svg" alt=""><span>OCL v3 Design System</span></a>
     <nav class="site-nav">
       <a href="index.html" class="active">Overview</a>
       <a href="foundations/color.html">Foundations</a>
@@ -26,13 +28,22 @@
 </header>
 
 <main class="narrow">
-  <h1>OCL Design System</h1>
-  <p class="page-intro">
-    The design system for the OCL Term Browser v3 (<a href="https://github.com/OpenConceptLab/oclweb3">oclweb3</a>) —
-    foundations, components, and patterns grounded in the React + MUI implementation that actually ships.
-    This site uses the same color tokens and Roboto typography as the app, so what you see here
-    matches what you build there.
-  </p>
+  <div class="hero">
+    <div class="hero-logo">
+      <img src="assets/logo/icon/Icon-Blue.svg" alt="OCL logo">
+    </div>
+    <div class="hero-copy">
+      <h1>OCL v3 Design System</h1>
+      <p class="page-intro" style="margin-bottom: 0;">
+        The design system for the next generation of OCL's web applications —
+        <a href="https://github.com/OpenConceptLab/oclweb3">oclweb3</a> (Term Browser v3) and
+        <a href="https://github.com/OpenConceptLab/oclmap">oclmap</a> (OCL Mapper). Foundations, components,
+        and patterns grounded in the React + MUI v5 code that actually ships. This site eats its own
+        dog food: it's built with the OCL palette, Roboto typography, the real OCL logo, and the
+        component language documented here — so what you see is what you'll build.
+      </p>
+    </div>
+  </div>
 
   <div class="callout">
     <strong>v1 — start narrow.</strong> Foundations (color, typography, elevation) are fully rendered from
@@ -89,7 +100,7 @@
 </main>
 
 <footer class="site-footer">
-  <div>OCL Design System · Canonical implementation: <a href="https://github.com/OpenConceptLab/oclweb3">oclweb3</a></div>
+  <div>OCL v3 Design System · Canonical implementation: <a href="https://github.com/OpenConceptLab/oclweb3">oclweb3</a></div>
 </footer>
 </body>
 </html>

@@ -1,13 +1,13 @@
-# OCL Design System
+# OCL v3 Design System
 
-The living home for OCL Term Browser v3 (TBv3) design guidance: foundations, components, patterns, and the canonical screenshot library behind them.
+The design system for the next generation of OCL's web applications: foundations, components, patterns, and the canonical screenshot library behind them. Applies to both [`oclweb3`](https://github.com/OpenConceptLab/oclweb3) (Term Browser v3) and [`oclmap`](https://github.com/OpenConceptLab/oclmap) (OCL Mapper).
 
 **Live site:** [openconceptlab.github.io/ocl-design-system](https://openconceptlab.github.io/ocl-design-system/)
 
 ## Relationship to other repos
 
 - **[`oclweb3`](https://github.com/OpenConceptLab/oclweb3)** — the canonical implementation (React 18 + MUI v5.18). Every component page in this site links back to real JSX. When the site and the code disagree, the code wins.
-- **`oclmap`** — OCL Mapper application. No specific designs here, but inherits the same tokens.
+- **[`oclmap`](https://github.com/OpenConceptLab/oclmap)** — OCL Mapper. Inherits the same tokens, components, and patterns documented here.
 - **`oclweb2`** — legacy TBv2. Some TBv3 areas still fall back to v2 patterns until v3 replacements land.
 
 ## Folder guide
