@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color · OCL Design System</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../index.html">OCL Design System<span class="brand-sub">· Foundations</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Overview</a>
+      <a href="color.html" class="active">Foundations</a>
+      <a href="../components/index.html">Components</a>
+      <a href="../patterns/index.html">Patterns</a>
+      <a href="../gallery.html">Gallery</a>
+    </nav>
+    <div class="site-nav-right">
+      <a href="../docs/review-2026-04.md">Review</a>
+      <a href="https://github.com/OpenConceptLab/ocl-design-system">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="narrow">
+  <div class="breadcrumb"><a href="../index.html">Overview</a> · Foundations · Color</div>
+  <h1>Color</h1>
+  <p class="page-intro">
+    The OCL palette is a <a href="https://m3.material.io/styles/color/system/overview">Material 3</a> tonal system
+    defined in <code>oclweb3/src/common/colors.jsx</code>. Every palette exposes shades from <code>10</code> (darkest)
+    to <code>99</code> (lightest), plus <code>main</code> / <code>light</code> / <code>dark</code> / <code>contrastText</code>
+    for MUI theme compatibility. Reference shades by name (<code>primary.80</code>, <code>surface.n96</code>) so the
+    design and the code speak the same language.
+  </p>
+  <div class="callout">
+    Click any swatch to copy its hex value. The token name shown matches the key you'd use in a MUI <code>sx</code> prop
+    or when reading from <code>theme.palette</code>.
+  </div>
+
+  <nav class="site-nav" style="margin-bottom: 32px;">
+    <a href="color.html" class="active">Color</a>
+    <a href="typography.html">Typography</a>
+    <a href="elevation.html">Elevation</a>
+  </nav>
+
+  <section class="palette" id="primary">
+    <div class="palette-header">
+      <h3>Primary</h3>
+      <span class="main-hex">main · <code>#4836ff</code></span>
+    </div>
+    <p style="color: var(--text-secondary); margin: 0 0 12px; font-size: 13px;">
+      The OCL accent. Use for primary actions, links, active nav, focus rings, and status indicators that need the most visual weight.
+    </p>
+    <div class="swatches" id="palette-primary"></div>
+  </section>
+
+  <section class="palette" id="secondary">
+    <div class="palette-header">
+      <h3>Secondary</h3>
+      <span class="main-hex">main · <code>#5e5c71</code></span>
+    </div>
+    <p style="color: var(--text-secondary); margin: 0 0 12px; font-size: 13px;">
+      Muted companion for supporting text, dividers, and secondary chip borders. <code>secondary.main</code> is the default body text color via <code>TEXT_GRAY</code>.
+    </p>
+    <div class="swatches" id="palette-secondary"></div>
+  </section>
+
+  <section class="palette" id="tertiary">
+    <div class="palette-header">
+      <h3>Tertiary</h3>
+      <span class="main-hex">main · <code>#7a5368</code></span>
+    </div>
+    <p style="color: var(--text-secondary); margin: 0 0 12px; font-size: 13px;">
+      Accent for content categories that need to be distinguishable from primary (e.g. tagged metadata, alternate entity types). Use sparingly.
+    </p>
+    <div class="swatches" id="palette-tertiary"></div>
+  </section>
+
+  <section class="palette" id="surface">
+    <div class="palette-header">
+      <h3>Surface</h3>
+      <span class="main-hex">main · <code>#fcf8fd</code></span>
+    </div>
+    <p style="color: var(--text-secondary); margin: 0 0 12px; font-size: 13px;">
+      Backgrounds and borders. <code>surface.main</code> is the app background. <code>surface.n96</code> is the subtle panel background. <code>surface.nv80</code> is the default card border.
+    </p>
+    <div class="swatches" id="palette-surface"></div>
+  </section>
+
+  <section class="palette" id="error">
+    <div class="palette-header">
+      <h3>Error</h3>
+      <span class="main-hex">main · <code>#ba1a1a</code></span>
+    </div>
+    <p style="color: var(--text-secondary); margin: 0 0 12px; font-size: 13px;">
+      Destructive actions, validation failures, and error states. Only a few shades are defined — expand in <code>colors.jsx</code> if you need more.
+    </p>
+    <div class="swatches" id="palette-error"></div>
+  </section>
+
+  <section class="palette" id="neutral">
+    <div class="palette-header">
+      <h3>Neutral</h3>
+      <span class="main-hex">partial scale</span>
+    </div>
+    <p style="color: var(--text-secondary); margin: 0 0 12px; font-size: 13px;">
+      A sparse neutral scale used for disabled/placeholder text. Most gray needs are covered by <code>surface.*</code> or the named grays below.
+    </p>
+    <div class="swatches" id="palette-neutral"></div>
+  </section>
+
+  <section class="palette" id="named">
+    <div class="palette-header">
+      <h3>Named grays</h3>
+      <span class="main-hex">from <code>colors.jsx</code> constants</span>
+    </div>
+    <p style="color: var(--text-secondary); margin: 0 0 12px; font-size: 13px;">
+      Legacy constants still referenced throughout the app. Prefer the palette shades above when adding new code.
+    </p>
+    <div class="swatches" id="palette-named"></div>
+  </section>
+
+  <section>
+    <h2>Semantic mapping</h2>
+    <p style="color: var(--text-secondary);">
+      In <code>oclweb3/src/index.jsx</code>, <code>success</code> is aliased to <code>primary</code> and <code>info</code>
+      to <code>secondary</code>. There is no dedicated <code>warning</code> palette. If a design calls for warning
+      semantics, use <code>tertiary</code> or add a new palette to <code>colors.jsx</code> and this file.
+    </p>
+  </section>
+</main>
+
+<footer class="site-footer">
+  Palette copied from <code>oclweb3/src/common/colors.jsx</code>. Update <a href="../assets/tokens.css">assets/tokens.css</a> when the source changes.
+</footer>
+
+<script>
+const PALETTES = {
+  primary: [
+    ['primary.main', '#4836ff'], ['primary.light', '#4836ff'], ['primary.dark', '#c3c0ff'],
+    ['primary.99', '#fffbff'], ['primary.95', '#f2efff'], ['primary.90', '#e2dfff'],
+    ['primary.80', '#c3c0ff'], ['primary.70', '#a4a1ff'], ['primary.60', '#8582ff'],
+    ['primary.50', '#6760ff'], ['primary.40', '#4836ff'], ['primary.30', '#2d00e5'],
+    ['primary.20', '#1d00a5'], ['primary.10', '#0f0069']
+  ],
+  secondary: [
+    ['secondary.main', '#5e5c71'], ['secondary.light', '#5e5c71'], ['secondary.dark', '#c7c4dd'],
+    ['secondary.99', '#fffbff'], ['secondary.95', '#f2efff'], ['secondary.90', '#e3e0f9'],
+    ['secondary.80', '#c7c4dd'], ['secondary.70', '#aba9c1'], ['secondary.60', '#908ea5'],
+    ['secondary.50', '#76758b'], ['secondary.40', '#5e5c71'], ['secondary.30', '#464559'],
+    ['secondary.20', '#2f2e42'], ['secondary.10', '#1a1a2c']
+  ],
+  tertiary: [
+    ['tertiary.main', '#7a5368'], ['tertiary.light', '#7a5368'], ['tertiary.dark', '#eab9d1'],
+    ['tertiary.99', '#fffbff'], ['tertiary.95', '#ffecf3'], ['tertiary.90', '#ffd8ea'],
+    ['tertiary.80', '#eab9d1'], ['tertiary.70', '#cd9eb6'], ['tertiary.60', '#b0849b'],
+    ['tertiary.50', '#956b81'], ['tertiary.40', '#7a5368'], ['tertiary.30', '#603c50'],
+    ['tertiary.20', '#472639'], ['tertiary.10', '#2f1123']
+  ],
+  surface: [
+    ['surface.main', '#fcf8fd'], ['surface.light', '#787680'], ['surface.dark', '#1c1b1f'],
+    ['surface.contrastText', '#47464f'],
+    ['surface.n90', '#e5e1e6'], ['surface.n92', '#ebe7ec'], ['surface.n94', '#f0edf1'],
+    ['surface.n96', '#f6f2f7'], ['surface.nv80', '#c8c5d0'], ['surface.s90', '#e3e0f9']
+  ],
+  error: [
+    ['error.main', '#ba1a1a'], ['error.light', '#ba1a1a'], ['error.dark', '#ffb4ab'], ['error.95', '#ffedea']
+  ],
+  neutral: [
+    ['neutral.70', '#adaaaf'], ['neutral.60', '#929094']
+  ],
+  named: [
+    ['TEXT_GRAY', '#47464f'], ['BG_GRAY', '#f6f2f7'], ['LIGHT_GRAY', '#e5e1e6'], ['VERY_LIGHT_GRAY', '#5e5c71'],
+    ['WHITE', '#FFF'], ['BLACK', '#000']
+  ]
+};
+
+function luminance(hex) {
+  const h = hex.replace('#','');
+  const full = h.length === 3 ? h.split('').map(c => c+c).join('') : h;
+  const r = parseInt(full.slice(0,2),16)/255;
+  const g = parseInt(full.slice(2,4),16)/255;
+  const b = parseInt(full.slice(4,6),16)/255;
+  return 0.2126*r + 0.7152*g + 0.0722*b;
+}
+
+function makeSwatch(name, hex) {
+  const textColor = luminance(hex) > 0.55 ? '#1c1b1f' : '#ffffff';
+  const el = document.createElement('div');
+  el.className = 'swatch';
+  el.innerHTML = `
+    <div class="color" style="background:${hex}; color:${textColor}; display:flex; align-items:flex-end; padding:8px 10px; font-size:10px; font-family:'Roboto Mono', monospace;">${hex}</div>
+    <div class="meta"><span class="token-name">${name}</span><span class="hex">${hex}</span></div>
+  `;
+  el.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(hex);
+      el.classList.add('copied');
+      setTimeout(() => el.classList.remove('copied'), 800);
+    } catch (e) {}
+  });
+  return el;
+}
+
+for (const [key, entries] of Object.entries(PALETTES)) {
+  const host = document.getElementById('palette-' + key);
+  if (!host) continue;
+  entries.forEach(([name, hex]) => host.appendChild(makeSwatch(name, hex)));
+}
+</script>
+</body>
+</html>

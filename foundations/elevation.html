@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elevation · OCL Design System</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../index.html">OCL Design System<span class="brand-sub">· Foundations</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Overview</a>
+      <a href="color.html" class="active">Foundations</a>
+      <a href="../components/index.html">Components</a>
+      <a href="../patterns/index.html">Patterns</a>
+      <a href="../gallery.html">Gallery</a>
+    </nav>
+    <div class="site-nav-right">
+      <a href="../docs/review-2026-04.md">Review</a>
+      <a href="https://github.com/OpenConceptLab/ocl-design-system">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="narrow">
+  <div class="breadcrumb"><a href="../index.html">Overview</a> · Foundations · Elevation</div>
+  <h1>Elevation</h1>
+  <p class="page-intro">
+    Elevation communicates hierarchy — what's in front of what. OCL uses the MUI v5 default elevation scale,
+    which is based on Material Design's 25-level shadow system. In practice, <strong>TBv3 today only uses level 1</strong>
+    (via <code>Paper elevation={1}</code> and the <code>:hover</code> lift on cards).
+  </p>
+  <div class="callout">
+    Per the <a href="../docs/review-2026-04.md">April 2026 review</a>, the Elevation Zeplin design lists all levels
+    but <strong>"the first one is used, that's it."</strong> Use level 1 for raised panels, hover states, and
+    interactive cards. Reach for higher levels only when a floating UI element needs to visually break out
+    of the page flow (e.g. dialogs, popovers, tooltips).
+  </div>
+
+  <nav class="site-nav" style="margin-bottom: 32px;">
+    <a href="color.html">Color</a>
+    <a href="typography.html">Typography</a>
+    <a href="elevation.html" class="active">Elevation</a>
+  </nav>
+
+  <section>
+    <h2>Scale</h2>
+    <div class="elevation-grid">
+      <div class="elevation-box elev-0">0 · flat<br><span style="font-size:10px;">1px border instead</span></div>
+      <div class="elevation-box elev-1">1 · default<br><span style="font-size:10px;">✅ used in TBv3</span></div>
+      <div class="elevation-box elev-2">2</div>
+      <div class="elevation-box elev-4">4 · app bar</div>
+      <div class="elevation-box elev-8">8 · menu, snackbar</div>
+      <div class="elevation-box elev-16">16 · drawer</div>
+      <div class="elevation-box elev-24">24 · modal</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Usage</h2>
+    <table class="props-table">
+      <thead><tr><th>Level</th><th>MUI component default</th><th>Use for</th></tr></thead>
+      <tbody>
+        <tr><td><code>0</code></td><td>Flat surfaces</td><td>Inline panels, table rows — use a 1px border instead.</td></tr>
+        <tr><td><code>1</code></td><td><code>Paper</code>, <code>Card</code></td><td>Raised content, hover states, the default for anything that needs to feel clickable.</td></tr>
+        <tr><td><code>2</code></td><td>—</td><td>Rarely needed in TBv3 today.</td></tr>
+        <tr><td><code>4</code></td><td><code>AppBar</code></td><td>Top navigation when content scrolls behind it.</td></tr>
+        <tr><td><code>8</code></td><td><code>Menu</code>, <code>Popover</code>, <code>Snackbar</code></td><td>Floating menus and transient notifications.</td></tr>
+        <tr><td><code>16</code></td><td><code>Drawer</code></td><td>Side drawers that temporarily overlay the page.</td></tr>
+        <tr><td><code>24</code></td><td><code>Dialog</code></td><td>Modals that pin focus.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Reference</h2>
+    <ul style="color: var(--text-secondary); line-height: 1.7;">
+      <li>MUI elevation reference: <a href="https://mui.com/material-ui/react-paper/#elevation">mui.com/material-ui/react-paper</a></li>
+      <li>Zeplin source screenshot: <a href="../designs/Elevation.png">designs/Elevation.png</a></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  MUI v5 default elevation scale. Per review, only level 1 is currently used in TBv3.
+</footer>
+</body>
+</html>

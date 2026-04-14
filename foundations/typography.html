@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Typography · OCL Design System</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../index.html">OCL Design System<span class="brand-sub">· Foundations</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Overview</a>
+      <a href="color.html" class="active">Foundations</a>
+      <a href="../components/index.html">Components</a>
+      <a href="../patterns/index.html">Patterns</a>
+      <a href="../gallery.html">Gallery</a>
+    </nav>
+    <div class="site-nav-right">
+      <a href="../docs/review-2026-04.md">Review</a>
+      <a href="https://github.com/OpenConceptLab/ocl-design-system">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="narrow">
+  <div class="breadcrumb"><a href="../index.html">Overview</a> · Foundations · Typography</div>
+  <h1>Typography</h1>
+  <p class="page-intro">
+    OCL uses <a href="https://fonts.google.com/specimen/Roboto">Roboto</a> — loaded at weights 400, 500, 700.
+    The typography scale is <strong>the MUI v5 default</strong>: <code>oclweb3/src/index.jsx</code> does not override
+    <code>theme.typography</code>, so every <code>Typography</code> variant inherits from Material UI's published scale.
+    The specimens below are rendered with the same CSS values MUI applies at runtime.
+  </p>
+  <div class="callout">
+    In code, use MUI's <code>&lt;Typography variant="h1"&gt;</code> rather than raw HTML tags. The variant
+    name is the contract — spacing, letter-spacing, and line-height come from the theme.
+  </div>
+
+  <nav class="site-nav" style="margin-bottom: 32px;">
+    <a href="color.html">Color</a>
+    <a href="typography.html" class="active">Typography</a>
+    <a href="elevation.html">Elevation</a>
+  </nav>
+
+  <section>
+    <h2>Headings</h2>
+    <div class="specimen">
+      <div class="specimen-label">h1 · 96px · light (300)</div>
+      <div class="specimen-sample mui-h1">Term Browser</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">h2 · 60px · light (300)</div>
+      <div class="specimen-sample mui-h2">Repositories</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">h3 · 48px · regular (400)</div>
+      <div class="specimen-sample mui-h3">CIEL Source</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">h4 · 34px · regular (400)</div>
+      <div class="specimen-sample mui-h4">Search concepts and mappings</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">h5 · 24px · regular (400)</div>
+      <div class="specimen-sample mui-h5">Concept details</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">h6 · 20px · medium (500)</div>
+      <div class="specimen-sample mui-h6">Associations</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Body &amp; subtitles</h2>
+    <div class="specimen">
+      <div class="specimen-label">subtitle1 · 16px · regular (400)</div>
+      <div class="specimen-sample mui-subtitle1">A subtitle introducing a section of a concept detail view.</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">subtitle2 · 14px · medium (500)</div>
+      <div class="specimen-sample mui-subtitle2">A smaller subtitle used in dense list rows and card headers.</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">body1 · 16px · regular (400)</div>
+      <div class="specimen-sample mui-body1">The quick brown fox jumps over the lazy dog. OCL supports Unicode including ñ, ü, and 中文.</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">body2 · 14px · regular (400) · default body text</div>
+      <div class="specimen-sample mui-body2">Most of TBv3's content renders at this size, including concept names, mapping details, and list rows. This is the default body text of the app.</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Supporting variants</h2>
+    <div class="specimen">
+      <div class="specimen-label">button · 14px · medium (500) · uppercase</div>
+      <div class="specimen-sample mui-button">Create concept</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">caption · 12px · regular (400)</div>
+      <div class="specimen-sample mui-caption">Last updated 2 days ago · CIEL v2024.03</div>
+    </div>
+    <div class="specimen">
+      <div class="specimen-label">overline · 12px · regular (400) · uppercase · tracked</div>
+      <div class="specimen-sample mui-overline">Section label</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Custom type in the app</h2>
+    <p style="color: var(--text-secondary);">
+      A few places in <code>oclweb3</code> set typography via <code>sx</code> instead of variants. The most notable is
+      the repository name in <code>RepoHeader</code>:
+    </p>
+    <div class="example-frame">
+      <div style="font-size: 28px; font-weight: 600; color: var(--surface-dark); font-family: 'Roboto', sans-serif;">
+        CIEL (Columbia International eHealth Laboratory)
+      </div>
+      <div style="margin-top: 4px; font-size: 14px; color: var(--secondary-main); font-family: 'Roboto', sans-serif;">
+        https://ciel.example.org/fhir/CodeSystem/ciel
+      </div>
+    </div>
+    <p style="color: var(--text-muted); font-size: 12px;">From <code>oclweb3/src/components/repos/RepoHeader.jsx</code>.</p>
+  </section>
+
+  <section>
+    <h2>Reference</h2>
+    <ul style="color: var(--text-secondary); line-height: 1.7;">
+      <li>MUI default typography: <a href="https://mui.com/material-ui/customization/typography/#default-values">mui.com/material-ui/customization/typography</a></li>
+      <li>Roboto weights loaded: 400, 500, 700 (see <a href="../assets/site.css">assets/site.css</a>)</li>
+      <li>If you need to override a variant, update <code>oclweb3/src/index.jsx</code> and mirror the change here.</li>
+    </ul>
+  </section>
+</main>
+
+<footer class="site-footer">
+  MUI v5 default type scale. Roboto loaded from Google Fonts.
+</footer>
+</body>
+</html>

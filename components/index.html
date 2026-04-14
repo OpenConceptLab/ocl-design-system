@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Components · OCL Design System</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../index.html">OCL Design System<span class="brand-sub">· Components</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Overview</a>
+      <a href="../foundations/color.html">Foundations</a>
+      <a href="index.html" class="active">Components</a>
+      <a href="../patterns/index.html">Patterns</a>
+      <a href="../gallery.html">Gallery</a>
+    </nav>
+    <div class="site-nav-right">
+      <a href="../docs/review-2026-04.md">Review</a>
+      <a href="https://github.com/OpenConceptLab/ocl-design-system">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">Overview</a> · Components</div>
+  <h1>Components</h1>
+  <p class="page-intro">
+    Reusable React components from <a href="https://github.com/OpenConceptLab/oclweb3/tree/main/src/components"><code>oclweb3/src/components/</code></a>.
+    Each card shows its source file and status. Three exemplars are fully documented — those pages are the
+    template for the rest, which currently only link to source.
+  </p>
+  <div class="callout">
+    <strong>What's missing:</strong> component detail pages for everything unbadged <span class="badge stub">Stub</span>,
+    plus the design-system gaps flagged in the review (concept selector, key-value-pair display, reference &amp; expansion components).
+    If you write a detail page, lift <a href="repo-chip.html">repo-chip.html</a> as your template.
+  </div>
+
+  <section>
+    <h2>Chips &amp; entity references</h2>
+    <div class="grid wide">
+      <a class="card big" href="repo-chip.html">
+        <h3>RepoChip <span class="badge partial">Partial</span></h3>
+        <p>Icon + short code + type for a repository (source/collection). Wraps <code>BaseEntityChip</code> with a <code>RepoTooltip</code>.</p>
+        <div class="card-meta">src/components/repos/RepoChip.jsx · Exemplar</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/BaseEntityChip.jsx">
+        <h3>BaseEntityChip <span class="badge stub">Stub</span></h3>
+        <p>The underlying chip primitive. Takes an entity, icon, size, and primary/secondary variant.</p>
+        <div class="card-meta">src/components/common/BaseEntityChip.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/OwnerChip.jsx">
+        <h3>OwnerChip <span class="badge stub">Stub</span></h3>
+        <p>Entity chip for a user or organization. Used alongside RepoChip in RepoHeader.</p>
+        <div class="card-meta">src/components/common/OwnerChip.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/repos/RepoVersionChip.jsx">
+        <h3>RepoVersionChip <span class="badge stub">Stub</span></h3>
+        <p>Version selector chip with optional checkbox. Shown in RepoHeader when a version switcher is active.</p>
+        <div class="card-meta">src/components/repos/RepoVersionChip.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/AccessChip.jsx">
+        <h3>AccessChip <span class="badge stub">Stub</span></h3>
+        <p>Public/private/view indicator.</p>
+        <div class="card-meta">src/components/common/AccessChip.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/ReferenceChip.jsx">
+        <h3>ReferenceChip <span class="badge stub">Stub</span></h3>
+        <p>Chip rendering a collection reference. Part of the References &amp; Expansions area — flagged as a gap.</p>
+        <div class="card-meta">src/components/common/ReferenceChip.jsx</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tooltips</h2>
+    <div class="grid wide">
+      <a class="card big" href="html-tooltip.html">
+        <h3>HTMLTooltip <span class="badge ok">OK</span></h3>
+        <p>Tooltip that supports arbitrary HTML content, styled with a white background and border. Theme-wide defaults for arrow and fade come from <code>index.jsx</code>.</p>
+        <div class="card-meta">src/components/common/HTMLTooltip.jsx · Exemplar</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/repos/RepoTooltip.jsx">
+        <h3>RepoTooltip <span class="badge stub">Stub</span></h3>
+        <p>HTMLTooltip wrapped around RepoChip to show repo summary on hover.</p>
+        <div class="card-meta">src/components/repos/RepoTooltip.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/concepts/ConceptTooltip.jsx">
+        <h3>ConceptTooltip <span class="badge partial">Partial</span></h3>
+        <p>Concept preview tooltip. Review flags this as partial — chips/tooltips for concept don't yet exist everywhere.</p>
+        <div class="card-meta">src/components/concepts/ConceptTooltip.jsx</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Headers &amp; navigation</h2>
+    <div class="grid wide">
+      <a class="card big" href="repo-header.html">
+        <h3>RepoHeader <span class="badge ok">OK</span></h3>
+        <p>The main repository page header: owner + repo + version chips, follow button, manage menu, repo name, canonical URL.</p>
+        <div class="card-meta">src/components/repos/RepoHeader.jsx · Exemplar</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/app/Header.jsx">
+        <h3>Header <span class="badge stub">Stub</span></h3>
+        <p>App-level top bar: logo, search, account menu.</p>
+        <div class="card-meta">src/components/app/Header.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/app/Footer.jsx">
+        <h3>Footer <span class="badge stub">Stub</span></h3>
+        <p>App-level footer.</p>
+        <div class="card-meta">src/components/app/Footer.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/app/LeftMenu.jsx">
+        <h3>LeftMenu <span class="badge stub">Stub</span></h3>
+        <p>Primary app navigation drawer.</p>
+        <div class="card-meta">src/components/app/LeftMenu.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Breadcrumbs.jsx">
+        <h3>Breadcrumbs <span class="badge stub">Stub</span></h3>
+        <p>Path-style navigation with owner / repo / version segments.</p>
+        <div class="card-meta">src/components/common/Breadcrumbs.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/CommonTabs.jsx">
+        <h3>CommonTabs <span class="badge stub">Stub</span></h3>
+        <p>Tab strip used on repo, concept, and user pages.</p>
+        <div class="card-meta">src/components/common/CommonTabs.jsx</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Overlays &amp; feedback</h2>
+    <div class="grid wide">
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Dialog.jsx">
+        <h3>Dialog <span class="badge stub">Stub</span></h3>
+        <p>Shared modal wrapper with consistent header/footer buttons.</p>
+        <div class="card-meta">src/components/common/Dialog.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Drawer.jsx">
+        <h3>Drawer <span class="badge stub">Stub</span></h3>
+        <p>Side drawer for contextual content.</p>
+        <div class="card-meta">src/components/common/Drawer.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Alert.jsx">
+        <h3>Alert <span class="badge stub">Stub</span></h3>
+        <p>Inline status messaging: info, success, warning, error.</p>
+        <div class="card-meta">src/components/common/Alert.jsx</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Tables, cards, results</h2>
+    <div class="grid wide">
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/search/TableResults.jsx">
+        <h3>TableResults <span class="badge stub">Stub</span></h3>
+        <p>Search table view. First table design is shipped; toolbar and variants remain.</p>
+        <div class="card-meta">src/components/search/TableResults.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/search/CardResults.jsx">
+        <h3>CardResults <span class="badge divergent">Divergent</span></h3>
+        <p>Search card view. Concept card has evolved past the Zeplin design to support the OCL Mapper's multi-property view.</p>
+        <div class="card-meta">src/components/search/CardResults.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Comparison.jsx">
+        <h3>Comparison <span class="badge stub">Stub</span></h3>
+        <p>Side-by-side diff of versions or entities.</p>
+        <div class="card-meta">src/components/common/Comparison.jsx</div>
+      </a>
+      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/EmptyOverview.jsx">
+        <h3>EmptyOverview <span class="badge stub">Stub</span></h3>
+        <p>Empty-state illustration + call to action.</p>
+        <div class="card-meta">src/components/common/EmptyOverview.jsx</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Known gaps</h2>
+    <div class="callout">
+      These components don't exist in the code yet but are either designed or flagged as needed in the review.
+      Build one — then write its page here.
+    </div>
+    <div class="grid wide">
+      <div class="card big" style="cursor: default; opacity: 0.85;">
+        <h3>KeyValuePair <span class="badge gap">Gap</span></h3>
+        <p>2-column attribute list used in repo/valueset overview modals. Design exists in Zeplin, no code.</p>
+        <div class="card-meta">Not yet implemented</div>
+      </div>
+      <div class="card big" style="cursor: default; opacity: 0.85;">
+        <h3>ConceptSelector <span class="badge gap">Gap</span></h3>
+        <p>Dedicated concept picker modal. Today's quick-add mapping in v2 is the fallback.</p>
+        <div class="card-meta">Not yet implemented</div>
+      </div>
+      <div class="card big" style="cursor: default; opacity: 0.85;">
+        <h3>ReferenceDetails <span class="badge gap">Gap</span></h3>
+        <p>Full reference + expansion view. Biggest gap flagged in the April 2026 review.</p>
+        <div class="card-meta">Not yet implemented</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="legend">
+    <span class="badge ok">OK</span> documented and shipped ·
+    <span class="badge partial">Partial</span> shipped, some variance from design ·
+    <span class="badge divergent">Divergent</span> shipped but different from design ·
+    <span class="badge stub">Stub</span> exists in code, no detail page here yet ·
+    <span class="badge gap">Gap</span> neither in code nor fully designed
+  </div>
+</footer>
+</body>
+</html>

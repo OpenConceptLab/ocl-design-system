@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Patterns · OCL Design System</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../index.html">OCL Design System<span class="brand-sub">· Patterns</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Overview</a>
+      <a href="../foundations/color.html">Foundations</a>
+      <a href="../components/index.html">Components</a>
+      <a href="index.html" class="active">Patterns</a>
+      <a href="../gallery.html">Gallery</a>
+    </nav>
+    <div class="site-nav-right">
+      <a href="../docs/review-2026-04.md">Review</a>
+      <a href="https://github.com/OpenConceptLab/ocl-design-system">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">Overview</a> · Patterns</div>
+  <h1>Patterns</h1>
+  <p class="page-intro">
+    Page-level compositions — the ways our components come together to form real screens. Every pattern is
+    drawn from the Zeplin canonical designs and annotated with its implementation status. Click any card
+    to open the full-resolution design in the gallery.
+  </p>
+  <div class="callout">
+    <strong>Stubs only in v1.</strong> No per-pattern detail pages yet. Each card links to the canonical
+    image in <a href="../gallery.html">Gallery</a>. When a pattern gets fleshed-out guidance (e.g. "When to use
+    a signed-in dashboard vs. the feed view"), add a detail page here using a component exemplar as a template.
+  </div>
+
+  <section>
+    <h2>Dashboard</h2>
+    <div class="callout">
+      Signed-in and signed-out dashboards are <strong>not yet implemented</strong> in TBv3. Feed variants are partial.
+    </div>
+    <div class="grid">
+      <a class="card" href="../gallery.html#dashboard"><div class="thumb"><img loading="lazy" src="../designs/Dashboard-SignedIn.png" alt=""></div><div class="caption"><span class="name">Signed In Dashboard</span><span class="badge not-started">Not started</span></div></a>
+      <a class="card" href="../gallery.html#dashboard"><div class="thumb"><img loading="lazy" src="../designs/Dashboard-SignedOut-1.png" alt=""></div><div class="caption"><span class="name">Signed Out Dashboard</span><span class="badge not-started">Not started</span></div></a>
+      <a class="card" href="../gallery.html#dashboard"><div class="thumb"><img loading="lazy" src="../designs/Dashboard%20_%20Feed.png" alt=""></div><div class="caption"><span class="name">Feed</span></div></a>
+      <a class="card" href="../gallery.html#dashboard"><div class="thumb"><img loading="lazy" src="../designs/Dashboard%20_%20Feed%20_%20Empty%20state.png" alt=""></div><div class="caption"><span class="name">Feed — Empty state</span><span class="badge partial">Partial</span></div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Repository</h2>
+    <div class="callout">
+      Source overview and ValueSet views are the biggest pattern gaps. The design calls for a 2-column key-value layout we haven't built yet. Collection references design direction is still open.
+    </div>
+    <div class="grid">
+      <a class="card" href="../gallery.html#repository"><div class="thumb"><img loading="lazy" src="../designs/Repository%20_%20Source%20_%20Overview.png" alt=""></div><div class="caption"><span class="name">Source Overview</span><span class="badge not-started">Not started</span></div></a>
+      <a class="card" href="../gallery.html#repository"><div class="thumb"><img loading="lazy" src="../designs/Repository%20_%20Source%20_%20Concepts.png" alt=""></div><div class="caption"><span class="name">Source Concepts</span></div></a>
+      <a class="card" href="../gallery.html#repository"><div class="thumb"><img loading="lazy" src="../designs/Repository%20_%20Source%20_%20Mappings.png" alt=""></div><div class="caption"><span class="name">Source Mappings</span><span class="badge input">Input</span></div></a>
+      <a class="card" href="../gallery.html#repository"><div class="thumb"><img loading="lazy" src="../designs/Repository%20_%20Collection%20_%20References.png" alt=""></div><div class="caption"><span class="name">Collection References</span><span class="badge not-started">Not started</span></div></a>
+      <a class="card" href="../gallery.html#repository"><div class="thumb"><img loading="lazy" src="../designs/Repository%20_%20ValueSet.png" alt=""></div><div class="caption"><span class="name">ValueSet</span><span class="badge not-started">Not started</span></div></a>
+      <a class="card" href="../gallery.html#repository"><div class="thumb"><img loading="lazy" src="../designs/Repository%20-%20Overview%20-%20Versions.png" alt=""></div><div class="caption"><span class="name">Versions</span></div></a>
+      <a class="card" href="../gallery.html#repository"><div class="thumb"><img loading="lazy" src="../designs/My%20Repositories%20%20_%20Create%20_%20Version.png" alt=""></div><div class="caption"><span class="name">Create Version</span><span class="badge divergent">Divergent</span></div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Search</h2>
+    <div class="callout">
+      Concept card view has evolved divergently from the canonical design via OCL Mapper work. Grouped and hierarchical search views are mostly not yet shipped.
+    </div>
+    <div class="grid">
+      <a class="card" href="../gallery.html#search"><div class="thumb"><img loading="lazy" src="../designs/Search%20_%20Concepts.png" alt=""></div><div class="caption"><span class="name">Search Concepts</span><span class="badge divergent">Divergent</span></div></a>
+      <a class="card" href="../gallery.html#search"><div class="thumb"><img loading="lazy" src="../designs/Search%20_%20Concepts%20_%20Table.png" alt=""></div><div class="caption"><span class="name">Search Concepts — Table</span></div></a>
+      <a class="card" href="../gallery.html#search"><div class="thumb"><img loading="lazy" src="../designs/Search%20_%20Concepts%20_%20Detail%20view.png" alt=""></div><div class="caption"><span class="name">Detail view</span></div></a>
+      <a class="card" href="../gallery.html#search"><div class="thumb"><img loading="lazy" src="../designs/Grouped%20by%20Type%20_%20Dense.png" alt=""></div><div class="caption"><span class="name">Grouped by Type</span><span class="badge partial">Partial</span></div></a>
+      <a class="card" href="../gallery.html#search"><div class="thumb"><img loading="lazy" src="../designs/Hierarchy%20_%20Grouped%20by%20Code%20_%20Dense.png" alt=""></div><div class="caption"><span class="name">Hierarchy view</span><span class="badge input">Input</span></div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Concept &amp; Mapping</h2>
+    <div class="grid">
+      <a class="card" href="../gallery.html#concept-mapping"><div class="thumb"><img loading="lazy" src="../designs/Source%20_%20Concept%20_%20Details.png" alt=""></div><div class="caption"><span class="name">Concept Details</span></div></a>
+      <a class="card" href="../gallery.html#concept-mapping"><div class="thumb"><img loading="lazy" src="../designs/Source%20_%20Concept%20_%20History.png" alt=""></div><div class="caption"><span class="name">Concept History</span></div></a>
+      <a class="card" href="../gallery.html#concept-mapping"><div class="thumb"><img loading="lazy" src="../designs/Mapping%20_%20details.png" alt=""></div><div class="caption"><span class="name">Mapping Details</span></div></a>
+      <a class="card" href="../gallery.html#concept-mapping"><div class="thumb"><img loading="lazy" src="../designs/Associations.png" alt=""></div><div class="caption"><span class="name">Associations</span><span class="badge partial">Partial</span></div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>References &amp; Expansions</h2>
+    <div class="callout">
+      <strong>Biggest gap in the design system.</strong> None of these are implemented. Collection references handling is the single most important open question.
+    </div>
+    <div class="grid">
+      <a class="card" href="../gallery.html#references"><div class="thumb"><img loading="lazy" src="../designs/Reference%20_%20details.png" alt=""></div><div class="caption"><span class="name">Reference Details</span><span class="badge not-started">Not started</span></div></a>
+      <a class="card" href="../gallery.html#references"><div class="thumb"><img loading="lazy" src="../designs/Reference%20_%20expansion.png" alt=""></div><div class="caption"><span class="name">Reference Expansion</span><span class="badge not-started">Not started</span></div></a>
+      <a class="card" href="../gallery.html#references"><div class="thumb"><img loading="lazy" src="../designs/Reference%20_%20expansion%20_%20mappings.png" alt=""></div><div class="caption"><span class="name">Expansion Mappings</span><span class="badge not-started">Not started</span></div></a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Organization &amp; User</h2>
+    <div class="grid">
+      <a class="card" href="../gallery.html#org-user"><div class="thumb"><img loading="lazy" src="../designs/Organisation%20_%20Overview%20-%20Cards.png" alt=""></div><div class="caption"><span class="name">Organization Overview</span></div></a>
+      <a class="card" href="../gallery.html#org-user"><div class="thumb"><img loading="lazy" src="../designs/Organisation%20_%20Overview%20-%20Browse%20members.png" alt=""></div><div class="caption"><span class="name">Browse Members</span></div></a>
+      <a class="card" href="../gallery.html#org-user"><div class="thumb"><img loading="lazy" src="../designs/User%20_%20Viewing.png" alt=""></div><div class="caption"><span class="name">User Profile</span></div></a>
+      <a class="card" href="../gallery.html#org-user"><div class="thumb"><img loading="lazy" src="../designs/Sign-in.png" alt=""></div><div class="caption"><span class="name">Sign In</span></div></a>
+      <a class="card" href="../gallery.html#org-user"><div class="thumb"><img loading="lazy" src="../designs/Register.png" alt=""></div><div class="caption"><span class="name">Register</span></div></a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="legend">
+    <span class="badge partial">Partial</span> · <span class="badge divergent">Divergent</span> · <span class="badge not-started">Not started</span> · <span class="badge input">Input</span>
+  </div>
+  <div style="margin-top: 8px;">Unbadged patterns are canonical and considered implemented.</div>
+</footer>
+</body>
+</html>

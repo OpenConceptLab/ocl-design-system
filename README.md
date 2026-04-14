@@ -1,21 +1,54 @@
 # OCL Design System
 
-The living home for OCL Term Browser v3 (TBv3) designs: what we're building toward, where we currently stand, and the decisions behind each.
+The living home for OCL Term Browser v3 (TBv3) design guidance: foundations, components, patterns, and the canonical screenshot library behind them.
+
+**Live site:** [openconceptlab.github.io/ocl-design-system](https://openconceptlab.github.io/ocl-design-system/)
 
 ## Relationship to other repos
 
-- **`oclmap`** - OCL Mapper application. No specific designs in this repo however.
-- **`oclweb3`** — the TBv3 implementation. Current-state screenshots in [`tbv3-screenshots/`](tbv3-screenshots/) come from there.
-- **`oclweb2`** — legacy TBv2. Some designs explicitly fall back to v2 patterns until v3 replacements land.
+- **[`oclweb3`](https://github.com/OpenConceptLab/oclweb3)** — the canonical implementation (React 18 + MUI v5.18). Every component page in this site links back to real JSX. When the site and the code disagree, the code wins.
+- **`oclmap`** — OCL Mapper application. No specific designs here, but inherits the same tokens.
+- **`oclweb2`** — legacy TBv2. Some TBv3 areas still fall back to v2 patterns until v3 replacements land.
 
 ## Folder guide
 
 | Folder | What's inside |
 |---|---|
-| [`designs/`](designs/) | Canonical designs we're building toward. Flat folder, PNG only. Names preserved from Zeplin (spaces and ` _ ` separators kept so cross-references to `ocl-zeplin` still work). |
+| [`index.html`](index.html) | Landing page for the rendered design system site. |
+| [`foundations/`](foundations/) | Color (rendered live), typography (real Roboto specimens), elevation. |
+| [`components/`](components/) | Component catalog + three fleshed-out exemplars (RepoChip, HTMLTooltip, RepoHeader). Other components are stubs that link to their source in oclweb3. |
+| [`patterns/`](patterns/) | Screen-level compositions grouped by area (Dashboard, Repository, Search, etc.). Stubs only in v1. |
+| [`gallery.html`](gallery.html) | Raw screenshot browser — all 120 canonical Zeplin designs + 11 current-state TBv3 screenshots. |
+| [`assets/`](assets/) | Shared `tokens.css` (copied from [oclweb3/src/common/colors.jsx](https://github.com/OpenConceptLab/oclweb3/blob/main/src/common/colors.jsx)) and `site.css`. |
+| [`designs/`](designs/) | Canonical Zeplin PNGs. Flat folder, PNG only. Names preserved (spaces and ` _ ` separators kept so cross-references to `ocl-zeplin` still work). |
 | [`tbv3-screenshots/`](tbv3-screenshots/) | Current-state TBv3 screenshots for areas where the shipped implementation diverges from the canonical design. |
 | [`docs/review-2026-04.md`](docs/review-2026-04.md) | The April 2026 team design review — source of truth for the status classifications below. |
+| [`docs/token-sync-options.md`](docs/token-sync-options.md) | Options for keeping tokens in sync with oclweb3 long-term. v1 uses one-time copy. |
 | [`docs/styleguide/`](docs/styleguide/) | Historical `colors.json` / `text-styles.json` from the Zeplin styleguide. Actual source of truth lives in `oclweb3` code (color tokens already implemented as `primary.80` etc.). |
+
+## How the site works
+
+- **Pure static HTML.** No build step, no React runtime, no `package.json`. Every page can be opened via `file://` and renders identically to the GitHub Pages deploy.
+- **Roboto** loaded from Google Fonts (same font the app uses).
+- **Color tokens** live in [`assets/tokens.css`](assets/tokens.css) as CSS custom properties — a point-in-time copy of [oclweb3/src/common/colors.jsx](https://github.com/OpenConceptLab/oclweb3/blob/main/src/common/colors.jsx). Update by hand when the source changes.
+- **Shared layout** in [`assets/site.css`](assets/site.css) — header, nav, cards, grid, badges, specimen styling.
+- **Component examples** are hand-crafted HTML that mirrors the MUI look, not live React. Each exemplar page links to its source JSX.
+
+## v1 scope
+
+Shipped in this version:
+- Foundations (color, typography, elevation) — rendered live from real tokens.
+- Components catalog (~20 entries) with 3 fleshed-out exemplars; the rest are stubs that link to source.
+- Patterns catalog grouped by area; stubs only.
+- Raw gallery preserved at [`gallery.html`](gallery.html).
+
+Explicitly out of scope for v1:
+- Guidelines (voice/tone/content/iconography)
+- Pattern detail pages
+- Most component detail pages
+- Build tooling, React runtime, token sync script
+- Visual regression tooling
+- Dark mode
 
 ## Status table
 
