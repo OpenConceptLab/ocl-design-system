@@ -17,8 +17,9 @@ The design system for the next generation of OCL's web applications: foundations
 | [`index.html`](index.html) | Landing page (static HTML, also a Vite entry). |
 | [`public/`](public/) | Static assets served as-is: foundations, patterns, gallery, designs, docs, and static component pages. |
 | [`public/foundations/`](public/foundations/) | Color (rendered live), typography (real Roboto specimens), elevation. |
-| [`public/components/`](public/components/) | Component catalog index + static exemplars (RepoChip, HTMLTooltip, RepoHeader). |
-| [`components/`](components/) | Vite entry HTML files for React-powered component pages (Button). |
+| [`public/components/`](public/components/) | Component catalog index (static HTML). |
+| [`components/`](components/) | Vite entry HTML files for React-powered component pages (Button, RepoChip, HTMLTooltip, RepoHeader, Dialog, Alert, CommonTabs, Breadcrumbs). |
+| [`guides/`](guides/) | Vite entry HTML files for developer guides (Building Pages). |
 | [`src/`](src/) | React source: theme, color tokens, shared layout, and component pages. |
 | [`public/patterns/`](public/patterns/) | Screen-level compositions grouped by area. Stubs only in v1. |
 | [`public/gallery.html`](public/gallery.html) | Raw screenshot browser — all 120 canonical Zeplin designs + 11 current-state TBv3 screenshots. |
@@ -32,7 +33,7 @@ The design system for the next generation of OCL's web applications: foundations
 The site uses a **hybrid model**: most pages are static HTML, while component exemplar pages that need live examples use React + MUI (the same stack as oclweb3). Vite handles the build.
 
 - **Static pages** live in `public/` and are served as-is. They use `tokens.css` for colors and `site.css` for layout. These can still be opened via `file://` for quick viewing.
-- **React-powered pages** (starting with Button) are Vite entry points in `components/`. They mount React into a `<div>` and render live MUI components using the same theme as oclweb3.
+- **React-powered pages** (8 component exemplars + 1 developer guide) are Vite entry points in `components/` and `guides/`. They mount React into a `<div>` and render live MUI components using the same theme as oclweb3.
 - **Shared theme** in `src/theme.js` and `src/colors.js` — copied from `oclweb3/src/index.jsx` and `oclweb3/src/common/colors.jsx`. When oclweb3 theme changes, update these files.
 - **Roboto** loaded from Google Fonts (same font the app uses).
 - **Deployment** via GitHub Actions: push to `main` triggers `npm run build`, and the `dist/` output is deployed to GitHub Pages.
@@ -61,39 +62,51 @@ npm run preview      # Preview the built site locally
 4. Add to `vite.config.js`.
 5. The URL stays the same — no links break.
 
-## v1 scope
+## Current status
 
-Shipped in this version:
-- Foundations (color, typography, elevation) — rendered live from real tokens.
-- Components catalog (~20 entries) with 3 fleshed-out exemplars; the rest are stubs that link to source.
-- Patterns catalog grouped by area; stubs only.
-- Raw gallery preserved at [`gallery.html`](gallery.html).
+### React-powered pages (live MUI examples + copyable code)
 
-Explicitly out of scope for v1:
-- Guidelines (voice/tone/content/iconography)
-- Pattern detail pages
-- Most component detail pages
-- Visual regression tooling
-- Dark mode
+| Page | Type | What it covers |
+|------|------|---------------|
+| [Button](components/button.html) | Component | 7 button types (Contained, Outlined, Text, Pill, IconButton, Split, Toggle) + "in the wild" catalog |
+| [RepoChip](components/repo-chip.html) | Component | BaseEntityChip-based repo reference chip with variants, sizes, tooltip options |
+| [HTMLTooltip](components/html-tooltip.html) | Component | Rich HTML tooltip with custom styling, theme defaults |
+| [RepoHeader](components/repo-header.html) | Component | Repository page header composing chips, follow button, manage menu |
+| [Dialog](components/dialog.html) | Component | OCL-styled modal wrapper (28px radius, surface.n92 background) |
+| [Alert](components/alert.html) | Component | Toast notifications via Snackbar + filled Alert, 4 severities |
+| [CommonTabs](components/common-tabs.html) | Component | Full-width tab strip for entity page navigation |
+| [Breadcrumbs](components/breadcrumbs.html) | Component | Path navigation with owner/repo/concept/mapping segments |
+| [Building Pages](guides/building-pages.html) | Guide | Page scaffold, routing, API patterns, i18n, utilities, worked example |
+
+### Static HTML pages (no build step needed)
+
+| Page | What it covers |
+|------|---------------|
+| [Component index](public/components/index.html) | Catalog of ~21 components with status badges and source links |
+| [Color](public/foundations/color.html) | Full palette rendered from CSS tokens |
+| [Typography](public/foundations/typography.html) | MUI type scale with Roboto specimens |
+| [Elevation](public/foundations/elevation.html) | Material 3 shadow levels |
+| [Logo](public/foundations/logo.html) | OCL logo variants and brand assets |
+| [Gallery](public/gallery.html) | 131 Zeplin screenshots browsable by section |
+| [Patterns](public/patterns/index.html) | Screen-level compositions (stubs) |
+
+### Component coverage
+
+- **8 of 21** components have full exemplar pages with live examples, code snippets, props tables, and usage guidance
+- **10 components** remain as stubs (link to oclweb3 source, no detail page)
+- **3 components** are gaps (not yet implemented in code)
 
 ## What's next
 
-Loose ends from v1 that are worth picking up:
+Remaining work to make this a fully enabled development reference:
 
-- **Fill in the three exemplar TODOs.** [`components/repo-chip.html`](components/repo-chip.html), [`components/html-tooltip.html`](components/html-tooltip.html), and [`components/repo-header.html`](components/repo-header.html) each have `TODO — needs spec` callouts for usage guidance and accessibility. These are the cheapest wins.
-- **Logo clear-space and minimum-size rules.** [`foundations/logo.html`](foundations/logo.html) flags this as TODO. Needs a team decision.
-- **Replace emoji placeholders in component examples** (📁, 👤, 🏷) with inline SVG of the real MUI icons (`FolderOutlined`, `Person`, `LocalOffer`). Cosmetic but noticeable.
-- **Add button component documentation.** oclweb3 has multiple button styles (primary, secondary, icon-only, etc.) but there is currently no component page for buttons and no guidance on when to use each variant. This is one of the most frequently needed design references for AI-assisted coding. *(From the April 16 team session — Jon to take a first pass.)*
-
-Natural v2 candidates, roughly in priority order:
-
-1. **Define the component-entry spec for AI usability.** The current site is static HTML — Claude can reference it, but it lacks the two things that make component docs truly useful for AI coding: (1) **when-to-use narrative** (which button variant, which chip state, etc.) and (2) **React code snippets** that can be copied directly into oclweb3 JSX. Before building out the full catalog, Jon + Sunny + Felipe should align on what a component entry must contain — then Claude can build the rest in that format. *(From the April 16 team session.)*
-2. **Flesh out the 17 stub component pages** in the catalog. They already link to source; each one needs the same treatment as the three exemplars (anatomy, variants, props, source link, related).
-3. **Build pattern detail pages**, starting with **References & Expansions** — the biggest gap in the design system per the April 2026 review. A worked pattern page for "Collection references" unblocks the most valuable design work.
-4. **Automate token sync** — move from Option A (hand-copy) to Option B (tiny Node script) in [`docs/token-sync-options.md`](docs/token-sync-options.md) the first time the palette drifts from oclweb3.
-5. **Expand the component catalog** beyond the ~20 curated entries. There are ~50 more in [`oclweb3/src/components/`](https://github.com/OpenConceptLab/oclweb3/tree/main/src/components) worth documenting.
+1. **Fill in the remaining 10 stub component pages.** Each needs the same treatment as the 8 exemplars: live examples, code snippets, props, usage. Highest-value next: TableResults, CardResults, Header, LeftMenu.
+2. **Build pattern detail pages**, starting with **References & Expansions** — the biggest gap per the April 2026 review.
+3. **Automate token sync** — move from hand-copy to a Node script (see [`docs/token-sync-options.md`](public/docs/token-sync-options.md)) the first time the palette drifts from oclweb3.
+4. **Logo clear-space and minimum-size rules.** [`foundations/logo.html`](public/foundations/logo.html) flags this as TODO.
+5. **Convert the component index to React** — currently the only component-area page still in static HTML. Low priority since it's just a link grid.
 6. **Guidelines section** (voice/tone/content/iconography) once a team member has the content to write.
-7. **Live React component examples** via the hybrid approach from the original plan — static shell + bundled React islands for component examples. Do this only when the hand-rolled HTML mirroring starts feeling too brittle.
+7. **Expand the component catalog** beyond the ~21 curated entries. There are ~50 more in [`oclweb3/src/components/`](https://github.com/OpenConceptLab/oclweb3/tree/main/src/components) worth documenting.
 
 ## Status table
 
