@@ -32,13 +32,12 @@
   <h1>Components</h1>
   <p class="page-intro">
     Reusable React components from <a href="https://github.com/OpenConceptLab/oclweb3/tree/main/src/components"><code>oclweb3/src/components/</code></a>.
-    Each card shows its source file and status. Three exemplars are fully documented — those pages are the
-    template for the rest, which currently only link to source.
+    Each card shows its source file and status. Eight components have full exemplar pages with live React
+    examples and copyable code snippets. The rest link to source.
   </p>
   <div class="callout">
-    <strong>What's missing:</strong> component detail pages for everything unbadged <span class="badge stub">Stub</span>,
-    plus the design-system gaps flagged in the review (concept selector, key-value-pair display, reference &amp; expansion components).
-    If you write a detail page, lift <a href="repo-chip.html">repo-chip.html</a> as your template.
+    <strong>New:</strong> Component pages now use live React + MUI components — the same code as oclweb3.
+    See the <a href="../guides/building-pages.html">Building Pages</a> guide for page-level patterns.
   </div>
 
   <section>
@@ -132,15 +131,15 @@
         <p>Primary app navigation drawer.</p>
         <div class="card-meta">src/components/app/LeftMenu.jsx</div>
       </a>
-      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Breadcrumbs.jsx">
-        <h3>Breadcrumbs <span class="badge stub">Stub</span></h3>
-        <p>Path-style navigation with owner / repo / version segments.</p>
-        <div class="card-meta">src/components/common/Breadcrumbs.jsx</div>
+      <a class="card big" href="breadcrumbs.html">
+        <h3>Breadcrumbs <span class="badge ok">OK</span></h3>
+        <p>Path-style navigation showing the hierarchy from owner to repo to concept/mapping. Conditional segments, auto-truncation, retired items in red.</p>
+        <div class="card-meta">src/components/common/Breadcrumbs.jsx · Exemplar</div>
       </a>
-      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/CommonTabs.jsx">
-        <h3>CommonTabs <span class="badge stub">Stub</span></h3>
-        <p>Tab strip used on repo, concept, and user pages.</p>
-        <div class="card-meta">src/components/common/CommonTabs.jsx</div>
+      <a class="card big" href="common-tabs.html">
+        <h3>CommonTabs <span class="badge ok">OK</span></h3>
+        <p>Full-width tab strip with primary indicator, bold labels, surface.main background. Used on repo, concept, and user pages.</p>
+        <div class="card-meta">src/components/common/CommonTabs.jsx · Exemplar</div>
       </a>
     </div>
   </section>
@@ -148,20 +147,20 @@
   <section>
     <h2>Overlays &amp; feedback</h2>
     <div class="grid wide">
-      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Dialog.jsx">
-        <h3>Dialog <span class="badge stub">Stub</span></h3>
-        <p>Shared modal wrapper with consistent header/footer buttons.</p>
-        <div class="card-meta">src/components/common/Dialog.jsx</div>
+      <a class="card big" href="dialog.html">
+        <h3>Dialog <span class="badge ok">OK</span></h3>
+        <p>OCL-styled modal wrapper: 28px rounded corners, surface.n92 background. Used for confirmations, forms, and entity attributes.</p>
+        <div class="card-meta">src/components/common/Dialog.jsx · Exemplar</div>
       </a>
       <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Drawer.jsx">
         <h3>Drawer <span class="badge stub">Stub</span></h3>
         <p>Side drawer for contextual content.</p>
         <div class="card-meta">src/components/common/Drawer.jsx</div>
       </a>
-      <a class="card big" href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/common/Alert.jsx">
-        <h3>Alert <span class="badge stub">Stub</span></h3>
-        <p>Inline status messaging: info, success, warning, error.</p>
-        <div class="card-meta">src/components/common/Alert.jsx</div>
+      <a class="card big" href="alert.html">
+        <h3>Alert <span class="badge ok">OK</span></h3>
+        <p>Global toast notification via Snackbar + filled Alert. Success, error, warning, info severities. Triggered via OperationsContext.</p>
+        <div class="card-meta">src/components/common/Alert.jsx · Exemplar</div>
       </a>
     </div>
   </section>
