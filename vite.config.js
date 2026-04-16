@@ -10,6 +10,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         button: resolve(__dirname, 'components/button.html'),
+        'building-pages': resolve(__dirname, 'guides/building-pages.html'),
       },
     },
   },
