@@ -487,6 +487,133 @@ section > h2 {
   gap: 4px;
 }
 
+/* ---------- Button examples — mirrors MUI Button / IconButton / ButtonGroup ---------- */
+
+/* Base action button */
+.ds-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.75;
+  text-transform: none;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 6px 16px;
+  min-width: 64px;
+  border-radius: 4px;
+  transition: background-color 0.15s, box-shadow 0.15s, border-color 0.15s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Contained variant */
+.ds-btn.contained { background: var(--primary-main); color: #fff; }
+.ds-btn.contained:hover { background: var(--primary-30); }
+.ds-btn.contained.secondary { background: var(--secondary-main); }
+.ds-btn.contained.secondary:hover { background: var(--secondary-30); }
+.ds-btn.contained.error { background: var(--error-main); }
+.ds-btn.contained.error:hover { background: #8c0009; }
+.ds-btn.contained.default { background: var(--surface-n96); color: var(--surface-dark); }
+.ds-btn.contained.default:hover { background: var(--surface-n90); }
+
+/* Outlined variant */
+.ds-btn.outlined { background: transparent; border: 1px solid var(--primary-main); color: var(--primary-main); }
+.ds-btn.outlined:hover { background: var(--primary-95); }
+.ds-btn.outlined.secondary { border-color: var(--secondary-main); color: var(--secondary-main); }
+.ds-btn.outlined.secondary:hover { background: var(--secondary-95); }
+.ds-btn.outlined.error { border-color: var(--error-main); color: var(--error-main); }
+.ds-btn.outlined.error:hover { background: var(--error-95); }
+
+/* Text variant */
+.ds-btn.text { background: transparent; color: var(--primary-main); padding: 6px 8px; min-width: auto; }
+.ds-btn.text:hover { background: var(--primary-95); }
+.ds-btn.text.secondary { color: var(--secondary-main); }
+.ds-btn.text.secondary:hover { background: var(--secondary-95); }
+.ds-btn.text.error { color: var(--error-main); }
+.ds-btn.text.error:hover { background: var(--error-95); }
+
+/* Pill variant — the OCL custom Chip-as-Button */
+.ds-btn.pill { border-radius: 100px; height: 40px; padding: 0 16px; }
+.ds-btn.pill.contained { border-radius: 100px; }
+.ds-btn.pill.active { background: var(--surface-s90); color: var(--surface-dark); border: none; }
+.ds-btn.pill.active:hover { background: var(--secondary-90); }
+.ds-btn.pill.inactive { background: transparent; border: 1px solid var(--surface-s90); color: var(--surface-dark); }
+.ds-btn.pill.inactive:hover { background: var(--surface-n96); }
+
+/* Size modifiers */
+.ds-btn.small { font-size: 13px; padding: 4px 10px; min-width: auto; }
+.ds-btn.small.pill { height: 32px; padding: 0 12px; }
+.ds-btn.large { font-size: 15px; padding: 8px 22px; }
+
+/* Disabled state */
+.ds-btn.disabled { opacity: 0.38; pointer-events: none; cursor: default; }
+
+/* Icon inside button (stand-in) */
+.ds-btn .icon { font-size: inherit; display: inline-flex; align-items: center; line-height: 1; }
+
+/* ---------- Icon Button ---------- */
+
+.ds-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 8px;
+  color: var(--surface-contrast);
+  font-size: 20px;
+  line-height: 1;
+  transition: background-color 0.15s;
+}
+.ds-icon-btn:hover { background: rgba(94, 92, 113, 0.2); }
+.ds-icon-btn.primary { color: var(--primary-main); }
+.ds-icon-btn.secondary { color: var(--secondary-main); }
+.ds-icon-btn.error { color: var(--error-main); }
+.ds-icon-btn.small { padding: 4px; font-size: 18px; }
+.ds-icon-btn.large { padding: 12px; font-size: 28px; }
+.ds-icon-btn.disabled { opacity: 0.38; pointer-events: none; }
+
+/* ---------- Button Group ---------- */
+
+.ds-btn-group {
+  display: inline-flex;
+}
+.ds-btn-group > .ds-btn {
+  border-radius: 0;
+}
+.ds-btn-group > .ds-btn:first-child { border-radius: 4px 0 0 4px; }
+.ds-btn-group > .ds-btn:last-child { border-radius: 0 4px 4px 0; }
+.ds-btn-group > .ds-btn + .ds-btn { margin-left: -1px; }
+
+/* Split button dropdown trigger */
+.ds-btn-group > .ds-btn-dropdown { padding: 4px 6px; min-width: auto; border-left: 1px solid rgba(255, 255, 255, 0.3); }
+.ds-btn-group > .ds-btn.outlined.ds-btn-dropdown { border-left: 1px solid currentColor; }
+.ds-btn-group > .ds-btn.error.ds-btn-dropdown { border-left-color: rgba(255, 255, 255, 0.3); }
+
+/* Pill-shaped button groups (rounded terminal buttons) */
+.ds-btn-group.pill > .ds-btn:first-child { border-radius: 25px 0 0 25px; }
+.ds-btn-group.pill > .ds-btn:last-child { border-radius: 0 25px 25px 0; }
+
+/* Selected state for toggle groups */
+.ds-btn.selected { background: var(--surface-s90); color: var(--surface-dark); font-weight: 700; }
+.ds-btn.selected.primary-tint { background: var(--primary-90); }
+
+/* ---------- In-the-wild table styling ---------- */
+
+.wild-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 24px; }
+.wild-table th, .wild-table td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border-subtle); vertical-align: top; }
+.wild-table th { background: var(--bg-subtle); font-weight: 500; color: var(--text-secondary); font-size: 12px; }
+.wild-table code { font-size: 11px; background: var(--bg-subtle); padding: 1px 5px; border-radius: 3px; }
+.wild-table td:first-child { font-weight: 500; white-space: nowrap; }
+
 /* ---------- Footer ---------- */
 
 footer.site-footer {

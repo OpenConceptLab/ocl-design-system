@@ -14,25 +14,52 @@ The design system for the next generation of OCL's web applications: foundations
 
 | Folder | What's inside |
 |---|---|
-| [`index.html`](index.html) | Landing page for the rendered design system site. |
-| [`foundations/`](foundations/) | Color (rendered live), typography (real Roboto specimens), elevation. |
-| [`components/`](components/) | Component catalog + three fleshed-out exemplars (RepoChip, HTMLTooltip, RepoHeader). Other components are stubs that link to their source in oclweb3. |
-| [`patterns/`](patterns/) | Screen-level compositions grouped by area (Dashboard, Repository, Search, etc.). Stubs only in v1. |
-| [`gallery.html`](gallery.html) | Raw screenshot browser — all 120 canonical Zeplin designs + 11 current-state TBv3 screenshots. |
-| [`assets/`](assets/) | Shared `tokens.css` (copied from [oclweb3/src/common/colors.jsx](https://github.com/OpenConceptLab/oclweb3/blob/main/src/common/colors.jsx)) and `site.css`. |
-| [`designs/`](designs/) | Canonical Zeplin PNGs. Flat folder, PNG only. Names preserved (spaces and ` _ ` separators kept so cross-references to `ocl-zeplin` still work). |
-| [`tbv3-screenshots/`](tbv3-screenshots/) | Current-state TBv3 screenshots for areas where the shipped implementation diverges from the canonical design. |
-| [`docs/review-2026-04.md`](docs/review-2026-04.md) | The April 2026 team design review — source of truth for the status classifications below. |
-| [`docs/token-sync-options.md`](docs/token-sync-options.md) | Options for keeping tokens in sync with oclweb3 long-term. v1 uses one-time copy. |
-| [`docs/styleguide/`](docs/styleguide/) | Historical `colors.json` / `text-styles.json` from the Zeplin styleguide. Actual source of truth lives in `oclweb3` code (color tokens already implemented as `primary.80` etc.). |
+| [`index.html`](index.html) | Landing page (static HTML, also a Vite entry). |
+| [`public/`](public/) | Static assets served as-is: foundations, patterns, gallery, designs, docs, and static component pages. |
+| [`public/foundations/`](public/foundations/) | Color (rendered live), typography (real Roboto specimens), elevation. |
+| [`public/components/`](public/components/) | Component catalog index + static exemplars (RepoChip, HTMLTooltip, RepoHeader). |
+| [`components/`](components/) | Vite entry HTML files for React-powered component pages (Button). |
+| [`src/`](src/) | React source: theme, color tokens, shared layout, and component pages. |
+| [`public/patterns/`](public/patterns/) | Screen-level compositions grouped by area. Stubs only in v1. |
+| [`public/gallery.html`](public/gallery.html) | Raw screenshot browser — all 120 canonical Zeplin designs + 11 current-state TBv3 screenshots. |
+| [`public/assets/`](public/assets/) | Shared `tokens.css`, `site.css`, logos, favicon. |
+| [`public/designs/`](public/designs/) | Canonical Zeplin PNGs. |
+| [`public/docs/`](public/docs/) | Design review, token sync options, styleguide JSON. |
+| [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) | GitHub Actions workflow: build + deploy to GitHub Pages. |
 
 ## How the site works
 
-- **Pure static HTML.** No build step, no React runtime, no `package.json`. Every page can be opened via `file://` and renders identically to the GitHub Pages deploy.
+The site uses a **hybrid model**: most pages are static HTML, while component exemplar pages that need live examples use React + MUI (the same stack as oclweb3). Vite handles the build.
+
+- **Static pages** live in `public/` and are served as-is. They use `tokens.css` for colors and `site.css` for layout. These can still be opened via `file://` for quick viewing.
+- **React-powered pages** (starting with Button) are Vite entry points in `components/`. They mount React into a `<div>` and render live MUI components using the same theme as oclweb3.
+- **Shared theme** in `src/theme.js` and `src/colors.js` — copied from `oclweb3/src/index.jsx` and `oclweb3/src/common/colors.jsx`. When oclweb3 theme changes, update these files.
 - **Roboto** loaded from Google Fonts (same font the app uses).
-- **Color tokens** live in [`assets/tokens.css`](assets/tokens.css) as CSS custom properties — a point-in-time copy of [oclweb3/src/common/colors.jsx](https://github.com/OpenConceptLab/oclweb3/blob/main/src/common/colors.jsx). Update by hand when the source changes.
-- **Shared layout** in [`assets/site.css`](assets/site.css) — header, nav, cards, grid, badges, specimen styling.
-- **Component examples** are hand-crafted HTML that mirrors the MUI look, not live React. Each exemplar page links to its source JSX.
+- **Deployment** via GitHub Actions: push to `main` triggers `npm run build`, and the `dist/` output is deployed to GitHub Pages.
+
+## Development
+
+```bash
+npm install          # Install dependencies
+npm run dev          # Start Vite dev server with HMR
+npm run build        # Build to dist/
+npm run preview      # Preview the built site locally
+```
+
+### Adding a new React-powered page
+
+1. Create `components/<name>.html` with a `<div id="<name>-page">` and `<script type="module" src="/src/pages/<name>-entry.jsx">`.
+2. Create `src/pages/<Name>Page.jsx` with the React component.
+3. Create `src/pages/<name>-entry.jsx` to mount it with `ThemeProvider`.
+4. Add the entry to `vite.config.js` under `build.rollupOptions.input`.
+
+### Converting a static page to React
+
+1. Move the HTML file from `public/components/` to `components/` (root level).
+2. Replace its body with a React mount point + script tag.
+3. Create the corresponding JSX files in `src/pages/`.
+4. Add to `vite.config.js`.
+5. The URL stays the same — no links break.
 
 ## v1 scope
 
@@ -46,7 +73,6 @@ Explicitly out of scope for v1:
 - Guidelines (voice/tone/content/iconography)
 - Pattern detail pages
 - Most component detail pages
-- Build tooling, React runtime, token sync script
 - Visual regression tooling
 - Dark mode
 
