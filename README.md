@@ -57,15 +57,17 @@ Loose ends from v1 that are worth picking up:
 - **Fill in the three exemplar TODOs.** [`components/repo-chip.html`](components/repo-chip.html), [`components/html-tooltip.html`](components/html-tooltip.html), and [`components/repo-header.html`](components/repo-header.html) each have `TODO — needs spec` callouts for usage guidance and accessibility. These are the cheapest wins.
 - **Logo clear-space and minimum-size rules.** [`foundations/logo.html`](foundations/logo.html) flags this as TODO. Needs a team decision.
 - **Replace emoji placeholders in component examples** (📁, 👤, 🏷) with inline SVG of the real MUI icons (`FolderOutlined`, `Person`, `LocalOffer`). Cosmetic but noticeable.
+- **Add button component documentation.** oclweb3 has multiple button styles (primary, secondary, icon-only, etc.) but there is currently no component page for buttons and no guidance on when to use each variant. This is one of the most frequently needed design references for AI-assisted coding. *(From the April 16 team session — Jon to take a first pass.)*
 
 Natural v2 candidates, roughly in priority order:
 
-1. **Flesh out the 17 stub component pages** in the catalog. They already link to source; each one needs the same treatment as the three exemplars (anatomy, variants, props, source link, related).
-2. **Build pattern detail pages**, starting with **References & Expansions** — the biggest gap in the design system per the April 2026 review. A worked pattern page for "Collection references" unblocks the most valuable design work.
-3. **Automate token sync** — move from Option A (hand-copy) to Option B (tiny Node script) in [`docs/token-sync-options.md`](docs/token-sync-options.md) the first time the palette drifts from oclweb3.
-4. **Expand the component catalog** beyond the ~20 curated entries. There are ~50 more in [`oclweb3/src/components/`](https://github.com/OpenConceptLab/oclweb3/tree/main/src/components) worth documenting.
-5. **Guidelines section** (voice/tone/content/iconography) once a team member has the content to write.
-6. **Live React component examples** via the hybrid approach from the original plan — static shell + bundled React islands for component examples. Do this only when the hand-rolled HTML mirroring starts feeling too brittle.
+1. **Define the component-entry spec for AI usability.** The current site is static HTML — Claude can reference it, but it lacks the two things that make component docs truly useful for AI coding: (1) **when-to-use narrative** (which button variant, which chip state, etc.) and (2) **React code snippets** that can be copied directly into oclweb3 JSX. Before building out the full catalog, Jon + Sunny + Felipe should align on what a component entry must contain — then Claude can build the rest in that format. *(From the April 16 team session.)*
+2. **Flesh out the 17 stub component pages** in the catalog. They already link to source; each one needs the same treatment as the three exemplars (anatomy, variants, props, source link, related).
+3. **Build pattern detail pages**, starting with **References & Expansions** — the biggest gap in the design system per the April 2026 review. A worked pattern page for "Collection references" unblocks the most valuable design work.
+4. **Automate token sync** — move from Option A (hand-copy) to Option B (tiny Node script) in [`docs/token-sync-options.md`](docs/token-sync-options.md) the first time the palette drifts from oclweb3.
+5. **Expand the component catalog** beyond the ~20 curated entries. There are ~50 more in [`oclweb3/src/components/`](https://github.com/OpenConceptLab/oclweb3/tree/main/src/components) worth documenting.
+6. **Guidelines section** (voice/tone/content/iconography) once a team member has the content to write.
+7. **Live React component examples** via the hybrid approach from the original plan — static shell + bundled React islands for component examples. Do this only when the hand-rolled HTML mirroring starts feeling too brittle.
 
 ## Status table
 
