@@ -151,12 +151,13 @@ const RepoHeaderPage = () => (
             <ul style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 }}>
               <li>Use on every repository page as the top-level identifier.</li>
               <li>Keep sticky so the user always knows which repo they are in.</li>
-              <li>Use the Manage menu as the only place for destructive actions (delete, retire).</li>
+              <li>Use the Manage menu as the only place for destructive actions on page headers (delete, retire). In non-header surfaces, use the <a href="/ocl-design-system/components/kebab-menu.html">KebabMenu</a> pattern instead &mdash; see the decision table on that page.</li>
             </ul>
             <h4>Don't</h4>
             <ul style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 }}>
               <li>Don't duplicate the repository name elsewhere on the page.</li>
-              <li>Don't place destructive actions outside the Manage menu.</li>
+              <li>Don't place destructive actions outside the Manage menu (on page headers).</li>
+              <li>Don't use the Manage menu on workspace toolbars or table rows &mdash; those use the <a href="/ocl-design-system/components/kebab-menu.html">KebabMenu</a> pattern.</li>
               <li>Don't hide the RepoHeader on scroll &mdash; it should remain sticky.</li>
             </ul>
           </Section>

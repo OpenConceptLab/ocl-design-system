@@ -17,6 +17,8 @@ export default defineConfig({
         alert: resolve(__dirname, 'components/alert.html'),
         'common-tabs': resolve(__dirname, 'components/common-tabs.html'),
         breadcrumbs: resolve(__dirname, 'components/breadcrumbs.html'),
+        'kebab-menu': resolve(__dirname, 'components/kebab-menu.html'),
+        'workspace-toolbar': resolve(__dirname, 'components/workspace-toolbar.html'),
         'building-pages': resolve(__dirname, 'guides/building-pages.html'),
       },
     },
