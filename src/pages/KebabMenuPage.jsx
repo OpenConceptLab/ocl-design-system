@@ -251,13 +251,6 @@ const RowActions = ({ onCopy, onDelete }) => {
             <li><a href="/ocl-design-system/components/repo-header.html">RepoHeader (Manage menu)</a></li>
             <li><a href="/ocl-design-system/components/button.html">Button (IconButton)</a></li>
           </ul>
-
-          <h3>Tickets</h3>
-          <ul>
-            <li><a href="https://github.com/OpenConceptLab/ocl_issues/issues/2488">ocl_issues#2488</a> &mdash; pattern documentation (this page)</li>
-            <li><a href="https://github.com/OpenConceptLab/ocl_issues/issues/2486">ocl_issues#2486</a> &mdash; consumer: MapProjects dashboard row actions</li>
-            <li><a href="https://github.com/OpenConceptLab/ocl_issues/issues/2487">ocl_issues#2487</a> &mdash; consumer: MapProject workspace toolbar</li>
-          </ul>
         </aside>
       </div>
     </main>
