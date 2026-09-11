@@ -135,8 +135,9 @@
   <section>
     <h2>Full logo</h2>
     <p style="color: var(--text-secondary);">
-      The primary lockup — icon plus wordmark. Use this wherever space allows: site headers, documents, slide decks,
-      email signatures. Choose <strong>black text</strong> on light backgrounds, <strong>white text</strong> on dark.
+      The primary lockup — icon plus wordmark. Use it for site footers, documents, slide decks and email signatures.
+      Choose <strong>black text</strong> on light backgrounds, <strong>white text</strong> on dark. Site headers use
+      the icon on its own instead; see <a href="#headers-footers">Headers &amp; footers</a>.
     </p>
     <div class="logo-grid">
       <div class="logo-card">
@@ -165,8 +166,9 @@
   <section>
     <h2>Icon</h2>
     <p style="color: var(--text-secondary);">
-      Standalone icon. Use for favicons, app icons, avatar placeholders, and any UI where the full wordmark
-      wouldn't fit. The blue variant is the primary; white is for dark or primary-colored backgrounds.
+      Standalone icon. Use it on its own in site headers, with no name or wordmark beside it, and for favicons,
+      app icons, avatar placeholders and any UI where the full wordmark wouldn't fit. The blue variant is the
+      primary; white is for dark or primary-colored backgrounds.
     </p>
     <div class="logo-grid">
       <div class="logo-card">
@@ -255,6 +257,61 @@
     </p>
   </section>
 
+  <section id="headers-footers">
+    <h2>Headers &amp; footers</h2>
+    <p style="color: var(--text-secondary);">
+      How the logo sits in OCL websites and web apps, per the brand design (September 2026):
+    </p>
+    <ul style="color: var(--text-secondary); line-height: 1.7;">
+      <li><strong>Header:</strong> the blue icon on its own. No "Open Concept Lab" text or wordmark beside it.</li>
+      <li><strong>Footer</strong> (dark background): the full logo with white text, with the
+        <a href="#dpg-badge">DPG badge</a> below it. Keep the badge visibly smaller than the logo; the community site
+        uses a logo about 70px tall and a badge about 28px tall.</li>
+    </ul>
+    <div class="callout">
+      There is no one-line (horizontal) wordmark. The wordmark only exists stacked, in the full-logo and
+      text-stacked files, so don't stand one in by typing the name next to the icon. If a layout needs a horizontal
+      lockup, have it made from the Drive master (see Source files below).
+    </div>
+  </section>
+
+  <section id="dpg-badge">
+    <h2>Digital Public Good badge</h2>
+    <p style="color: var(--text-secondary);">
+      OCL has been a <a href="https://www.digitalpublicgoods.net/r/open-concept-lab">verified Digital Public Good</a>
+      since January 2025. Show it with the Digital Public Goods Alliance's official badge: the <strong>color</strong>
+      badge on light backgrounds, the <strong>white</strong> badge on dark. Always link it to OCL's registry profile,
+      and don't recolor or redraw it.
+    </p>
+    <div class="logo-grid">
+      <div class="logo-card">
+        <div class="logo-stage light"><img src="../assets/dpg-badge/dpg-badge.svg" alt="Digital Public Goods badge, color" style="max-height: 56px;"></div>
+        <div class="logo-meta">
+          <span class="label">DPG badge · Color</span>
+          <span class="formats">
+            <a href="../assets/dpg-badge/dpg-badge.svg">SVG</a>
+            <a href="../assets/dpg-badge/dpg-badge.png">PNG</a>
+          </span>
+        </div>
+      </div>
+      <div class="logo-card">
+        <div class="logo-stage dark"><img src="../assets/dpg-badge/dpg-badge-w.svg" alt="Digital Public Goods badge, white" style="max-height: 56px;"></div>
+        <div class="logo-meta">
+          <span class="label">DPG badge · White</span>
+          <span class="formats">
+            <a href="../assets/dpg-badge/dpg-badge-w.svg">SVG</a>
+            <a href="../assets/dpg-badge/dpg-badge-w.png">PNG</a>
+          </span>
+        </div>
+      </div>
+    </div>
+    <p style="color: var(--text-secondary); font-size: 13px; margin-top: 8px;">
+      Link target: <code>https://www.digitalpublicgoods.net/r/open-concept-lab</code>. The files are unmodified copies
+      from DPGA's <a href="https://github.com/DPGAlliance/dpg-resources/blob/main/docs/dpg-badge-usage.md">badge usage
+      guide</a>, released under CC0, so no attribution is required.
+    </p>
+  </section>
+
   <section>
     <h2>Clear space &amp; minimum size</h2>
     <div class="callout">
@@ -291,6 +348,15 @@
         </div>
         <div class="dont-label">Don't render smaller than 24px tall (full logo).</div>
       </div>
+      <div class="dont-cell">
+        <div class="dont">
+          <span style="display: inline-flex; align-items: center; gap: 8px;">
+            <img src="../assets/logo/icon/Icon-Blue.svg" alt="" style="height: 20px;">
+            <span style="font: 700 14px Roboto, sans-serif; color: var(--primary-main); white-space: nowrap;">Open Concept Lab</span>
+          </span>
+        </div>
+        <div class="dont-label">Don't type the name next to the icon. Use the icon alone or the full logo.</div>
+      </div>
     </div>
   </section>
 
@@ -326,6 +392,7 @@
 
 <footer class="site-footer">
   Logo files copied from the OCL Shared Drive. SVG and PNG only — EPS and PDF masters remain on Drive.
+  DPG badge files copied unmodified from DPGAlliance/dpg-resources (CC0).
 </footer>
 </body>
 </html>
