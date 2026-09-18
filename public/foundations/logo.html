@@ -163,7 +163,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="icon">
     <h2>Icon</h2>
     <p style="color: var(--text-secondary);">
       Standalone icon. Use it on its own in site headers, with no name or wordmark beside it, and for favicons,
@@ -264,8 +264,9 @@
     </p>
     <ul style="color: var(--text-secondary); line-height: 1.7;">
       <li><strong>Header:</strong> the blue icon on its own, 28px tall. No "Open Concept Lab" text or wordmark
-        beside it. Use the icon file above, not a re-traced copy: a trace with padding in its viewBox renders
-        smaller at the same height.</li>
+        beside it. Size it from the <a href="#icon">icon</a> file, not a re-traced copy: a trace with padding in
+        its viewBox renders smaller at the same height. In code, inline the icon's shapes and fill them with the
+        primary token — the icon files carry #3F27FF from the brand master, not the #4836ff primary.</li>
       <li><strong>Footer</strong> (dark background): the full logo with white text, with the
         <a href="#dpg-badge">DPG badge</a> below it. Keep the badge visibly smaller than the logo; the community site
         uses a logo about 70px tall and a badge about 28px tall.</li>
