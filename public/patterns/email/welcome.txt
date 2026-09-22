@@ -1,0 +1,25 @@
+Welcome to OCL — here's where to start
+
+Thanks for subscribing. You'll hear from us occasionally.
+
+While you're here, three things worth five minutes:
+
+* Who is OCL? — the short version of what this community is and why it exists.
+  https://preview.openconceptlab.org/about-us
+
+* Get started — create a free account and search 2.3 million concepts across
+  CIEL, ICD-10, LOINC and SNOMED CT.
+  https://app.openconceptlab.org
+
+* Join a community call — the fastest way to meet the people building this.
+  https://preview.openconceptlab.org/about-us
+
+Reply to this email if you're working on something we should know about. We
+read everything.
+
+— The OCL team
+
+—
+Sent by Open Concept Lab · info@openconceptlab.org
+Unsubscribe: {{ unsubscribe }}
+Update your preferences: {{ update_profile }}

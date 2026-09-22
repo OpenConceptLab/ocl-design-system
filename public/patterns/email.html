@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Transactional email · Patterns · OCL v3 Design System</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="shortcut icon" href="../assets/favicon.ico">
+<style>
+  .mail-preview { width: 100%; height: 560px; border: 1px solid var(--surface-variant, #ddd); border-radius: 6px; background: #f4f3f8; }
+  .mail-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 24px; }
+  .mail-grid figure { margin: 0; display: flex; flex-direction: column; gap: 10px; }
+  .mail-grid figcaption { font-size: 13px; line-height: 1.5; }
+  .file-list li { margin-bottom: 6px; }
+  .tag-table td:first-child { white-space: nowrap; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../index.html"><img class="brand-logo" src="../assets/logo/text-stacked/BlueCircle-WhiteText.png" alt=""><span>OCL v3 Design System</span><span class="brand-sub">· Patterns</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Overview</a>
+      <a href="../foundations/color.html">Foundations</a>
+      <a href="../components/index.html">Components</a>
+      <a href="index.html" class="active">Patterns</a>
+      <a href="../gallery.html">Gallery</a>
+    </nav>
+    <div class="site-nav-right">
+      <a href="../docs/review-2026-04.md">Review</a>
+      <a href="https://github.com/OpenConceptLab/ocl-design-system">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <div class="breadcrumb"><a href="../index.html">Overview</a> · <a href="index.html">Patterns</a> · Transactional email</div>
+  <h1>Transactional email</h1>
+  <p class="page-intro">
+    The newsletter double-opt-in and welcome emails, built for <a href="https://www.brevo.com/">Brevo</a>.
+    Email is the one surface where none of this design system's components can be used — so these
+    templates reimplement the foundations by hand, in the only subset of HTML that email clients agree on.
+  </p>
+
+  <div class="callout">
+    <strong>This is a documented gap, not a one-off.</strong> Email clients have no flexbox, no grid, no
+    external stylesheets, no webfonts worth relying on, and Outlook renders through Word. Nothing in
+    <a href="../components/index.html">Components</a> survives that. These files exist so the next OCL
+    email starts from something considered rather than from Brevo's drag-and-drop defaults.
+    Filed as <a href="https://github.com/OpenConceptLab/ocl_online/issues/155">ocl_online#155</a>.
+  </div>
+
+  <section>
+    <h2>Previews</h2>
+    <p>Rendered in an iframe, which is a browser — not a mail client. Outlook is the one that will differ;
+    seed-test before any real send.</p>
+    <div class="mail-grid">
+      <figure>
+        <iframe class="mail-preview" src="email/doi-confirmation.html" title="Double opt-in confirmation email preview" loading="lazy"></iframe>
+        <figcaption>
+          <strong>Double opt-in confirmation.</strong> The first email a subscriber ever gets from OCL.
+          Carries <code>{{ doubleoptin }}</code> — Brevo will not accept it as the DOI template without it.
+          <br><a href="email/doi-confirmation.html">Open</a> · <a href="email/doi-confirmation.txt">plain text</a>
+        </figcaption>
+      </figure>
+      <figure>
+        <iframe class="mail-preview" src="email/welcome.html" title="Welcome email preview" loading="lazy"></iframe>
+        <figcaption>
+          <strong>Welcome.</strong> Sent by automation on list join, after confirmation.
+          Invites a reply, so it must send from a monitored address.
+          <br><a href="email/welcome.html">Open</a> · <a href="email/welcome.txt">plain text</a>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <h2>How the foundations translate</h2>
+    <table class="props-table">
+      <thead><tr><th>Foundation</th><th>In email</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Primary <code>#4836ff</code></td>
+          <td>Literal hex, inline on every element</td>
+          <td>No custom properties, no stylesheet. The token's value is copied, not referenced — if the token changes, these files must be edited by hand.</td>
+        </tr>
+        <tr>
+          <td>Roboto</td>
+          <td><code>Roboto, Arial, Helvetica, sans-serif</code></td>
+          <td>Roboto is self-hosted for the site and won't load in mail. Arial is the real render in Outlook, so the stack is a fallback plan, not a preference.</td>
+        </tr>
+        <tr>
+          <td>Logo</td>
+          <td>PNG at an absolute HTTPS URL</td>
+          <td>SVG does not render in Outlook or Gmail. Matted onto white: the <code>#232323</code> wordmark would vanish against a dark-mode client's forced background.</td>
+        </tr>
+        <tr>
+          <td>Elevation</td>
+          <td>Not used</td>
+          <td><code>box-shadow</code> is unreliable across clients. A 6px radius on a white card over <code>#f4f3f8</code> carries the separation instead.</td>
+        </tr>
+        <tr>
+          <td>Layout</td>
+          <td>Nested <code>&lt;table&gt;</code>, fixed 600px</td>
+          <td>The only layout primitive every client agrees on.</td>
+        </tr>
+        <tr>
+          <td>Button</td>
+          <td>Anchor + VML fallback</td>
+          <td>Outlook ignores padding on an anchor, so the button needs a <code>v:roundrect</code> behind an <code>[if mso]</code> conditional or it collapses to a bare link.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Merge tags</h2>
+    <div class="callout">
+      <strong>Verify these against your own Brevo account before sending.</strong> Brevo's tag names vary
+      by account age and editor version. The templates use the names below; if Brevo's editor shows
+      different ones, its names win — these are placeholders in a file, and a wrong tag ships a dead link
+      in the one email a subscriber is most likely to click.
+    </div>
+    <table class="props-table tag-table">
+      <thead><tr><th>Tag</th><th>Where</th><th>Purpose</th></tr></thead>
+      <tbody>
+        <tr><td><code>{{ doubleoptin }}</code></td><td>DOI email only</td><td>The confirmation link. Required — Brevo rejects a DOI template without it.</td></tr>
+        <tr><td><code>{{ unsubscribe }}</code></td><td>Both, footer</td><td>One-click unsubscribe. Required on every Brevo email.</td></tr>
+        <tr><td><code>{{ update_profile }}</code></td><td>Both, footer</td><td>Brevo's hosted update-preferences page.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Using these</h2>
+    <ol class="file-list">
+      <li>Open the file, copy the whole thing, and paste it into Brevo's <strong>HTML editor</strong> — not the drag-and-drop editor, which will rewrite it.</li>
+      <li>Paste the matching <code>.txt</code> into the plain-text alternative. Brevo will auto-generate one otherwise, and it generates a poor one.</li>
+      <li>Confirm the merge tags resolve in Brevo's own preview before saving.</li>
+      <li>Seed-test to Gmail, Outlook and Yahoo. Check <code>dkim=pass</code> and <code>spf=pass</code> in the raw headers, and that both footer links resolve.</li>
+    </ol>
+    <div class="callout">
+      <strong>The URLs point at <code>preview.openconceptlab.org</code> on purpose.</strong> The apex still
+      serves WordPress until the DNS cutover, so a production URL today would 404 — including the logo,
+      which would break the image in every email. Swapping these hosts is a numbered step in
+      <code>ocl-community-site/docs/CUTOVER.md</code>.
+    </div>
+  </section>
+
+  <section>
+    <h2>Not covered here</h2>
+    <p>
+      Brevo's <strong>hosted</strong> unsubscribe and update-preferences pages accept custom CSS but not
+      arbitrary HTML. They can be brought onto OCL's colours and type, but they cannot be rebuilt — so
+      they will read as OCL-coloured rather than OCL-designed. That is a limit of the vendor, and worth
+      knowing before anyone files a bug against it.
+    </p>
+  </section>
+</main>
+</body>
+</html>

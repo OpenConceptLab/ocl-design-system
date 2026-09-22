@@ -1,0 +1,18 @@
+Confirm your subscription
+
+You're almost there. Open the link below to confirm, and we'll add you to the
+Open Concept Lab newsletter.
+
+You'll hear from us occasionally: what the OCL community is building, what's
+changed in the platform, and where to get involved.
+
+Confirm your subscription:
+{{ doubleoptin }}
+
+If you didn't ask for this, ignore this email — you won't be subscribed, and we
+won't write again.
+
+—
+Sent by Open Concept Lab · info@openconceptlab.org
+Unsubscribe: {{ unsubscribe }}
+Update your preferences: {{ update_profile }}
