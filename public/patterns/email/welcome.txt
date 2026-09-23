@@ -12,7 +12,7 @@ While you're here, three things worth five minutes:
   https://app.openconceptlab.org
 
 * Join a community call — the fastest way to meet the people building this.
-  https://preview.openconceptlab.org/about-us
+  https://preview.openconceptlab.org/#community-calls
 
 Reply to this email if you're working on something we should know about. We
 read everything.
