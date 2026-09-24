@@ -149,10 +149,12 @@
     <h2>Using these</h2>
     <ol class="file-list">
       <li>Open the file, copy the whole thing, and paste it into Brevo's <strong>HTML editor</strong> — not the drag-and-drop editor, which will rewrite it.</li>
-      <li>Paste the matching <code>.txt</code> into the plain-text alternative. Brevo will auto-generate one otherwise, and it generates a poor one.</li>
       <li>Confirm the merge tags resolve in Brevo's own preview before saving.</li>
       <li>Seed-test to Gmail, Outlook and Yahoo. Check <code>dkim=pass</code> and <code>spf=pass</code> in the raw headers, and that the welcome email's footer links resolve.</li>
     </ol>
+    <p>There is no plain-text paste. Brevo's template editor has no plain-text field, and Brevo builds
+    the text part from the HTML when it sends. The <code>.txt</code> files are reference copies of what
+    that part should say: compare them with a seed test's plain-text view.</p>
     <div class="callout">
       <strong>The URLs point at <code>preview.openconceptlab.org</code> on purpose.</strong> The apex still
       serves WordPress until the DNS cutover, so a production URL today would 404 — including the logo,
