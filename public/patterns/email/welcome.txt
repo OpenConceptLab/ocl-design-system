@@ -9,9 +9,9 @@ To get started:
   https://app.openconceptlab.org/#/signup
 * Hear from the OCL Community at our Blog — releases, case studies and what's
   new across the community.
-  https://preview.openconceptlab.org/blog
+  https://openconceptlab.org/blog
 * Join a community call — the fastest way to meet the people building this.
-  https://preview.openconceptlab.org/#community-calls
+  https://openconceptlab.org/#community-calls
 
 Start exploring: https://app.openconceptlab.org
 

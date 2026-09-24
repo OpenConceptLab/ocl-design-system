@@ -154,9 +154,9 @@
       <li>Seed-test to Gmail, Outlook and Yahoo. Check <code>dkim=pass</code> and <code>spf=pass</code> in the raw headers, and that the welcome email's footer links resolve.</li>
     </ol>
     <div class="callout">
-      <strong>The URLs point at <code>preview.openconceptlab.org</code> on purpose.</strong> The apex still
-      serves WordPress until the DNS cutover, so a production URL today would 404 — including the logo,
-      which would break the image in every email. Swapping these hosts is a numbered step in
+      <strong>The URLs point at <code>openconceptlab.org</code>.</strong> The logo is served by the
+      community site, so moving <code>/images/email/ocl-logo.png</code> there would break the image in
+      every email. The switch from <code>preview.openconceptlab.org</code> was a numbered step in
       <code>ocl-community-site/docs/CUTOVER.md</code>.
     </div>
   </section>
