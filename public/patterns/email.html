@@ -62,6 +62,7 @@
         <figcaption>
           <strong>Double opt-in confirmation.</strong> The first email a subscriber ever gets from OCL.
           Carries <code>{{ doubleoptin }}</code> — Brevo will not accept it as the DOI template without it.
+          No unsubscribe link, on purpose: see <a href="#merge-tags">Merge tags and footer links</a>.
           <br><a href="email/doi-confirmation.html">Open</a> · <a href="email/doi-confirmation.txt">plain text</a>
         </figcaption>
       </figure>
@@ -116,7 +117,7 @@
   </section>
 
   <section>
-    <h2>Merge tags</h2>
+    <h2 id="merge-tags">Merge tags and footer links</h2>
     <div class="callout">
       <strong>Verify these against your own Brevo account before sending.</strong> Brevo's tag names vary
       by account age and editor version. The templates use the names below; if Brevo's editor shows
@@ -127,10 +128,21 @@
       <thead><tr><th>Tag</th><th>Where</th><th>Purpose</th></tr></thead>
       <tbody>
         <tr><td><code>{{ doubleoptin }}</code></td><td>DOI email only</td><td>The confirmation link. Required — Brevo rejects a DOI template without it.</td></tr>
-        <tr><td><code>{{ unsubscribe }}</code></td><td>Both, footer</td><td>One-click unsubscribe. Required on every Brevo email.</td></tr>
-        <tr><td><code>{{ update_profile }}</code></td><td>Both, footer</td><td>Brevo's hosted update-preferences page.</td></tr>
+        <tr><td>Unsubscribe form URL</td><td>Welcome only, footer</td><td>A plain <code>https://…sibforms.com/serve/…</code> link to the hosted <em>OCL Newsletter unsubscribe</em> form, not a merge tag. The subscriber confirms their address and is unsubscribed from newsletter email. The URL is on the form's <strong>Share</strong> step, and changes if the form is ever recreated.</td></tr>
+        <tr><td><code>{{ update_profile }}</code></td><td>Welcome only, footer</td><td>Brevo's hosted update-preferences form. In a transactional email Brevo hides that form's own Unsubscribe link, so it cannot stand in for the one above.</td></tr>
       </tbody>
     </table>
+    <div class="callout">
+      <strong>Neither email uses <code>{{ unsubscribe }}</code>.</strong> Both are Brevo <em>transactional</em>
+      sends, the sign-up form's DOI email and its final confirmation. In a transactional email
+      <code>{{ unsubscribe }}</code> unsubscribes the address from transactional email only: the subscriber
+      stays on the newsletter list, and Brevo then blocks every later confirmation email to that address,
+      so they cannot re-subscribe either. Brevo has no merge tag for a newsletter unsubscribe inside a
+      transactional template, hence the form URL. The DOI email has no footer links at all: the reader is
+      not subscribed yet, and "ignore this email" already covers it. Newsletter <em>campaigns</em> are
+      marketing sends, where <code>{{ unsubscribe }}</code> is correct. See
+      <a href="https://github.com/OpenConceptLab/ocl_online/issues/214">ocl_online#214</a>.
+    </div>
   </section>
 
   <section>
@@ -139,7 +151,7 @@
       <li>Open the file, copy the whole thing, and paste it into Brevo's <strong>HTML editor</strong> — not the drag-and-drop editor, which will rewrite it.</li>
       <li>Paste the matching <code>.txt</code> into the plain-text alternative. Brevo will auto-generate one otherwise, and it generates a poor one.</li>
       <li>Confirm the merge tags resolve in Brevo's own preview before saving.</li>
-      <li>Seed-test to Gmail, Outlook and Yahoo. Check <code>dkim=pass</code> and <code>spf=pass</code> in the raw headers, and that both footer links resolve.</li>
+      <li>Seed-test to Gmail, Outlook and Yahoo. Check <code>dkim=pass</code> and <code>spf=pass</code> in the raw headers, and that the welcome email's footer links resolve.</li>
     </ol>
     <div class="callout">
       <strong>The URLs point at <code>preview.openconceptlab.org</code> on purpose.</strong> The apex still
