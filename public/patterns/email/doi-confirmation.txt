@@ -14,5 +14,3 @@ won't write again.
 
 —
 Sent by Open Concept Lab · info@openconceptlab.org
-Unsubscribe: {{ unsubscribe }}
-Update your preferences: {{ update_profile }}
