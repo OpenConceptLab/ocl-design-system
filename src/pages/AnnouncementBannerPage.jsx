@@ -41,7 +41,7 @@ const Strip = ({ onClose }) => (
       </Typography>
       <Typography variant="body2" sx={{ color: 'surface.contrastText' }}>
         Your content is already here, and you can switch back to TBv2 any time.{' '}
-        <Link href="https://openconceptlab.org/blog" target="_blank" rel="noopener noreferrer" sx={{ fontWeight: 600 }}>
+        <Link href="https://openconceptlab.org/blog" target="_blank" rel="noopener noreferrer" sx={{ fontWeight: 600, '&:hover, &:focus': { color: 'primary.main' } }}>
           Learn more
         </Link>
       </Typography>
@@ -87,7 +87,7 @@ const AnnouncementBannerPage = () => (
       <p className="page-intro">
         Full-width strip for news about OCL Online as a whole: a launch, a public preview, a maintenance window.
         It sits above the app bar, across the whole window, so it reads as coming from OCL Online rather than from the tool.
-        The community site, TermBrowser v3, TermBrowser v2 and the OCL Mapper all show the same strip.
+        The community site, TermBrowser v3, TermBrowser v2 and the OCL Mapper show the same strip. The community site centers its content in its page container; the apps align it with the app bar.
         For feedback on something the user just did, use <a href="/ocl-design-system/components/alert.html">Alert</a> instead.
       </p>
 
@@ -102,11 +102,11 @@ const AnnouncementBannerPage = () => (
 
           <Section title="Anatomy">
             <ul style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 }}>
-              <li><strong>Strip</strong> &mdash; full width, <code>backgroundColor: &apos;primary.95&apos;</code>, <code>py: 1</code>. Left and right padding match the app bar&apos;s <code>Toolbar</code> (<code>pl: {'{ xs: 2, sm: 3 }'}</code>, <code>pr: 2</code>), so the icon lines up with the logo and the close button with the header controls. z-index matches the app bar&apos;s.</li>
+              <li><strong>Strip</strong> &mdash; full width, <code>backgroundColor: &apos;primary.95&apos;</code>, <code>py: 1</code>. Left and right padding match the app bar&apos;s <code>Toolbar</code> (<code>pl: {'{ xs: 2, sm: 3 }'}</code>, <code>pr: 2</code>), so the icon lines up with the logo and the close button with the header controls. z-index matches the app bar&apos;s. TBv2&apos;s theme predates the v3 tokens, so its banner uses the same values as hex (<code>#f2efff</code>, <code>#4836ff</code>, <code>#1c1b1f</code>, <code>#47464f</code>), with <code>px: {'{ xs: 2, sm: 3 }'}</code> and its app bar&apos;s z-index (1300).</li>
               <li><strong>Icon</strong> &mdash; <code>&lt;CampaignOutlinedIcon color=&quot;primary&quot; fontSize=&quot;small&quot; /&gt;</code>.</li>
               <li><strong>Title</strong> &mdash; <code>body2</code>, weight 600, <code>surface.dark</code>.</li>
-              <li><strong>Message</strong> &mdash; <code>body2</code>, <code>surface.contrastText</code>, one sentence, followed by a <code>Link</code> (weight 600, underlined). An external link opens in a new tab.</li>
-              <li><strong>Close</strong> &mdash; <code>&lt;IconButton size=&quot;small&quot;&gt;</code> with <code>&lt;CloseIcon fontSize=&quot;small&quot; /&gt;</code> and an <code>aria-label</code> from the <code>announcement.dismiss</code> locale key.</li>
+              <li><strong>Message</strong> &mdash; <code>body2</code>, <code>surface.contrastText</code>, one sentence, followed by a <code>Link</code> (weight 600, underlined). An external link opens in a new tab. The apps load Bootstrap, whose <code>a:hover</code>/<code>a:focus</code> colour outranks the Link&apos;s class, so the Link sets <code>&apos;&amp;:hover, &amp;:focus&apos;: {'{ color: \'primary.main\' }'}</code>.</li>
+              <li><strong>Close</strong> &mdash; <code>&lt;IconButton size=&quot;small&quot;&gt;</code> with <code>&lt;CloseIcon fontSize=&quot;small&quot; /&gt;</code> and an <code>aria-label</code> from the <code>announcement.dismiss</code> locale key (<code>announcement.dismiss_aria</code> on the community site).</li>
               <li>Icon, title and message sit in one <code>flexWrap: &apos;wrap&apos;</code> row with <code>gap: 1.5</code>, so on narrow screens and in longer translations the strip wraps and grows taller.</li>
             </ul>
           </Section>
@@ -119,13 +119,13 @@ const AnnouncementBannerPage = () => (
             <table className="props-table">
               <thead><tr><th>What</th><th>Rule</th></tr></thead>
               <tbody>
-                <tr><td><strong>The banner</strong></td><td><code>position: fixed; top: 0</code>. Sets <code>--announcement-height</code> on <code>&lt;html&gt;</code> from its <code>offsetHeight</code> (<code>useLayoutEffect</code> + <code>ResizeObserver</code>) and removes it on dismiss.</td></tr>
+                <tr><td><strong>The banner</strong></td><td><code>position: fixed; top: 0</code>. Sets <code>--announcement-height</code> on <code>&lt;html&gt;</code> from its <code>offsetHeight</code> (<code>useLayoutEffect</code> + <code>ResizeObserver</code>) and removes it on dismiss. Carries <code>className=&quot;mui-fixed&quot;</code>, so MUI&apos;s scroll lock pads it like the app bar when a modal opens on a scrolling page.</td></tr>
                 <tr><td><strong>App bar</strong></td><td><code>top: var(--announcement-height, 0px)</code></td></tr>
                 <tr><td><strong>Spacer under the app bar</strong></td><td><code>margin-top: var(--announcement-height, 0px)</code> on the toolbar-height spacer at the top of <code>&lt;main&gt;</code></td></tr>
-                <tr><td><strong>Full-height pages and panels</strong></td><td><code>calc(var(--app-height) - Npx)</code>, never <code>100vh</code>. <code>index.scss</code> defines <code>--app-height: calc(100vh - var(--announcement-height, 0px))</code>. TBv3 and the Mapper don&apos;t scroll the page body, so a <code>100vh</code> height pushes the page bottom off-screen while the banner shows.</td></tr>
+                <tr><td><strong>Full-height pages and panels</strong></td><td><code>calc(var(--app-height) - Npx)</code>, never <code>100vh</code>. <code>index.scss</code> defines <code>--app-height: calc(100vh - var(--announcement-height, 0px))</code>. TBv3 and the Mapper don&apos;t scroll the page body, so a <code>100vh</code> height pushes the page bottom off-screen while the banner shows. Dialog contents keep <code>vh</code>, because the banner doesn&apos;t push dialogs down. TBv2&apos;s page scrolls, so it has no <code>--app-height</code>.</td></tr>
                 <tr><td><strong>Viewport-relative heights</strong> (<code>80vh</code>) and fixed-height panels that must end at the window bottom</td><td>Subtract the variable: <code>calc(80vh - var(--announcement-height, 0px))</code></td></tr>
-                <tr><td><strong>Anything fixed just below the app bar</strong> (docked drawers, overlays aligned with the header)</td><td>Add the variable: <code>top: calc(64px + var(--announcement-height, 0px))</code></td></tr>
-                <tr><td><strong>Modal layers</strong> (Dialog, modal Drawer, Menu, Snackbar)</td><td>No change. They cover the banner, as they cover the app bar.</td></tr>
+                <tr><td><strong>Anything positioned just below the app bar</strong>: docked drawers, drawers whose z-index is below the app bar&apos;s (TBv2&apos;s form drawers, TBv3&apos;s comparison drawer), overlays aligned with the header</td><td>Add the variable to the top: <code>top: calc(64px + var(--announcement-height, 0px))</code>. If the paper keeps MUI&apos;s <code>height: 100%</code>, take the same offset off its height, <code>calc(100% - 64px - var(--announcement-height, 0px))</code>, or use <code>bottom: 0; height: auto</code>. Otherwise its end runs off-screen.</td></tr>
+                <tr><td><strong>Layers above the app bar</strong>: Dialog, Menu, Popover, Snackbar, and drawers with a z-index above the app bar&apos;s (TBv3&apos;s and the Mapper&apos;s common Drawer, 1202)</td><td>No change. They cover the banner, as they cover the app bar.</td></tr>
               </tbody>
             </table>
             <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginTop: 12 }}>
@@ -179,6 +179,7 @@ const AnnouncementBanner = () => {
   return (
     <Box
       ref={ref}
+      className='mui-fixed'
       sx={{
         position: 'fixed', top: 0, left: 0, right: 0,
         zIndex: theme => theme.zIndex.drawer + 1,
@@ -194,7 +195,8 @@ const AnnouncementBanner = () => {
         </Typography>
         <Typography variant='body2' sx={{ color: 'surface.contrastText' }}>
           {t('announcement.text')}{' '}
-          <Link href={ANNOUNCEMENT_URL} target='_blank' rel='noopener noreferrer' sx={{ fontWeight: 600 }}>
+          <Link href={ANNOUNCEMENT_URL} target='_blank' rel='noopener noreferrer'
+            sx={{ fontWeight: 600, '&:hover, &:focus': { color: 'primary.main' } }}>
             {t('announcement.link_label')}
           </Link>
         </Typography>
