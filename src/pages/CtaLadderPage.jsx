@@ -15,8 +15,6 @@ import ExampleFrame from '../components/ExampleFrame';
 import CodeSnippet from '../components/CodeSnippet';
 import { PRIMARY_COLORS, WHITE } from '../colors';
 
-const SITE_SRC = 'https://github.com/OpenConceptLab/ocl-community-site/blob/main/src';
-
 const Section = ({ title, children }) => (
   <section>
     <h2>{title}</h2>
@@ -98,7 +96,7 @@ const CtaLadderPage = () => {
                   </Button>
                 ))}
               </Box>
-              <ExampleFrame note="A replica in this site's MUI 5. On the site the band runs full width, directly above the footer, which shares its colour.">
+              <ExampleFrame note="A replica in this site's MUI 5, scaled down to fit the frame (36px icons, h6 titles; the site uses 40px and h5, as in Anatomy). On the site the band runs full width, directly above the footer, which shares its colour.">
                 <Ladder columns={current.columns} primary={current.primary} />
               </ExampleFrame>
             </Section>
@@ -117,9 +115,9 @@ const CtaLadderPage = () => {
                 <thead><tr><th>Rule</th><th>Detail</th></tr></thead>
                 <tbody>
                   <tr><td><strong>One order</strong></td><td>Sign up · Newsletter · Community call · Early access, on every page. Pages never reorder the columns.</td></tr>
-                  <tr><td><strong>The page picks the filled button</strong></td><td><code>/pricing</code>: Early access. <code>/blog</code>, <code>/blog/*</code>, <code>/early-access</code>: Newsletter. Everywhere else: Sign up.</td></tr>
+                  <tr><td><strong>The page picks the filled button</strong></td><td><code>/pricing</code>: Early access. <code>/blog</code>, <code>/blog/*</code>, <code>/early-access</code>: Newsletter. Everywhere else: Sign up (signed in: Go to OCL Online).</td></tr>
                   <tr><td><strong>Signed-in visitors never see &ldquo;sign up&rdquo;</strong></td><td>The column becomes Go to OCL Online (TermBrowser). On a <code>/tools/&lt;tool&gt;</code> page it is hidden instead, because the page&apos;s Get started block right above already links to the tool; Early access then takes the filled button.</td></tr>
-                  <tr><td><strong>No link to the current page</strong></td><td><code>/early-access</code> drops the early-access column.</td></tr>
+                  <tr><td><strong>No link to the current page</strong></td><td><code>/early-access</code> drops the early-access column; <code>/newsletter/*</code> (the subscribe confirmation pages) drops the newsletter column.</td></tr>
                   <tr><td><strong>Lead source</strong></td><td>Early access links to <code>/early-access?source=ladder-&lt;page&gt;</code> (<code>ladder-home</code>, <code>ladder-mapper</code>…), which GA reports as <code>lead_source</code>.</td></tr>
                   <tr><td><strong>Sign-in state after mount</strong></td><td>Pages are prerendered, so the ladder renders signed out first and switches after mount. Reading <code>localStorage</code> during render would make React discard the prerender.</td></tr>
                 </tbody>
@@ -143,7 +141,7 @@ ladderFor({ pathname: '/tools/mapper', signedIn: true })
               <ul style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 }}>
                 <li>Don&rsquo;t build a page-specific CTA row. Choose the filled column in <code>ctaLadder.js</code> instead.</li>
                 <li>Don&rsquo;t add a disabled or &ldquo;coming soon&rdquo; action. Every column goes somewhere real.</li>
-                <li>Don&rsquo;t put GitHub, issue or chat links in the ladder. GitHub and Chat are in the footer; &ldquo;Report an issue&rdquo; is in each tool page&apos;s Get started block.</li>
+                <li>Don&rsquo;t put GitHub, issue or chat links in the ladder. GitHub and Chat are in the footer; &ldquo;Report an issue&rdquo; is in the Get started block of the TermBrowser, Terminology Service and Mapper tool pages.</li>
               </ul>
             </Section>
 
@@ -154,8 +152,13 @@ ladderFor({ pathname: '/tools/mapper', signedIn: true })
             <p><span className="badge ok">OK</span> &mdash; documented from the community site&apos;s implementation.</p>
 
             <h3>Source</h3>
-            <a className="source-link" href={`${SITE_SRC}/components/layout/CtaLadder.jsx`}>ocl-community-site CtaLadder.jsx</a>
-            <a className="source-link" href={`${SITE_SRC}/common/ctaLadder.js`}>ocl-community-site ctaLadder.js</a>
+            <p style={{ fontSize: 13, color: 'var(--text-secondary)' }}>
+              In <code>ocl-community-site</code>, a private repository, so these aren&apos;t links:
+            </p>
+            <ul>
+              <li><code>src/components/layout/CtaLadder.jsx</code></li>
+              <li><code>src/common/ctaLadder.js</code></li>
+            </ul>
 
             <h3>Related</h3>
             <ul>

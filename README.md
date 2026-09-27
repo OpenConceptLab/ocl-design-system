@@ -1,6 +1,6 @@
 # OCL v3 Design System
 
-The design system for the next generation of OCL's web applications: foundations, components, patterns, and the canonical screenshot library behind them. Applies to both [`oclweb3`](https://github.com/OpenConceptLab/oclweb3) (Term Browser v3) and [`oclmap`](https://github.com/OpenConceptLab/oclmap) (OCL Mapper), and to the community site ([`ocl-community-site`](https://github.com/OpenConceptLab/ocl-community-site), openconceptlab.org) where a component is shared with it or lives only there.
+The design system for the next generation of OCL's web applications: foundations, components, patterns, and the canonical screenshot library behind them. Applies to both [`oclweb3`](https://github.com/OpenConceptLab/oclweb3) (Term Browser v3) and [`oclmap`](https://github.com/OpenConceptLab/oclmap) (OCL Mapper), and to the community site (openconceptlab.org, built from the private `ocl-community-site` repo) where a component is shared with it or lives only there.
 
 **Live site:** [openconceptlab.github.io/ocl-design-system](https://openconceptlab.github.io/ocl-design-system/)
 
