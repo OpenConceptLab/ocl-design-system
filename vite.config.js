@@ -20,6 +20,7 @@ export default defineConfig({
         'kebab-menu': resolve(__dirname, 'components/kebab-menu.html'),
         'workspace-toolbar': resolve(__dirname, 'components/workspace-toolbar.html'),
         'announcement-banner': resolve(__dirname, 'components/announcement-banner.html'),
+        'cta-ladder': resolve(__dirname, 'components/cta-ladder.html'),
         'building-pages': resolve(__dirname, 'guides/building-pages.html'),
       },
     },
