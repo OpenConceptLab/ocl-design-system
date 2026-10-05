@@ -86,14 +86,18 @@
     <li><strong>Never translate</strong>: OCL, TermBrowser, HEAD, FHIR resource names (CodeSystem, ValueSet, ConceptMap) and parameters
       (<code>activeOnly</code>, <code>system-version</code>…), <code>$match</code>, Elasticsearch, terminology names (LOINC, SNOMED CT, CIEL, ICD-10, ICD-11),
       and UUID, JSON, CSV, URL, API.</li>
-    <li><strong>OCL AI Assistant</strong> always names OCL: "Assistente de IA do OCL", never just "Assistente de IA".
-      OCL never says "AI recommendations"; say "recommendations from the OCL AI Assistant" or rephrase.</li>
+    <li><strong>OCL AI Assistant</strong> always names OCL: "Assistente de IA do OCL", not just "Assistente de IA".
+      Don't write "AI recommendations"; say "recommendations from the OCL AI Assistant" or rephrase. Some existing English Mapper strings
+      still break both rules (e.g. <code>preview_estimate_ai_*</code>, labels that say "AI Assistant"). They'll be fixed in English and every
+      language together, so don't treat them as precedent.</li>
     <li><strong>When a string has placeholders or sits next to a link</strong>, ask in the PR how it renders. Reviewers will quote the assembled sentence.</li>
   </ul>
 
   <h2>Glossary</h2>
-  <p>Values come from the app catalogs. <span class="badge ok">Agreed</span> means the language lead's choice is recorded.
-    <span class="badge divergent">Open</span> means a decision is pending (owner in the note). A dash means the catalog has no such string yet.</p>
+  <p>Values come from the app catalogs and are shown as the base term, singular and in sentence case. The catalog labels themselves may be plural or Title Case
+    (capitalization is still an open pt-BR question, last row). Where the two apps use different words, the note says so.
+    <span class="badge ok">Agreed</span> means the language lead's choice is recorded. <span class="badge divergent">Open</span> means a decision is pending (owner in the note).
+    A dash means neither catalog has the term yet.</p>
   <div class="table-wrap">
   <table class="props-table glossary">
     <thead><tr><th>English</th><th>Español</th><th>中文</th><th>Português (Brasil)</th><th>Status · notes</th></tr></thead>
@@ -112,12 +116,12 @@
       <tr><td>Release · Released · Unreleased</td><td>— · Publicado · Sin publicar</td><td>— · Released · Unreleased</td><td>Publicar · Publicado · Não publicado</td><td><span class="badge divergent">Open</span> <span class="note">zh: "Released" and "Unreleased" are still in English.</span></td></tr>
       <tr><td>HEAD</td><td>HEAD</td><td>HEAD</td><td>HEAD</td><td><span class="badge ok">Agreed</span> <span class="note">Never translated.</span></td></tr>
       <tr><td>Retired · Retire · Unretire</td><td>Retirado · Retirar · Reactivar</td><td>已退役 · 退役 · 重新激活</td><td>Aposentado · Aposentar · Reativar</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: keep, or "Inativo · Inativar · Reativar", or "Descontinuado · Descontinuar · Reativar"?</span></td></tr>
-      <tr><td>Locale <span class="note">(of a name)</span></td><td>—</td><td>本地语言</td><td>Localidade</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: "Localidade" or "Idioma"?</span></td></tr>
+      <tr><td>Locale <span class="note">(of a name)</span></td><td>Idioma (TBv3) · Configuración regional (Mapper)</td><td>本地语言</td><td>Localidade</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: "Localidade" or "Idioma"? es lead: the two apps differ.</span></td></tr>
       <tr><td>Owner</td><td>Propietario</td><td>所有者</td><td>Proprietário</td><td><span class="badge ok">Agreed</span></td></tr>
-      <tr><td>Canonical URL</td><td>—</td><td>—</td><td>URL canônica</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Canonical URL</td><td>URL canónica</td><td>规范型 URL</td><td>URL canônica</td><td><span class="badge divergent">Open</span> <span class="note">zh lead: the Mapper's algorithm form also uses 规范 URL.</span></td></tr>
       <tr><td>Code System · Value Set · Concept Map</td><td>—</td><td>—</td><td>Code System · Value Set · Concept Map</td><td><span class="badge ok">Agreed</span> <span class="note">FHIR resource names stay in English.</span></td></tr>
-      <tr><td>Delete</td><td>—</td><td>—</td><td>Excluir</td><td><span class="badge ok">Agreed</span></td></tr>
-      <tr><td>Include · Exclude <span class="note">(collection reference)</span></td><td>Incluir · Excluir</td><td>—</td><td>Incluir · Excluir</td><td><span class="badge ok">Agreed</span> <span class="note">Reads as a pair, so no clash with Delete.</span></td></tr>
+      <tr><td>Delete</td><td>Eliminar</td><td>删除</td><td>Excluir</td><td><span class="badge ok">Agreed</span> <span class="note">Spanish keeps Delete (Eliminar) apart from Exclude (Excluir).</span></td></tr>
+      <tr><td>Include · Exclude <span class="note">(collection reference)</span></td><td>Incluir · Excluir</td><td>包含 · 排除</td><td>Incluir · Excluir</td><td><span class="badge ok">Agreed</span> <span class="note">Reads as a pair, so no clash with Delete.</span></td></tr>
       <tr><td>Exclude <span class="note">(Mapper decision)</span></td><td>Excluir</td><td>排除</td><td>Excluir</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: collides with Delete ("Excluído em massa" reads as deleted). Suggested "Desconsiderar".</span></td></tr>
       <tr><td>Mapping project</td><td>Proyecto de mapeo</td><td>映射项目</td><td>Projeto de mapeamento</td><td><span class="badge ok">Agreed</span></td></tr>
       <tr><td>Match <span class="note">(noun)</span></td><td>Coincidencia</td><td>匹配</td><td>Correspondência</td><td><span class="badge ok">Agreed</span></td></tr>
@@ -127,7 +131,7 @@
       <tr><td>Target repository</td><td>Repositorio objetivo</td><td>目标存储库</td><td>Repositório de destino</td><td><span class="badge ok">Agreed</span></td></tr>
       <tr><td>Bridge <span class="note">(concept, terminology)</span></td><td>Concepto puente · Bridge</td><td>桥接概念 · Bridge</td><td>Conceito ponte · Bridge</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: the Mapper mixes "Ponte", "Bridge" and "bridge"; pick one.</span></td></tr>
       <tr><td>OCL AI Assistant</td><td>OCL Asistente de IA</td><td>OCL AI 助手</td><td>Assistente de IA do OCL</td><td><span class="badge divergent">Open</span> <span class="note">es lead: "Asistente de IA de OCL" may read more naturally. Always name OCL.</span></td></tr>
-      <tr><td>Quota</td><td>Cuota</td><td>配额</td><td>Cota</td><td><span class="badge ok">Agreed</span> <span class="note">Quota = a per-period allowance; a cap is a limit ("Limite").</span></td></tr>
+      <tr><td>Quota</td><td>Cuota</td><td>配额</td><td>Cota</td><td><span class="badge ok">Agreed</span> <span class="note">A quota is an allowance, per period or one-time (e.g. the preview). A cap limits how much you can hold ("Limite").</span></td></tr>
       <tr><td>Allowance</td><td>Asignación</td><td>额度</td><td>Permissão</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: "permissão" may read as <em>permission</em>; review suggested "Cota".</span></td></tr>
       <tr><td>Label capitalization</td><td>—</td><td>—</td><td>Title Case, mirroring English</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: sentence case ("Nome completo") is the usual pt-BR UI convention.</span></td></tr>
     </tbody>
