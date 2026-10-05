@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Localization · Guides · OCL v3 Design System</title>
+<link rel="stylesheet" href="../assets/tokens.css">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="shortcut icon" href="../assets/favicon.ico">
+<style>
+  .glossary td:first-child { font-weight: 500; white-space: nowrap; }
+  .glossary td { vertical-align: top; }
+  .glossary .note { color: var(--text-secondary); font-size: 12px; }
+  .table-wrap { overflow-x: auto; margin: 16px 0 32px; }
+  main.narrow ul li { margin-bottom: 6px; }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <div class="site-header-inner">
+    <a class="site-brand" href="../index.html"><img class="brand-logo" src="../assets/logo/text-stacked/BlueCircle-WhiteText.png" alt=""><span>OCL v3 Design System</span><span class="brand-sub">· Guides</span></a>
+    <nav class="site-nav">
+      <a href="../index.html">Overview</a>
+      <a href="../foundations/color.html">Foundations</a>
+      <a href="../components/index.html">Components</a>
+      <a href="../patterns/index.html">Patterns</a>
+      <a href="../gallery.html">Gallery</a>
+    </nav>
+    <div class="site-nav-right">
+      <a href="../docs/review-2026-04.md">Review</a>
+      <a href="https://github.com/OpenConceptLab/ocl-design-system">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main class="narrow">
+  <div class="breadcrumb"><a href="../index.html">Overview</a> · Guides · Localization</div>
+  <h1>Localization</h1>
+  <p class="page-intro">
+    This page covers how the OCL web apps (TermBrowser v3 and the OCL Mapper) say things in each interface language.
+    It has two parts: rules for developers, so that translated text still reads correctly once the code assembles it,
+    and a glossary of canonical OCL terms, so every language uses the same word for the same thing in both apps.
+  </p>
+  <div class="callout">
+    <strong>Interface language is not content language.</strong> This page covers the UI language a user picks in the menu.
+    It does not cover the locales of names in a terminology (a concept's <code>locale</code>, a repository's
+    <code>supported_locales</code>), or the language the OCL AI Assistant writes in. Keep those three separate in code and in copy.
+  </div>
+
+  <h2>Who decides</h2>
+  <ul>
+    <li><strong>Each language's terms</strong> are decided by that language's translation lead.
+      Portuguese (Brasil): <a href="https://github.com/filiperochalopes">@filiperochalopes</a>.
+      Español and 中文: open; propose yourself in a PR.</li>
+    <li><strong>Product and feature names</strong> (OCL AI Assistant, Auto Match, OCL Mapper) are decided by OCL.</li>
+    <li>Change this page through a pull request. A translation PR that introduces or changes a term in the glossary should update the glossary in the same PR.</li>
+  </ul>
+
+  <h2>Rules for developers: assembling text</h2>
+  <p>Most translation bugs come from the code, not the translation: the code joins fragments that read fine alone but break once combined.
+    The translator only sees the catalog, never the assembled sentence.</p>
+  <ul>
+    <li><strong>One key per whole sentence.</strong> Interpolate values (<code>{{name}}</code>) and use <code>&lt;Trans&gt;</code> for links.
+      Never build a sentence from fragments such as <code>please</code> + link + <code>or</code> + <code>go_to_your</code>:
+      word order differs between languages, and Portuguese renders that chain as "Por favor atualizar ou ir para seu Painel."</li>
+    <li><strong>Pass translated labels, never raw API values.</strong> <code>repo.type</code> ("Collection") or a literal <code>'concept'</code>
+      inside a translated sentence renders as "este Collection" or "Este concept aparece…".</li>
+    <li><strong>Don't put a gendered word next to an interpolated noun.</strong> "this {{resourceType}}" needs <em>este</em> or <em>esta</em> in Portuguese and Spanish,
+      depending on the value. Rephrase the sentence ("a lista de {{resource}}") or use one key per type.</li>
+    <li><strong>Escape once.</strong> oclweb3 does not set <code>escapeValue: false</code> globally (oclmap does), so a user-supplied value must pass
+      <code>t(key, { name, interpolation: { escapeValue: false } })</code>. Otherwise "O'Neil" renders as <code>O&amp;#39;Neil</code>.</li>
+    <li><strong>Case is part of the sentence.</strong> If a fragment can start a line in one place and sit mid-sentence in another, give it two keys,
+      or lowercase it only at the mid-sentence call site.</li>
+    <li><strong>Shared keys stay identical.</strong> When a key exists in both oclweb3 and oclmap with the same English text,
+      its translation should match in every language.</li>
+    <li><strong>New English keys fall back to English</strong> until a translation lands. List the new keys in the PR description so translators can catch up.</li>
+  </ul>
+
+  <h2>Rules for translators</h2>
+  <ul>
+    <li><strong>OCL resource names</strong> (Source, Collection, Organization…) are a per-language decision, recorded in the glossary below.
+      The Portuguese (Brasil) rule: translate a name when a clear cognate exists (Coleção, Organização, Repositório), and keep it in English when the
+      translation would be ambiguous. "Source" stays in English because "Fonte" also means font, provenance and <em>código-fonte</em>.
+      Names kept in English are masculine and capitalized ("o Source", "Versão do Source"). Spanish made the other choice ("Fuente").</li>
+    <li><strong>Never translate</strong>: OCL, TermBrowser, HEAD, FHIR resource names (CodeSystem, ValueSet, ConceptMap) and parameters
+      (<code>activeOnly</code>, <code>system-version</code>…), <code>$match</code>, Elasticsearch, terminology names (LOINC, SNOMED CT, CIEL, ICD-10, ICD-11),
+      and UUID, JSON, CSV, URL, API.</li>
+    <li><strong>OCL AI Assistant</strong> always names OCL: "Assistente de IA do OCL", not just "Assistente de IA".
+      Don't write "AI recommendations"; say "recommendations from the OCL AI Assistant" or rephrase. Some existing English Mapper strings
+      still break both rules (e.g. <code>preview_estimate_ai_*</code>, labels that say "AI Assistant"). They'll be fixed in English and every
+      language together, so don't treat them as precedent.</li>
+    <li><strong>When a string has placeholders or sits next to a link</strong>, ask in the PR how it renders. Reviewers will quote the assembled sentence.</li>
+  </ul>
+
+  <h2>Glossary</h2>
+  <p>Values come from the app catalogs and are shown as the base term, singular and in sentence case. The catalog labels themselves may be plural or Title Case
+    (capitalization is still an open pt-BR question, last row). Where the two apps use different words, the note says so.
+    <span class="badge ok">Agreed</span> means the language lead's choice is recorded. <span class="badge divergent">Open</span> means a decision is pending (owner in the note).
+    A dash means neither catalog has the term yet.</p>
+  <div class="table-wrap">
+  <table class="props-table glossary">
+    <thead><tr><th>English</th><th>Español</th><th>中文</th><th>Português (Brasil)</th><th>Status · notes</th></tr></thead>
+    <tbody>
+      <tr><td>Source</td><td>Fuente</td><td>来源</td><td>Source</td><td><span class="badge ok">Agreed</span> <span class="note">pt-BR keeps the English name: "o Source", "Versão do Source", plural "Sources".</span></td></tr>
+      <tr><td>Collection</td><td>Colección</td><td>集合</td><td>Coleção</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Organization</td><td>Organización</td><td>组织机构</td><td>Organização</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Repository</td><td>Repositorio</td><td>存储库</td><td>Repositório</td><td><span class="badge ok">Agreed</span> <span class="note">Some labels use the short form "Repo".</span></td></tr>
+      <tr><td>Concept</td><td>Concepto</td><td>概念</td><td>Conceito</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Mapping</td><td>Mapeo</td><td>映射关系</td><td>Mapeamento</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Map type</td><td>Tipo de mapeo</td><td>映射类型</td><td>Tipo de mapeamento</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Concept class</td><td>Clase</td><td>概念分类</td><td>Classe do conceito</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Datatype</td><td>Tipo de dato</td><td>数据类型</td><td>Tipo de dado</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Reference <span class="note">(collection)</span></td><td>Referencia</td><td>—</td><td>Referência</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Expansion</td><td>Expansión</td><td>扩展</td><td>Expansão</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Release · Released · Unreleased</td><td>— · Publicado · Sin publicar</td><td>— · Released · Unreleased</td><td>Publicar · Publicado · Não publicado</td><td><span class="badge divergent">Open</span> <span class="note">zh: "Released" and "Unreleased" are still in English.</span></td></tr>
+      <tr><td>HEAD</td><td>HEAD</td><td>HEAD</td><td>HEAD</td><td><span class="badge ok">Agreed</span> <span class="note">Never translated.</span></td></tr>
+      <tr><td>Retired · Retire · Unretire</td><td>Retirado · Retirar · Reactivar</td><td>已退役 · 退役 · 重新激活</td><td>Aposentado · Aposentar · Reativar</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: keep, or "Inativo · Inativar · Reativar", or "Descontinuado · Descontinuar · Reativar"?</span></td></tr>
+      <tr><td>Locale <span class="note">(of a name)</span></td><td>Idioma (TBv3) · Configuración regional (Mapper)</td><td>本地语言</td><td>Localidade</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: "Localidade" or "Idioma"? es lead: the two apps differ.</span></td></tr>
+      <tr><td>Owner</td><td>Propietario</td><td>所有者</td><td>Proprietário</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Canonical URL</td><td>URL canónica</td><td>规范型 URL</td><td>URL canônica</td><td><span class="badge divergent">Open</span> <span class="note">zh lead: the Mapper's algorithm form also uses 规范 URL.</span></td></tr>
+      <tr><td>Code System · Value Set · Concept Map</td><td>—</td><td>—</td><td>Code System · Value Set · Concept Map</td><td><span class="badge ok">Agreed</span> <span class="note">FHIR resource names stay in English.</span></td></tr>
+      <tr><td>Delete</td><td>Eliminar</td><td>删除</td><td>Excluir</td><td><span class="badge ok">Agreed</span> <span class="note">Spanish keeps Delete (Eliminar) apart from Exclude (Excluir).</span></td></tr>
+      <tr><td>Include · Exclude <span class="note">(collection reference)</span></td><td>Incluir · Excluir</td><td>包含 · 排除</td><td>Incluir · Excluir</td><td><span class="badge ok">Agreed</span> <span class="note">Reads as a pair, so no clash with Delete.</span></td></tr>
+      <tr><td>Exclude <span class="note">(Mapper decision)</span></td><td>Excluir</td><td>排除</td><td>Excluir</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: collides with Delete ("Excluído em massa" reads as deleted). Suggested "Desconsiderar".</span></td></tr>
+      <tr><td>Mapping project</td><td>Proyecto de mapeo</td><td>映射项目</td><td>Projeto de mapeamento</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Match <span class="note">(noun)</span></td><td>Coincidencia</td><td>匹配</td><td>Correspondência</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Matching algorithm</td><td>Algoritmo de coincidencia</td><td>匹配算法</td><td>Inteligência de mapeamento</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: elsewhere the catalog says "algoritmos de correspondência".</span></td></tr>
+      <tr><td>Auto Match</td><td>Coincidencia Automática</td><td>自动匹配</td><td>Correspondência Automática</td><td><span class="badge divergent">Open</span> <span class="note">OCL: may the feature name be translated? es, zh and pt-BR all translate it today.</span></td></tr>
+      <tr><td>Candidate</td><td>Candidato</td><td>候选对象</td><td>Candidato</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Target repository</td><td>Repositorio objetivo</td><td>目标存储库</td><td>Repositório de destino</td><td><span class="badge ok">Agreed</span></td></tr>
+      <tr><td>Bridge <span class="note">(concept, terminology)</span></td><td>Concepto puente · Bridge</td><td>桥接概念 · Bridge</td><td>Conceito ponte · Bridge</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: the Mapper mixes "Ponte", "Bridge" and "bridge"; pick one.</span></td></tr>
+      <tr><td>OCL AI Assistant</td><td>OCL Asistente de IA</td><td>OCL AI 助手</td><td>Assistente de IA do OCL</td><td><span class="badge divergent">Open</span> <span class="note">es lead: "Asistente de IA de OCL" may read more naturally. Always name OCL.</span></td></tr>
+      <tr><td>Quota</td><td>Cuota</td><td>配额</td><td>Cota</td><td><span class="badge ok">Agreed</span> <span class="note">A quota is an allowance, per period or one-time (e.g. the preview). A cap limits how much you can hold ("Limite").</span></td></tr>
+      <tr><td>Allowance</td><td>Asignación</td><td>额度</td><td>Permissão</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: "permissão" may read as <em>permission</em>; review suggested "Cota".</span></td></tr>
+      <tr><td>Label capitalization</td><td>—</td><td>—</td><td>Title Case, mirroring English</td><td><span class="badge divergent">Open</span> <span class="note">pt-BR lead: sentence case ("Nome completo") is the usual pt-BR UI convention.</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Where the catalogs live</h2>
+  <ul>
+    <li>oclweb3: <a href="https://github.com/OpenConceptLab/oclweb3/tree/main/src/i18n/locales"><code>src/i18n/locales/[lang]/translations.json</code></a></li>
+    <li>oclmap: <a href="https://github.com/OpenConceptLab/oclmap/tree/main/src/i18n/locales"><code>src/i18n/locales/[lang]/translations.json</code></a></li>
+    <li>History: Portuguese (Brasil) was added in <a href="https://github.com/OpenConceptLab/ocl_issues/issues/2866">ocl_issues#2866</a>.
+      Code-side assembly fixes are tracked in <a href="https://github.com/OpenConceptLab/ocl_issues/issues/2877">#2877</a>, and this guide in
+      <a href="https://github.com/OpenConceptLab/ocl_issues/issues/2878">#2878</a>.</li>
+  </ul>
+</main>
+</body>
+</html>
