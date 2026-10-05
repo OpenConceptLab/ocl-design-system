@@ -224,7 +224,11 @@ const MyComponent = () => {
         <p style={{ color: 'var(--text-secondary)', marginBottom: 12 }}>
           oclweb3 uses <code>react-i18next</code>. Translation files are in{' '}
           <code>src/i18n/locales/[lang]/translations.json</code>. Supported
-          languages: English (en), Spanish (es), Chinese (zh).
+          languages: English (en), Spanish (es), Portuguese (pt-BR, in review);
+          a Chinese (zh) catalog exists but isn't in the language menu. Before
+          adding strings, read the{' '}
+          <a href="localization.html">Localization guide</a>: one key per whole
+          sentence, and the canonical term for each language.
         </p>
         <CodeSnippet title="Using translations" code={`
 import { useTranslation, Trans } from 'react-i18next';

@@ -87,6 +87,7 @@ npm run preview      # Preview the built site locally
 | [Typography](public/foundations/typography.html) | MUI type scale with Roboto specimens |
 | [Elevation](public/foundations/elevation.html) | Material 3 shadow levels |
 | [Logo](public/foundations/logo.html) | OCL logo variants and brand assets |
+| [Localization](public/guides/localization.html) | Rules for assembling translated text; cross-language glossary of canonical OCL terms |
 | [Gallery](public/gallery.html) | 131 Zeplin screenshots browsable by section |
 | [Patterns](public/patterns/index.html) | Screen-level compositions (stubs) |
 
