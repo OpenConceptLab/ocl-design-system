@@ -242,7 +242,7 @@ const WorkspaceToolbar = ({ onSave, onSettings, onTimeline, onDownload, onCreate
             <h4>Don&rsquo;t</h4>
             <ul style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 }}>
               <li>Don&rsquo;t use this on a <em>page header</em> (repo, concept, mapping) &mdash; use the <a href="/ocl-design-system/components/repo-header.html">Manage menu</a> pattern instead.</li>
-              <li>Don&rsquo;t scatter primary actions on both sides of the workspace &mdash; the CTA (Save, Auto Match, etc.) should have a single, predictable home.</li>
+              <li>Don&rsquo;t scatter primary actions on both sides of the workspace &mdash; the CTA (Save, AutoMatch, etc.) should have a single, predictable home.</li>
               <li>Don&rsquo;t collapse <em>primary</em> actions. If the toolbar is so crowded you&rsquo;re tempted, the tiering is wrong.</li>
               <li>Don&rsquo;t skip the tier dividers &mdash; they&rsquo;re what makes the hierarchy legible.</li>
             </ul>
