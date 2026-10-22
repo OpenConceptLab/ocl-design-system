@@ -21,6 +21,7 @@ export default defineConfig({
         'workspace-toolbar': resolve(__dirname, 'components/workspace-toolbar.html'),
         'announcement-banner': resolve(__dirname, 'components/announcement-banner.html'),
         'cta-ladder': resolve(__dirname, 'components/cta-ladder.html'),
+        'table-results': resolve(__dirname, 'components/table-results.html'),
         'building-pages': resolve(__dirname, 'guides/building-pages.html'),
       },
     },
