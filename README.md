@@ -76,6 +76,7 @@ npm run preview      # Preview the built site locally
 | [Alert](components/alert.html) | Component | Toast notifications via Snackbar + filled Alert, 4 severities |
 | [CommonTabs](components/common-tabs.html) | Component | Full-width tab strip for entity page navigation |
 | [Breadcrumbs](components/breadcrumbs.html) | Component | Path navigation with owner/repo/concept/mapping segments |
+| [TableResults](components/table-results.html) | Component | Results table: tinted header row (surface.s90, bold labels, surface.nv80 rules), row hover and selection states |
 | [Building Pages](guides/building-pages.html) | Guide | Page scaffold, routing, API patterns, i18n, utilities, worked example |
 
 ### Static HTML pages (no build step needed)
@@ -101,7 +102,7 @@ npm run preview      # Preview the built site locally
 
 Remaining work to make this a fully enabled development reference:
 
-1. **Fill in the remaining 10 stub component pages.** Each needs the same treatment as the 8 exemplars: live examples, code snippets, props, usage. Highest-value next: TableResults, CardResults, Header, LeftMenu.
+1. **Fill in the remaining 10 stub component pages.** Each needs the same treatment as the 8 exemplars: live examples, code snippets, props, usage. Highest-value next: CardResults, Header, LeftMenu.
 2. **Build pattern detail pages**, starting with **References & Expansions** — the biggest gap per the April 2026 review.
 3. **Automate token sync** — move from hand-copy to a Node script (see [`docs/token-sync-options.md`](public/docs/token-sync-options.md)) the first time the palette drifts from oclweb3.
 4. **Logo clear-space and minimum-size rules.** [`foundations/logo.html`](public/foundations/logo.html) flags this as TODO.
@@ -174,7 +175,7 @@ See also the open decisions on **collection versions and expansions** below.
 
 | Design | Status | Notes |
 |---|---|---|
-| `Component - Tables - Search - Concept.png` | partial | First search-concept table is done; remaining table designs are not |
+| `Component - Tables - Search - Concept.png` | partial | First search-concept table is done, with a tinted header row (surface.s90) the design doesn't have ([TableResults](components/table-results.html), ocl_issues#2948); remaining table designs are not |
 | `Component - Tables.png` | not-started | Broader table system not yet built out |
 | `Component - Tables - Toolbar.png` | not-started | Toolbar component pending |
 | `Elevation.png` | partial | Only the first elevation level is used |
