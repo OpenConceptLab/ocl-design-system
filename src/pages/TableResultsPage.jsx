@@ -112,10 +112,12 @@ const ResultsTableExample = () => {
                   hover
                   selected={isShown}
                   onClick={() => setShown(row.id)}
-                  sx={[
-                    { cursor: 'pointer', backgroundColor: '#FFF', '&.Mui-selected': { backgroundColor: 'primary.90' } },
-                    { '&.MuiTableRow-hover:hover': { backgroundColor: isShown ? 'primary.90' : 'primary.95' } },
-                  ]}
+                  sx={{
+                    cursor: 'pointer',
+                    backgroundColor: '#FFF',
+                    '&.Mui-selected': { backgroundColor: 'primary.90' },
+                    '&.MuiTableRow-hover:hover': { backgroundColor: isShown ? 'primary.90' : 'primary.95' },
+                  }}
                 >
                   <TableCell padding="checkbox" onClick={event => { event.stopPropagation(); toggle(row.id); }}>
                     <Checkbox color="primary" checked={checked.includes(row.id)} inputProps={{ 'aria-label': `Select ${row.id}` }} />
