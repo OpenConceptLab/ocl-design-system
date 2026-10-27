@@ -11,6 +11,9 @@ import { COLORS, WHITE } from './colors';
 
 const baseTheme = createTheme();
 
+// Keyboard focus ring for buttons: white, then primary.30.
+const FOCUS_RING = `0 0 0 2px ${WHITE}, 0 0 0 4px ${COLORS.primary['30']}`;
+
 export const oclTheme = createTheme(baseTheme, {
   palette: {
     ...COLORS,
@@ -43,7 +46,7 @@ export const oclTheme = createTheme(baseTheme, {
       styleOverrides: {
         root: {
           '&.Mui-focusVisible': {
-            boxShadow: `0 0 0 2px ${WHITE}, 0 0 0 4px ${COLORS.primary['30']}`,
+            boxShadow: FOCUS_RING,
           },
         },
       },
@@ -90,6 +93,17 @@ export const oclTheme = createTheme(baseTheme, {
       // its buttons, and that outranks MuiButton's default above.
       defaultProps: {
         disableFocusRipple: true,
+      },
+      styleOverrides: {
+        // A contained group resets its buttons' box-shadow, on hover too, and
+        // each button paints over its neighbour's edge. This rule outranks
+        // both resets and lifts the focused button, so the whole ring shows.
+        grouped: {
+          '&.Mui-focusVisible': {
+            boxShadow: FOCUS_RING,
+            zIndex: 1,
+          },
+        },
       },
     },
     MuiIconButton: {

@@ -322,7 +322,8 @@ const ButtonPage = () => (
               changes. The ring is the theme's <code>box-shadow</code> on <code>.Mui-focusVisible</code>, so it
               replaces a contained button's elevation while focused. A mouse click doesn't set focus-visible, and the
               click ripple stays. Buttons in a <code>ButtonGroup</code> take <code>disableFocusRipple</code> from the
-              group, so the theme sets it on <code>MuiButtonGroup</code> too. Icon Button keeps MUI's focus ripple, a
+              group, so the theme sets it on <code>MuiButtonGroup</code> too, and repeats the ring on the group's
+              focused button, lifted over its neighbours. Icon Button keeps MUI's focus ripple, a
               pulsing circle of the icon color at 30%. Split and Toggle groups behave as their
               variant; in a contained group, the divider between buttons is <code>dark</code>, so the SAME-AS split
               button above has a <code>primary.dark</code> divider.
