@@ -7,7 +7,7 @@
 
 import { createTheme, alpha } from '@mui/material/styles';
 import Fade from '@mui/material/Fade';
-import { COLORS } from './colors';
+import { COLORS, WHITE } from './colors';
 
 const baseTheme = createTheme();
 
@@ -34,6 +34,19 @@ export const oclTheme = createTheme(baseTheme, {
       },
     },
     MuiButton: {
+      // MUI's focus ripple pulses a circle of the text color at 30% behind the
+      // label, dropping it below 4.5:1. Keyboard focus shows this ring instead.
+      // The click ripple stays.
+      defaultProps: {
+        disableFocusRipple: true,
+      },
+      styleOverrides: {
+        root: {
+          '&.Mui-focusVisible': {
+            boxShadow: `0 0 0 2px ${WHITE}, 0 0 0 4px ${COLORS.primary['30']}`,
+          },
+        },
+      },
       variants: [
         {
           props: { variant: 'contained', color: COLORS.surface.n96 },
@@ -71,6 +84,13 @@ export const oclTheme = createTheme(baseTheme, {
           },
         },
       ],
+    },
+    MuiButtonGroup: {
+      // A ButtonGroup hands its own disableFocusRipple (false by default) to
+      // its buttons, and that outranks MuiButton's default above.
+      defaultProps: {
+        disableFocusRipple: true,
+      },
     },
     MuiIconButton: {
       styleOverrides: {

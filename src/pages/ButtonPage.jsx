@@ -308,18 +308,22 @@ const ButtonPage = () => (
             <table className="props-table">
               <thead><tr><th>Type</th><th>Rest</th><th>Hover</th><th>Keyboard focus</th></tr></thead>
               <tbody>
-                <tr><td>Contained</td><td><code>main</code> fill, white text</td><td><code>dark</code> fill, shadow 4</td><td><code>main</code> fill, shadow 6, focus ripple</td></tr>
+                <tr><td>Contained</td><td><code>main</code> fill, white text</td><td><code>dark</code> fill, shadow 4</td><td><code>main</code> fill, two-tone ring (white, then <code>primary.30</code>) in place of the shadow, no ripple</td></tr>
                 <tr><td>Pill, <code>color="primary"</code></td><td><code>primary.main</code> fill, white text</td><td><code>primary.dark</code> fill</td><td><code>primary.dark</code> fill (no ripple; the fill is the only cue)</td></tr>
                 <tr><td>Pill, no color</td><td><code>sx</code> fill (<code>surface.s90</code>)</td><td>black at 12%</td><td>black at 20%</td></tr>
-                <tr><td>Outlined</td><td>transparent, <code>main</code> border at 50%</td><td><code>main</code> at 4%, full border</td><td>focus ripple</td></tr>
-                <tr><td>Text</td><td>transparent</td><td><code>main</code> at 4%</td><td>focus ripple</td></tr>
+                <tr><td>Outlined</td><td>transparent, <code>main</code> border at 50%</td><td><code>main</code> at 4%, full border</td><td>as at rest, two-tone ring (white, then <code>primary.30</code>), no ripple</td></tr>
+                <tr><td>Text</td><td>transparent</td><td><code>main</code> at 4%</td><td>transparent, two-tone ring (white, then <code>primary.30</code>), no ripple</td></tr>
                 <tr><td>Icon Button</td><td>transparent</td><td><code>secondary.main</code> at 20% (theme)</td><td>focus ripple</td></tr>
               </tbody>
             </table>
             <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginTop: 8 }}>
               <code>main</code> and <code>dark</code> are those of the button's <code>color</code>; the
-              gray <code>color="default"</code> has both set to <code>surface.n96</code>, so only its shadow changes.
-              The focus ripple is a pulsing circle of the text color at 30%. Split and Toggle groups behave as their
+              gray <code>color="default"</code> has both set to <code>surface.n96</code>, so on hover only its shadow
+              changes. The ring is the theme's <code>box-shadow</code> on <code>.Mui-focusVisible</code>, so it
+              replaces a contained button's elevation while focused. A mouse click doesn't set focus-visible, and the
+              click ripple stays. Buttons in a <code>ButtonGroup</code> take <code>disableFocusRipple</code> from the
+              group, so the theme sets it on <code>MuiButtonGroup</code> too. Icon Button keeps MUI's focus ripple, a
+              pulsing circle of the icon color at 30%. Split and Toggle groups behave as their
               variant; in a contained group, the divider between buttons is <code>dark</code>, so the SAME-AS split
               button above has a <code>primary.dark</code> divider.
             </p>
@@ -426,7 +430,7 @@ const ButtonPage = () => (
               <li>Icon Buttons MUST have a Tooltip or <code>aria-label</code>.</li>
               <li>Split Button dropdown triggers need <code>aria-haspopup="menu"</code> and <code>aria-expanded</code>.</li>
               <li>Color contrast: white on <code>primary.main</code> (#4836ff) is 6.47:1 at rest, and on <code>primary.dark</code> (#2d00e5) 9.36:1 on hover. See <a href="#states">States</a>.</li>
-              <li>Known gap: while the focus ripple shows, text over it drops below 4.5:1 (white on a contained primary button about 3.6:1; <code>primary.main</code> text on an outlined or text button about 3.9:1).</li>
+              <li>Keyboard focus draws a two-tone ring: the white inner ring is 6.43:1 or more against the primary, secondary, tertiary and error <code>main</code> fills, the outer <code>primary.30</code> (#2d00e5) ring is 9.36:1 on white, and with no focus ripple the label keeps its resting contrast.</li>
               <li>Disabled buttons use reduced opacity and are removed from tab order by MUI.</li>
             </ul>
           </Section>
