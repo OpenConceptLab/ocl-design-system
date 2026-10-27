@@ -105,7 +105,7 @@ const CtaLadderPage = () => {
               <ul style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 }}>
                 <li><strong>Band</strong> &mdash; full width, <code>PRIMARY_COLORS[&apos;10&apos;]</code> (<code>#0f0069</code>), <code>Container maxWidth=&quot;lg&quot;</code>, <code>py: {'{ xs: 6, md: 10 }'}</code>. A <code>&lt;section&gt;</code> labelled by a visually hidden <code>h2</code> (<code>cta.heading</code>, &ldquo;Get involved&rdquo;).</li>
                 <li><strong>Columns</strong> &mdash; a grid: one column on phones, two from <code>sm</code>, one per action from <code>md</code>. Each has an outlined icon (40px, <code>PRIMARY_COLORS[&apos;90&apos;]</code>), an <code>h5</code> title rendered as <code>h3</code> in white, one <code>body2</code> sentence in <code>PRIMARY_COLORS[&apos;80&apos;]</code>, and a button pinned to the column&apos;s bottom.</li>
-                <li><strong>Filled button</strong> &mdash; exactly one: white fill, brand text, like the <code>/pricing</code> hero&apos;s. Not <code>variant=&quot;contained&quot;</code> with <code>disableElevation</code>, which hides the keyboard focus ring.</li>
+                <li><strong>Filled button</strong> &mdash; exactly one: white fill, brand text, like the <code>/pricing</code> hero&apos;s.</li>
                 <li><strong>The other buttons</strong> &mdash; white text links with an arrow (<code>ArrowForwardIosIcon</code>, 12px), underlined on hover.</li>
               </ul>
             </Section>
