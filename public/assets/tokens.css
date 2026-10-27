@@ -2,7 +2,7 @@
  * OCL Design System — Design Tokens
  *
  * Point-in-time copy of the palette from oclweb3/src/common/colors.jsx
- * (commit 8546c4b0, 2026-04-14). If the oclweb3 palette changes, update
+ * (commit 43e4324c, 2026-10-27). If the oclweb3 palette changes, update
  * this file by hand. See docs/token-sync-options.md for why we chose
  * one-time copy over a sync script or submodule.
  *
@@ -14,7 +14,7 @@
   /* ---------- Primary ---------- */
   --primary-main: #4836ff;
   --primary-light: #4836ff;
-  --primary-dark: #c3c0ff;
+  --primary-dark: #2d00e5;
   --primary-contrast: #ffffff;
   --primary-99: #fffbff;
   --primary-95: #f2efff;
@@ -31,7 +31,7 @@
   /* ---------- Secondary ---------- */
   --secondary-main: #5e5c71;
   --secondary-light: #5e5c71;
-  --secondary-dark: #c7c4dd;
+  --secondary-dark: #464559;
   --secondary-contrast: #ffffff;
   --secondary-99: #fffbff;
   --secondary-95: #f2efff;
@@ -48,7 +48,7 @@
   /* ---------- Tertiary ---------- */
   --tertiary-main: #7a5368;
   --tertiary-light: #7a5368;
-  --tertiary-dark: #eab9d1;
+  --tertiary-dark: #603c50;
   --tertiary-contrast: #ffffff;
   --tertiary-99: #fffbff;
   --tertiary-95: #ffecf3;
@@ -77,7 +77,7 @@
   /* ---------- Error ---------- */
   --error-main: #ba1a1a;
   --error-light: #ba1a1a;
-  --error-dark: #ffb4ab;
+  --error-dark: #93000a;
   --error-contrast: #ffffff;
   --error-95: #ffedea;
 

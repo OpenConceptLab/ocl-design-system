@@ -127,6 +127,19 @@
   </section>
 
   <section>
+    <h2>What <code>dark</code> is for</h2>
+    <p style="color: var(--text-secondary);">
+      MUI paints <code>dark</code> under <code>contrastText</code> (white). It's the hover fill of a contained button,
+      and the hover and keyboard-focus fill of a clickable chip that has a color, such as a <code>color="primary"</code>
+      Pill button. So <code>dark</code> stays darker than <code>main</code> and keeps at least 4.5:1 against white.
+      In <code>primary</code>, <code>secondary</code> and <code>tertiary</code> it's tone 30; <code>error.dark</code> is
+      Material 3's error tone 30, <code>#93000a</code>. For a light tint, use a numbered tone (<code>primary.80</code>,
+      <code>primary.90</code>, …), never <code>dark</code>. <a href="../components/button.html#states">Button</a> lists
+      each button's hover and focus fills.
+    </p>
+  </section>
+
+  <section>
     <h2>Semantic mapping</h2>
     <p style="color: var(--text-secondary);">
       In <code>oclweb3/src/index.jsx</code>, <code>success</code> is aliased to <code>primary</code> and <code>info</code>
@@ -143,21 +156,21 @@
 <script>
 const PALETTES = {
   primary: [
-    ['primary.main', '#4836ff'], ['primary.light', '#4836ff'], ['primary.dark', '#c3c0ff'],
+    ['primary.main', '#4836ff'], ['primary.light', '#4836ff'], ['primary.dark', '#2d00e5'],
     ['primary.99', '#fffbff'], ['primary.95', '#f2efff'], ['primary.90', '#e2dfff'],
     ['primary.80', '#c3c0ff'], ['primary.70', '#a4a1ff'], ['primary.60', '#8582ff'],
     ['primary.50', '#6760ff'], ['primary.40', '#4836ff'], ['primary.30', '#2d00e5'],
     ['primary.20', '#1d00a5'], ['primary.10', '#0f0069']
   ],
   secondary: [
-    ['secondary.main', '#5e5c71'], ['secondary.light', '#5e5c71'], ['secondary.dark', '#c7c4dd'],
+    ['secondary.main', '#5e5c71'], ['secondary.light', '#5e5c71'], ['secondary.dark', '#464559'],
     ['secondary.99', '#fffbff'], ['secondary.95', '#f2efff'], ['secondary.90', '#e3e0f9'],
     ['secondary.80', '#c7c4dd'], ['secondary.70', '#aba9c1'], ['secondary.60', '#908ea5'],
     ['secondary.50', '#76758b'], ['secondary.40', '#5e5c71'], ['secondary.30', '#464559'],
     ['secondary.20', '#2f2e42'], ['secondary.10', '#1a1a2c']
   ],
   tertiary: [
-    ['tertiary.main', '#7a5368'], ['tertiary.light', '#7a5368'], ['tertiary.dark', '#eab9d1'],
+    ['tertiary.main', '#7a5368'], ['tertiary.light', '#7a5368'], ['tertiary.dark', '#603c50'],
     ['tertiary.99', '#fffbff'], ['tertiary.95', '#ffecf3'], ['tertiary.90', '#ffd8ea'],
     ['tertiary.80', '#eab9d1'], ['tertiary.70', '#cd9eb6'], ['tertiary.60', '#b0849b'],
     ['tertiary.50', '#956b81'], ['tertiary.40', '#7a5368'], ['tertiary.30', '#603c50'],
@@ -170,7 +183,7 @@ const PALETTES = {
     ['surface.n96', '#f6f2f7'], ['surface.nv80', '#c8c5d0'], ['surface.s90', '#e3e0f9']
   ],
   error: [
-    ['error.main', '#ba1a1a'], ['error.light', '#ba1a1a'], ['error.dark', '#ffb4ab'], ['error.95', '#ffedea']
+    ['error.main', '#ba1a1a'], ['error.light', '#ba1a1a'], ['error.dark', '#93000a'], ['error.95', '#ffedea']
   ],
   neutral: [
     ['neutral.70', '#adaaaf'], ['neutral.60', '#929094']
