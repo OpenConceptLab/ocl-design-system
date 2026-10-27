@@ -24,8 +24,8 @@ import SiteFooter from '../components/SiteFooter';
 import ExampleFrame from '../components/ExampleFrame';
 import OclPillButton from '../components/OclPillButton';
 
-const Section = ({ title, children }) => (
-  <section>
+const Section = ({ title, id, children }) => (
+  <section id={id}>
     <h2>{title}</h2>
     {children}
   </section>
@@ -126,7 +126,7 @@ const ButtonPage = () => (
                 <Button variant="contained" sx={{ borderRadius: '100px', textTransform: 'none' }}>Primary</Button>
                 <Button variant="contained" color="secondary" sx={{ borderRadius: '100px', textTransform: 'none' }}>Secondary</Button>
                 <Button variant="contained" color="error" sx={{ borderRadius: '100px', textTransform: 'none' }}>Error</Button>
-                <Button variant="contained" sx={{ borderRadius: '100px', textTransform: 'none', backgroundColor: 'surface.n96', color: 'surface.dark' }}>Default</Button>
+                <Button variant="contained" color="default" sx={{ borderRadius: '100px', textTransform: 'none', color: 'surface.dark' }}>Default</Button>
                 <Button variant="contained" disabled sx={{ borderRadius: '100px', textTransform: 'none' }}>Disabled</Button>
               </div>
             </ExampleFrame>
@@ -294,6 +294,45 @@ const ButtonPage = () => (
             </p>
           </Section>
 
+          <Section title="States" id="states">
+            <p style={{ color: 'var(--text-secondary)', marginBottom: 8 }}>
+              What MUI 5.18 and the OCL theme paint on hover and on keyboard focus. Hover these, or Tab to them.
+            </p>
+            <ExampleFrame>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12, alignItems: 'center' }}>
+                <Button variant="contained" sx={{ borderRadius: '100px', textTransform: 'none' }}>Save</Button>
+                <Button variant="contained" color="error" sx={{ borderRadius: '100px', textTransform: 'none' }}>Delete</Button>
+                <OclPillButton color="primary" label="Submit" onClick={() => {}} />
+                <Button variant="outlined" sx={{ textTransform: 'none' }}>Outlined</Button>
+                <Button variant="text" sx={{ textTransform: 'none' }}>Text</Button>
+              </div>
+            </ExampleFrame>
+            <table className="props-table">
+              <thead><tr><th>Type</th><th>Rest</th><th>Hover</th><th>Keyboard focus</th></tr></thead>
+              <tbody>
+                <tr><td>Contained</td><td><code>main</code> fill, white text</td><td><code>dark</code> fill, shadow 4</td><td><code>main</code> fill, shadow 6, focus ripple</td></tr>
+                <tr><td>Pill, <code>color="primary"</code></td><td><code>primary.main</code> fill, white text</td><td><code>primary.dark</code> fill</td><td><code>primary.dark</code> fill (no ripple; the fill is the only cue)</td></tr>
+                <tr><td>Pill, no color</td><td><code>sx</code> fill (<code>surface.s90</code>)</td><td>black at 12%</td><td>black at 20%</td></tr>
+                <tr><td>Outlined</td><td>transparent, <code>main</code> border at 50%</td><td><code>main</code> at 4%, full border</td><td>focus ripple</td></tr>
+                <tr><td>Text</td><td>transparent</td><td><code>main</code> at 4%</td><td>focus ripple</td></tr>
+                <tr><td>Icon Button</td><td>transparent</td><td><code>secondary.main</code> at 20% (theme)</td><td>focus ripple</td></tr>
+              </tbody>
+            </table>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 13, marginTop: 8 }}>
+              <code>main</code> and <code>dark</code> are those of the button's <code>color</code>; the
+              gray <code>color="default"</code> has both set to <code>surface.n96</code>, so only its shadow changes.
+              The focus ripple is a pulsing circle of the text color at 30%. Split and Toggle groups behave as their
+              variant; in a contained group, the divider between buttons is <code>dark</code>.
+            </p>
+            <div className="callout">
+              <strong>Rule:</strong> any state that fills a button keeps its text at 4.5:1 or more. White on
+              the <code>dark</code> of primary, secondary, tertiary and error is at least 9.29:1, which is
+              why <code>dark</code> is a dark tone
+              (see <a href="/ocl-design-system/foundations/color.html">Color</a>). Never set a hover or focus fill to a
+              light tint under white text.
+            </div>
+          </Section>
+
           <Section title="Sizes">
             <ExampleFrame>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: 16, alignItems: 'flex-end', marginBottom: 12 }}>
@@ -387,7 +426,8 @@ const ButtonPage = () => (
               <li>The Pill wraps Chip with <code>role="button"</code> and click/keyboard handling.</li>
               <li>Icon Buttons MUST have a Tooltip or <code>aria-label</code>.</li>
               <li>Split Button dropdown triggers need <code>aria-haspopup="menu"</code> and <code>aria-expanded</code>.</li>
-              <li>Color contrast: Primary contained (#4836ff on white) passes WCAG AA at 4.56:1.</li>
+              <li>Color contrast: white on <code>primary.main</code> (#4836ff) is 6.47:1 at rest, and on <code>primary.dark</code> (#2d00e5) 9.36:1 on hover. See <a href="#states">States</a>.</li>
+              <li>Known gap: while the focus ripple shows, text over it drops below 4.5:1 (white on a contained primary button about 3.6:1; <code>primary.main</code> text on an outlined or text button about 3.9:1).</li>
               <li>Disabled buttons use reduced opacity and are removed from tab order by MUI.</li>
             </ul>
           </Section>
