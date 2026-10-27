@@ -7,9 +7,12 @@
 
 import { createTheme, alpha } from '@mui/material/styles';
 import Fade from '@mui/material/Fade';
-import { COLORS } from './colors';
+import { COLORS, WHITE } from './colors';
 
 const baseTheme = createTheme();
+
+// Keyboard focus ring for buttons: white, then primary.30.
+const FOCUS_RING = `0 0 0 2px ${WHITE}, 0 0 0 4px ${COLORS.primary['30']}`;
 
 export const oclTheme = createTheme(baseTheme, {
   palette: {
@@ -34,6 +37,19 @@ export const oclTheme = createTheme(baseTheme, {
       },
     },
     MuiButton: {
+      // MUI's focus ripple pulses a circle of the text color at 30% behind the
+      // label, dropping it below 4.5:1. Keyboard focus shows this ring instead.
+      // The click ripple stays.
+      defaultProps: {
+        disableFocusRipple: true,
+      },
+      styleOverrides: {
+        root: {
+          '&.Mui-focusVisible': {
+            boxShadow: FOCUS_RING,
+          },
+        },
+      },
       variants: [
         {
           props: { variant: 'contained', color: COLORS.surface.n96 },
@@ -71,6 +87,24 @@ export const oclTheme = createTheme(baseTheme, {
           },
         },
       ],
+    },
+    MuiButtonGroup: {
+      // A ButtonGroup hands its own disableFocusRipple (false by default) to
+      // its buttons, and that outranks MuiButton's default above.
+      defaultProps: {
+        disableFocusRipple: true,
+      },
+      styleOverrides: {
+        // A contained group resets its buttons' box-shadow, on hover too, and
+        // each button paints over its neighbour's edge. This rule outranks
+        // both resets and lifts the focused button, so the whole ring shows.
+        grouped: {
+          '&.Mui-focusVisible': {
+            boxShadow: FOCUS_RING,
+            zIndex: 1,
+          },
+        },
+      },
     },
     MuiIconButton: {
       styleOverrides: {
