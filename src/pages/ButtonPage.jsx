@@ -303,8 +303,6 @@ const ButtonPage = () => (
                 <Button variant="contained" sx={{ borderRadius: '100px', textTransform: 'none' }}>Save</Button>
                 <Button variant="contained" color="error" sx={{ borderRadius: '100px', textTransform: 'none' }}>Delete</Button>
                 <OclPillButton color="primary" label="Submit" onClick={() => {}} />
-                <Button variant="outlined" sx={{ textTransform: 'none' }}>Outlined</Button>
-                <Button variant="text" sx={{ textTransform: 'none' }}>Text</Button>
               </div>
             </ExampleFrame>
             <table className="props-table">
@@ -322,7 +320,8 @@ const ButtonPage = () => (
               <code>main</code> and <code>dark</code> are those of the button's <code>color</code>; the
               gray <code>color="default"</code> has both set to <code>surface.n96</code>, so only its shadow changes.
               The focus ripple is a pulsing circle of the text color at 30%. Split and Toggle groups behave as their
-              variant; in a contained group, the divider between buttons is <code>dark</code>.
+              variant; in a contained group, the divider between buttons is <code>dark</code>, so the SAME-AS split
+              button above has a <code>primary.dark</code> divider.
             </p>
             <div className="callout">
               <strong>Rule:</strong> any state that fills a button keeps its text at 4.5:1 or more. White on
