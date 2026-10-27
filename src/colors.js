@@ -1,7 +1,7 @@
 /**
  * OCL Design System — Color Constants
  *
- * Copied from oclweb3/src/common/colors.jsx (commit 742259f0).
+ * Copied from oclweb3/src/common/colors.jsx (commit 43e4324c, its palettes).
  * When oclweb3 colors change, update this file to match.
  */
 
