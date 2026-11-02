@@ -97,8 +97,33 @@ const BreadcrumbsPage = () => (
                     <BreadcrumbSegment label="v2024.03" />
                   </Box>
                 </div>
+
+                {/* Owner with Mapping Projects */}
+                <div>
+                  <div style={{ fontSize: 11, color: 'var(--text-muted)', marginBottom: 4 }}>Owner with Mapping Projects</div>
+                  <Box sx={{ display: 'flex', alignItems: 'center', gap: 0.5 }}>
+                    <BreadcrumbSegment icon={<AccountBalance fontSize="inherit" />} label="OCL" />
+                    <Dot />
+                    <BreadcrumbSegment label="Mapping Projects" />
+                    <Dot />
+                    <Typography sx={{ fontSize: 'inherit', fontWeight: 700 }}>CIEL to SNOMED</Typography>
+                  </Box>
+                </div>
               </div>
             </ExampleFrame>
+          </Section>
+
+          <Section title="Mapping Projects segment">
+            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 }}>
+              Breadcrumbs has no segment for a project list, so the Mapper&rsquo;s project header composes one from the
+              same pieces: an <code>OwnerButton</code>, a dot separator, then a text-only button labelled
+              &ldquo;Mapping Projects&rdquo;, followed by the project&rsquo;s name. The segment has no icon, uses the
+              same <code>14px</code> size and <code>4px</code> padding as the owner button, and underlines on hover.
+            </p>
+            <ul style={{ color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 }}>
+              <li>With a TermBrowser configured, the owner links to their profile there and Mapping Projects to their Mapping Projects tab.</li>
+              <li>Without one, Mapping Projects links to the Mapper&rsquo;s own list and the owner is plain text (icon and name) with no link or tooltip, so it is not a focusable control.</li>
+            </ul>
           </Section>
 
           <Section title="Props">
@@ -162,6 +187,7 @@ const BreadcrumbsPage = () => (
               <li><strong>MappingHeader</strong> &mdash; full breadcrumb path to current mapping.</li>
               <li><strong>MappingForm</strong> &mdash; breadcrumb context in mapping forms.</li>
               <li><strong>ToConcept / FromConcept</strong> &mdash; inline breadcrumbs for mapping endpoints.</li>
+              <li><strong>MapProjectBreadcrumb</strong> (Mapper) &mdash; owner, Mapping Projects, then the project name.</li>
             </ul>
           </Section>
 
