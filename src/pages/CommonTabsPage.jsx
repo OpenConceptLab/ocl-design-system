@@ -21,16 +21,10 @@ const Section = ({ id, title, children }) => (
 
 const TEXT = { color: 'var(--text-secondary)', lineHeight: 1.7, fontSize: 13 };
 
-const TAB_SX = { fontWeight: 'bold', color: 'surface.contrastText', textTransform: 'none' };
-
 const PROFILES = {
   users: { label: 'User profile', owner: 'jdoe', viewers: { owner: 'The user', other: 'Another signed-in user', staff: 'Staff', anonymous: 'Signed out' } },
   orgs: { label: 'Organization profile', owner: 'CIEL', viewers: { owner: 'A member', other: 'A signed-in non-member', staff: 'Staff', anonymous: 'Signed out' } },
 };
-
-// canSeeMapProjects from oclweb3 src/common/mapProjects.js, given the viewer
-// as one of the example's choices rather than as a user object.
-const canSeeMapProjects = viewer => viewer === 'owner' || viewer === 'staff';
 
 const ProfileTabsExample = () => {
   const [ownerType, setOwnerType] = React.useState('users');
@@ -38,7 +32,7 @@ const ProfileTabsExample = () => {
   const [hasMapper, setHasMapper] = React.useState(true);
   const [tab, setTab] = React.useState('map-projects');
   const profile = PROFILES[ownerType];
-  const showsTab = hasMapper && canSeeMapProjects(viewer);
+  const showsTab = hasMapper && (viewer === 'owner' || viewer === 'staff');
   const TABS = [
     { key: 'overview', label: 'Overview' },
     { key: 'repos', label: 'Repositories' },
@@ -88,7 +82,7 @@ const ProfileTabsExample = () => {
             variant="fullWidth"
             sx={{ backgroundColor: 'surface.main', borderBottom: '1px solid', borderColor: 'surface.nv80' }}
           >
-            {TABS.map(t => <Tab key={t.key} label={t.label} value={t.key} sx={TAB_SX} />)}
+            {TABS.map(t => <Tab key={t.key} label={t.label} value={t.key} sx={{ fontWeight: 'bold', color: 'surface.contrastText', textTransform: 'none' }} />)}
           </Tabs>
           <Box sx={{ p: 2, color: 'text.secondary', fontSize: 13 }}>
             <code>/{ownerType}/{profile.owner}/{value === 'overview' ? '' : value}</code> &middot; {reason}

@@ -23,8 +23,8 @@ import SiteFooter from '../components/SiteFooter';
 import ExampleFrame from '../components/ExampleFrame';
 import CodeSnippet from '../components/CodeSnippet';
 
-const Section = ({ id, title, children }) => (
-  <section id={id}>
+const Section = ({ title, children }) => (
+  <section>
     <h2>{title}</h2>
     {children}
   </section>
@@ -40,14 +40,23 @@ const FOLLOWING = [
   { name: 'Malaria', icon: <DescriptionOutlinedIcon /> },
 ];
 
-const TRAY_ICONS = {
-  dashboard: color => <DashboardIcon color={color} />,
-  repos: color => <FolderOutlinedIcon color={color} />,
-  'map-projects': color => <SchemaOutlinedIcon color={color} />,
+const TRAY_ITEMS = {
+  dashboard: { label: 'My Dashboard', Icon: DashboardIcon },
+  repos: { label: 'My Repositories', Icon: FolderOutlinedIcon, count: 12 },
+  'map-projects': { label: 'My Mapping Projects', Icon: SchemaOutlinedIcon, count: 7 },
 };
 
 const ITEM_SX = { minHeight: 56, justifyContent: 'initial', px: 2, borderRadius: '100px' };
 const GROUP_ITEM_SX = { minHeight: 56, justifyContent: 'initial', padding: '0px 16px', borderRadius: '100px' };
+
+const GroupRow = ({ label, icon, iconColor, selected, onClick }) => (
+  <ListItem disablePadding sx={{ display: 'block' }}>
+    <ListItemButton selected={selected} onClick={onClick} sx={GROUP_ITEM_SX}>
+      <ListItemIcon sx={{ minWidth: 45, mr: 1.75, justifyContent: 'center', color: iconColor }}>{icon}</ListItemIcon>
+      <ListItemText primary={label} />
+    </ListItemButton>
+  </ListItem>
+);
 
 const GroupHeading = ({ children }) => (
   <Typography component="div" sx={{ color: 'secondary.main', fontWeight: 'bold' }}>{children}</Typography>
@@ -60,11 +69,7 @@ const SETUPS = {
   'mapper-alone': { label: 'Mapper, no TermBrowser', items: ['map-projects'], groups: false },
 };
 
-const TRAY_LABELS = { dashboard: 'My Dashboard', repos: 'My Repositories', 'map-projects': 'My Mapping Projects' };
-const TRAY_COUNTS = { repos: 12, 'map-projects': 7 };
-
-// The tray's contents as LeftMenu renders them. In the apps they sit in a
-// modal drawer; here the paper is static so it stays inside the frame.
+// The tray's contents as LeftMenu renders them.
 const Tray = () => {
   const [setup, setSetup] = React.useState('tbv3');
   const [selected, setSelected] = React.useState('dashboard');
@@ -83,15 +88,16 @@ const Tray = () => {
         </Box>
         <List sx={{ p: 0 }}>
           {items.map(key => {
+            const { label, Icon, count } = TRAY_ITEMS[key];
             const isSelected = selected === key;
             return (
               <ListItem key={key} disablePadding sx={{ display: 'block' }}>
                 <ListItemButton selected={isSelected} onClick={() => setSelected(key)} sx={ITEM_SX}>
                   <ListItemIcon sx={{ minWidth: 0, mr: 1.75, justifyContent: 'center' }}>
-                    {TRAY_ICONS[key](isSelected ? 'primary' : undefined)}
+                    <Icon color={isSelected ? 'primary' : undefined} />
                   </ListItemIcon>
-                  <ListItemText primary={TRAY_LABELS[key]} />
-                  {TRAY_COUNTS[key] !== undefined && <span><b>{TRAY_COUNTS[key].toLocaleString()}</b></span>}
+                  <ListItemText primary={label} />
+                  {count !== undefined && <span><b>{count.toLocaleString()}</b></span>}
                 </ListItemButton>
               </ListItem>
             );
@@ -115,14 +121,8 @@ const Tray = () => {
               {ORGS.map(org => {
                 const isSelected = selected === `org-${org}`;
                 return (
-                  <ListItem key={org} disablePadding sx={{ display: 'block' }}>
-                    <ListItemButton selected={isSelected} onClick={() => setSelected(`org-${org}`)} sx={GROUP_ITEM_SX}>
-                      <ListItemIcon sx={{ minWidth: 45, mr: 1.75, justifyContent: 'center' }}>
-                        <AccountBalanceIcon color={isSelected ? 'primary' : undefined} />
-                      </ListItemIcon>
-                      <ListItemText primary={org} />
-                    </ListItemButton>
-                  </ListItem>
+                  <GroupRow key={org} label={org} icon={<AccountBalanceIcon />} iconColor={isSelected ? 'primary.main' : undefined}
+                    selected={isSelected} onClick={() => setSelected(`org-${org}`)} />
                 );
               })}
             </List>
@@ -134,14 +134,8 @@ const Tray = () => {
               {FOLLOWING.map(followed => {
                 const isSelected = selected === `following-${followed.name}`;
                 return (
-                  <ListItem key={followed.name} disablePadding sx={{ display: 'block' }}>
-                    <ListItemButton selected={isSelected} onClick={() => setSelected(`following-${followed.name}`)} sx={GROUP_ITEM_SX}>
-                      <ListItemIcon sx={{ minWidth: 45, mr: 1.75, justifyContent: 'center', color: isSelected ? 'primary.main' : 'secondary.main' }}>
-                        {followed.icon}
-                      </ListItemIcon>
-                      <ListItemText primary={followed.name} />
-                    </ListItemButton>
-                  </ListItem>
+                  <GroupRow key={followed.name} label={followed.name} icon={followed.icon} iconColor={isSelected ? 'primary.main' : 'secondary.main'}
+                    selected={isSelected} onClick={() => setSelected(`following-${followed.name}`)} />
                 );
               })}
             </List>

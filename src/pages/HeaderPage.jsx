@@ -40,16 +40,13 @@ const createItems = hasMapper => [
   { key: 'import', label: 'Bulk Import', icon: <PublishIcon />, divider: true },
 ];
 
-const ITEM_SX = { padding: '8px 12px' };
-
-// The + menu's paper as AddMenuList styles it. In the apps it is a MUI Menu
-// anchored to the + button; here it is static so it stays inside the frame.
+// The + menu's paper as AddMenuList styles it.
 const CreateMenu = ({ hasMapper }) => (
   <Paper elevation={8} sx={{ backgroundColor: 'surface.n94', minWidth: 200 }}>
     <MenuList>
       {createItems(hasMapper).flatMap(item => [
         item.divider && <Divider key={`${item.key}-divider`} />,
-        <ListItemButton key={item.key} sx={ITEM_SX}>
+        <ListItemButton key={item.key} sx={{ padding: '8px 12px' }}>
           <ListItemIcon sx={{ minWidth: 'auto', marginRight: '12px' }}>{item.icon}</ListItemIcon>
           <ListItemText primary={item.label} />
         </ListItemButton>,
