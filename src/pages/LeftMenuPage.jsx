@@ -215,7 +215,7 @@ const LeftMenuPage = () => (
             </table>
             <ul style={{ ...TEXT, marginTop: 12 }}>
               <li><strong>Selected</strong> &mdash; My Dashboard only on <code>/</code>. The other items stay selected on their own path and on every path below it (<code>isTrayItemSelected</code>). A selected item&apos;s icon turns <code>primary</code>.</li>
-              <li><strong>Counts</strong> &mdash; bold, at the end of the row, formatted with <code>toLocaleString()</code>. The Mapping Projects count is fetched when the tray opens: two requests with <code>limit=1</code>, to <code>users/&lt;user&gt;/map-projects/</code> and <code>users/&lt;user&gt;/orgs/map-projects/</code>, adding up their <code>num_found</code> headers. It matches the list on the user&apos;s Mapping Projects tab. Until both requests return, the row shows no count. A request that fails adds 0.</li>
+              <li><strong>Counts</strong> &mdash; bold, at the end of the row, formatted with <code>toLocaleString()</code>. The Mapping Projects count is fetched when the tray opens: two requests with <code>limit=1</code>, to <code>users/&lt;user&gt;/map-projects/</code> and <code>users/&lt;user&gt;/orgs/map-projects/</code>, adding up their <code>num_found</code> headers. It matches the list on the user&apos;s Mapping Projects tab. The first time the tray opens, the row shows no count until both requests return. <code>LeftMenu</code> stays mounted and keeps the count, so later opens show the last count until the new one arrives. A request that fails adds 0.</li>
               <li><strong>Refresh</strong> &mdash; opening the tray refreshes the cached user, so My Organizations and Following show the latest.</li>
             </ul>
           </Section>

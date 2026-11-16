@@ -98,7 +98,7 @@ npm run preview      # Preview the built site locally
 
 ### Component coverage
 
-- **15 of 30** catalog entries have full pages with live examples, code snippets, props tables, and usage guidance
+- **15 of 30** catalog entries have pages of their own, with live examples, code snippets and usage guidance; some also have props tables
 - **12 components** link to oclweb3 source only, with no detail page
 - **3 components** are gaps (not yet implemented in code)
 
