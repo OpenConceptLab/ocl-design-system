@@ -22,6 +22,8 @@ export default defineConfig({
         'announcement-banner': resolve(__dirname, 'components/announcement-banner.html'),
         'cta-ladder': resolve(__dirname, 'components/cta-ladder.html'),
         'table-results': resolve(__dirname, 'components/table-results.html'),
+        header: resolve(__dirname, 'components/header.html'),
+        'left-menu': resolve(__dirname, 'components/left-menu.html'),
         'building-pages': resolve(__dirname, 'guides/building-pages.html'),
       },
     },

@@ -264,7 +264,7 @@ const AnnouncementBanner = () => {
           <h3>Related</h3>
           <ul>
             <li><a href="/ocl-design-system/components/alert.html">Alert</a></li>
-            <li><a href="https://github.com/OpenConceptLab/oclweb3/blob/main/src/components/app/Header.jsx">Header</a></li>
+            <li><a href="/ocl-design-system/components/header.html">Header</a></li>
           </ul>
         </aside>
       </div>

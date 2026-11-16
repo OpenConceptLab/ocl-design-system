@@ -20,7 +20,7 @@ The design system for the next generation of OCL's web applications: foundations
 | [`public/`](public/) | Static assets served as-is: foundations, patterns, gallery, designs, docs, and static component pages. |
 | [`public/foundations/`](public/foundations/) | Color (rendered live), typography (real Roboto specimens), elevation. |
 | [`public/components/`](public/components/) | Component catalog index (static HTML). |
-| [`components/`](components/) | Vite entry HTML files for React-powered component pages (Button, RepoChip, HTMLTooltip, RepoHeader, Dialog, Alert, CommonTabs, Breadcrumbs). |
+| [`components/`](components/) | Vite entry HTML files for React-powered component pages (Button, RepoChip, HTMLTooltip, RepoHeader, Header, LeftMenu, Dialog, Alert, CommonTabs, Breadcrumbs, and more). |
 | [`guides/`](guides/) | Vite entry HTML files for developer guides (Building Pages). |
 | [`src/`](src/) | React source: theme, color tokens, shared layout, and component pages. |
 | [`public/patterns/`](public/patterns/) | Screen-level compositions grouped by area. Stubs only in v1. |
@@ -35,7 +35,7 @@ The design system for the next generation of OCL's web applications: foundations
 The site uses a **hybrid model**: most pages are static HTML, while component exemplar pages that need live examples use React + MUI (the same stack as oclweb3). Vite handles the build.
 
 - **Static pages** live in `public/` and are served as-is. They use `tokens.css` for colors and `site.css` for layout. These can still be opened via `file://` for quick viewing.
-- **React-powered pages** (8 component exemplars + 1 developer guide) are Vite entry points in `components/` and `guides/`. They mount React into a `<div>` and render live MUI components using the same theme as oclweb3.
+- **React-powered pages** (the component pages + 1 developer guide) are Vite entry points in `components/` and `guides/`. They mount React into a `<div>` and render live MUI components using the same theme as oclweb3.
 - **Shared theme** in `src/theme.js` and `src/colors.js` — copied from `oclweb3/src/index.jsx` and `oclweb3/src/common/colors.jsx`. When oclweb3 theme changes, update these files.
 - **Roboto** loaded from Google Fonts (same font the app uses).
 - **Deployment** via GitHub Actions: push to `main` triggers `npm run build`, and the `dist/` output is deployed to GitHub Pages.
@@ -74,9 +74,11 @@ npm run preview      # Preview the built site locally
 | [RepoChip](components/repo-chip.html) | Component | BaseEntityChip-based repo reference chip with variants, sizes, tooltip options |
 | [HTMLTooltip](components/html-tooltip.html) | Component | Rich HTML tooltip with custom styling, theme defaults |
 | [RepoHeader](components/repo-header.html) | Component | Repository page header composing chips, follow button, manage menu |
+| [Header](components/header.html) | Component | App bar for TBv3 and the Mapper, and the + (create) menu: its items, their order, when each shows |
+| [LeftMenu](components/left-menu.html) | Component | The tray: quick links and their counts, My Organizations with the inline Create button, Following |
 | [Dialog](components/dialog.html) | Component | OCL-styled modal wrapper (28px radius, surface.n92 background) |
 | [Alert](components/alert.html) | Component | Toast notifications via Snackbar + filled Alert, 4 severities |
-| [CommonTabs](components/common-tabs.html) | Component | Full-width tab strip for entity page navigation |
+| [CommonTabs](components/common-tabs.html) | Component | Full-width tab strip for entity page navigation; profile tabs and who sees Mapping Projects |
 | [Breadcrumbs](components/breadcrumbs.html) | Component | Path navigation with owner/repo/concept/mapping segments |
 | [TableResults](components/table-results.html) | Component | Results table: tinted header row (surface.s90, bold labels, surface.nv80 rules), row hover and selection states |
 | [Building Pages](guides/building-pages.html) | Guide | Page scaffold, routing, API patterns, i18n, utilities, worked example |
@@ -96,15 +98,15 @@ npm run preview      # Preview the built site locally
 
 ### Component coverage
 
-- **8 of 21** components have full exemplar pages with live examples, code snippets, props tables, and usage guidance
-- **10 components** remain as stubs (link to oclweb3 source, no detail page)
+- **15 of 30** catalog entries have full pages with live examples, code snippets, props tables, and usage guidance
+- **12 components** link to oclweb3 source only, with no detail page
 - **3 components** are gaps (not yet implemented in code)
 
 ## What's next
 
 Remaining work to make this a fully enabled development reference:
 
-1. **Fill in the remaining 10 stub component pages.** Each needs the same treatment as the 8 exemplars: live examples, code snippets, props, usage. Highest-value next: CardResults, Header, LeftMenu.
+1. **Fill in the remaining 12 component pages that only link to source.** Each needs the same treatment as the existing pages: live examples, code snippets, props, usage. Highest-value next: CardResults.
 2. **Build pattern detail pages**, starting with **References & Expansions** — the biggest gap per the April 2026 review.
 3. **Automate token sync** — move from hand-copy to a Node script (see [`docs/token-sync-options.md`](public/docs/token-sync-options.md)) the first time the palette drifts from oclweb3.
 4. **Logo clear-space and minimum-size rules.** [`foundations/logo.html`](public/foundations/logo.html) flags this as TODO.
